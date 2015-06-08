@@ -80,7 +80,7 @@ public final class CircularQueue {
 			if (front.get() == maxSize) {
 
 				/* Reset the front */
-				rear.set(0);
+				front.set(0);
 			}
 
 			/* Decrement the current items count */
