@@ -39,13 +39,6 @@ public class Queue {
 		/* Insert only if Queue is not FULL */
 		if (!isFull()) {
 
-			/* If queue is full */
-			if (rear.get() == (maxSize - 1)) {
-
-				/* Reset the rear */
-				rear.set(-1);
-			}
-
 			/* Set the value next to rear */
 			storage[rear.incrementAndGet()] = value;
 
@@ -70,13 +63,6 @@ public class Queue {
 
 			/* Take value at front */
 			final long removedValue = storage[front.get()];
-
-			/* If queue is empty */
-			if (front.get() == maxSize) {
-
-				/* Reset the front */
-				rear.set(0);
-			}
 
 			/* Decrement the current items count */
 			currentItemsCount.getAndDecrement();
