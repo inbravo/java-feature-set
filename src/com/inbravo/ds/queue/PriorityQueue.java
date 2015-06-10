@@ -3,7 +3,12 @@ package com.inbravo.ds.queue;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class Queue {
+/**
+ * 
+ * @author amit.dixit
+ *
+ */
+public final class PriorityQueue {
 
 	/* Array for local storage */
 	private long[] storage;
@@ -14,13 +19,7 @@ public class Queue {
 	/* Numbers of item in queue */
 	private static final AtomicInteger currentItemsCount = new AtomicInteger(0);
 
-	/* Front of queue */
-	private static final AtomicInteger front = new AtomicInteger(0);
-
-	/* Rear of queue */
-	private static final AtomicInteger rear = new AtomicInteger(-1);
-
-	public Queue(final int maxSize) {
+	public PriorityQueue(final int maxSize) {
 
 		/* Create array with given size of queue */
 		storage = new long[maxSize];
@@ -30,24 +29,40 @@ public class Queue {
 	}
 
 	/**
-	 * Insert at REAR of queue
+	 * Insert at a suitable position of queue
 	 * 
 	 * @param value
 	 */
 	public final void insert(final long value) {
 
-		/* Insert only if Queue is not FULL */
-		if (!isFull()) {
+		/* If internal storage is empty */
+		if (currentItemsCount.get() == 0) {
 
-			/* Set the value next to rear */
-			storage[rear.incrementAndGet()] = value;
+			/* Store the value at first position */
+			storage[currentItemsCount.getAndIncrement()] = value;
+		}
+		/* Fit at correct position */
+		else {
+			int i;
+
+			/* Iterate of existing elemens array */
+			for (i = currentItemsCount.get() - 1; i >= 0; i--) {
+
+				/* Check if insertion value is greater then current index value */
+				if (value < storage[i]) {
+
+					/* Shift elements to one index higher */
+					storage[i + 1] = storage[i];
+				} else {
+					break;
+				}
+			}
+
+			/* Put insertion value at cavity created by last loop */
+			storage[i + 1] = value;
 
 			/* Increment the current items count */
 			currentItemsCount.incrementAndGet();
-		} else {
-
-			/* Throw error */
-			throw new RuntimeException("Queue is full");
 		}
 	}
 
@@ -58,31 +73,14 @@ public class Queue {
 	 */
 	public final long remove() {
 
-		/* Remove only if Queue is not EMPTY */
-		if (!isEmpty()) {
-
-			/* Take value at front */
-			final long removedValue = storage[front.get()];
-
-			/* Decrement the current items count */
-			currentItemsCount.getAndDecrement();
-
-			/* Reset the current front value and increment */
-			storage[front.getAndIncrement()] = 0;
-
-			return removedValue;
-		} else {
-
-			/* Throw error */
-			throw new RuntimeException("Queue is empty");
-		}
-
+		/* Reset the current front value and increment */
+		return storage[currentItemsCount.decrementAndGet()];
 	}
 
 	public final long peekFront() {
 
 		/* Return value at current index */
-		return storage[front.get()];
+		return storage[currentItemsCount.get()];
 	}
 
 	public final boolean isFull() {
@@ -104,7 +102,7 @@ public class Queue {
 	public static final void main(final String[] args) {
 
 		/* Create new queue */
-		final Queue queue = new Queue(10);
+		final PriorityQueue queue = new PriorityQueue(10);
 
 		/* Check for full */
 		System.out.println("Queue is full ? " + queue.isFull());
@@ -114,18 +112,14 @@ public class Queue {
 
 		System.out.println("Before element insert : " + queue);
 
-		for (int i = 0; i < 10; i++) {
-
-			/* Insert items on queue */
-			queue.insert(i + 10);
-		}
-
-		System.out.println("After element insert : " + queue);
-
-		while (!queue.isEmpty()) {
-			System.out.println("Removed " + queue.remove());
-		}
-
-		System.out.println("After element remove : " + queue);
+		/* Insert items on queue */
+		queue.insert(1);
+		System.out.println("After element inserting value '1' : " + queue);
+		queue.insert(3);
+		System.out.println("After element inserting value '3' : " + queue);
+		queue.insert(4);
+		System.out.println("After element inserting value '4' : " + queue);
+		queue.insert(2);
+		System.out.println("After element inserting value '2' : " + queue);
 	}
 }

@@ -35,7 +35,7 @@ public final class CircularQueue {
 	}
 
 	/**
-	 * Insert at REAR ot queue
+	 * Insert at REAR of queue
 	 * 
 	 * @param value
 	 */
@@ -123,7 +123,7 @@ public final class CircularQueue {
 	public static final void main(final String[] args) {
 
 		/* Create new queue */
-		final Queue queue = new Queue(10);
+		final CircularQueue queue = new CircularQueue(10);
 
 		/* Check for full */
 		System.out.println("Queue is full ? " + queue.isFull());
