@@ -39,10 +39,76 @@ public final class LinkList {
 		return temp;
 	}
 
+	/**
+	 * 
+	 * @param key
+	 * @return
+	 */
+	public final Link find(final int key) {
+
+		/* Start from first as current link */
+		Link current = first;
+
+		/* Loop until key is not found */
+		while (current.iData != key) {
+
+			if (current.next == null) {
+
+				return null;
+			} else {
+
+				/* Make next node as current */
+				current = current.next;
+			}
+		}
+
+		return current;
+	}
+
+	/**
+	 * 
+	 * @param key
+	 * @return
+	 */
+	public final Link delete(final int key) {
+
+		/* Start from first as current link */
+		Link current = first;
+		Link previous = first;
+
+		/* Loop until key is not found */
+		while (current.iData != key) {
+
+			if (current.next == null) {
+
+				return null;
+			} else {
+
+				/* Go to Previous Link of Current Link */
+				previous = current;
+
+				/* Make Current's Next Link as Current Link */
+				current = current.next;
+			}
+		}
+
+		/* If Current Link is First Link */
+		if (current == first) {
+
+			/* Change First */
+			first = first.next;
+		} else {
+
+			/* Bypass Current Link Now */
+			previous.next = current.next;
+		}
+		return current;
+	}
+
 	@Override
 	public final String toString() {
 
-		String output = "List (first ---> last)\n";
+		String output = "";
 
 		/* Start from first link */
 		Link current = first;
@@ -80,6 +146,11 @@ public final class LinkList {
 		linkList.insertFirst(new Link(90, 900.009));
 
 		System.out.println(linkList);
+
+		System.out.println("Check if Link(70, 700.007) is existing in List : " + linkList.find(70));
+
+		System.out.println("Delete Link(70, 700.007)" + linkList.delete(70));
+		System.out.println("After Deletion : " + linkList);
 
 		while (!linkList.isEmpty()) {
 
