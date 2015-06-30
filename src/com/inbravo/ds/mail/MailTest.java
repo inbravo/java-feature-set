@@ -14,8 +14,8 @@ public class MailTest {
 
 	public static void main(String[] args) {
 
-		final String username = "amit.dixit@impetus.co.in";
-		final String password = "pilkhuwa02!";
+		final String username = args[0];
+		final String password = args[1];
 
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
@@ -24,22 +24,19 @@ public class MailTest {
 		props.put("mail.smtp.host", "mail.impetus.co.in");
 		props.put("mail.smtp.port", "587");
 
-		Session session = Session.getInstance(props,
-				new javax.mail.Authenticator() {
-					protected PasswordAuthentication getPasswordAuthentication() {
-						return new PasswordAuthentication(username, password);
-					}
-				});
+		Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(username, password);
+			}
+		});
 
 		try {
 
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress("amit.dixit@impetus.co.in"));
-			message.setRecipients(Message.RecipientType.TO,
-					InternetAddress.parse("arunkumar.m@impetus.co.in"));
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("arunkumar.m@impetus.co.in"));
 			message.setSubject("Testing Subject");
-			message.setText("Dear Mail Crawler,"
-					+ "\n\n No spam to my email, please!");
+			message.setText("Dear Mail Crawler," + "\n\n No spam to my email, please!");
 
 			Transport.send(message);
 
