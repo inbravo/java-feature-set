@@ -1,7 +1,5 @@
 package com.inbravo.ds.queue;
 
-import java.util.concurrent.atomic.AtomicInteger;
-
 import com.inbravo.ds.list.DoubleEndedLinkList;
 import com.inbravo.ds.list.Link;
 
@@ -14,9 +12,6 @@ public final class LinkedQueue {
 
 	/* Double Ended Link List local storage */
 	private DoubleEndedLinkList linkList;
-
-	/* Numbers of item in queue */
-	private static final AtomicInteger currentItemsCount = new AtomicInteger(0);
 
 	public LinkedQueue() {
 
@@ -33,9 +28,6 @@ public final class LinkedQueue {
 
 		/* Insert at last position always */
 		linkList.insertLast(new Link(value, 0D));
-
-		/* Increment the current items count */
-		currentItemsCount.incrementAndGet();
 	}
 
 	/**
@@ -50,9 +42,6 @@ public final class LinkedQueue {
 
 			/* Delete from first position always */
 			final Link removedValue = linkList.deleteFirst();
-
-			/* Decrement the current items count */
-			currentItemsCount.getAndDecrement();
 
 			return removedValue.iData;
 		} else {
