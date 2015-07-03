@@ -3,7 +3,6 @@ package com.inbravo.jdbc;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.Statement;
 
 /**
@@ -13,6 +12,11 @@ import java.sql.Statement;
  */
 public final class JDBCTest {
 
+	/**
+	 * 
+	 * @param args
+	 * @throws Exception
+	 */
 	public static void main(String[] args) throws Exception {
 
 		/* Create new connection */
@@ -26,17 +30,21 @@ public final class JDBCTest {
 
 		/* Create new SQL statement */
 		final Statement selectStatement = conn.createStatement();
-		ResultSet rs = selectStatement.executeQuery("SELECT * FROM INBRAVO.TXT ");
 
-		while (rs.next()) {
+		/* Execute the SQL */
+		final ResultSet resultSet = selectStatement.executeQuery("SELECT * FROM INBRAVO.TXT");
+
+		while (resultSet.next()) {
 
 			/* Print all values */
-			System.out.println("Name =" + rs.getString("NAME") + ", Address =" + rs.getString("ADDRESS"));
+			System.out.println("Name =" + resultSet.getString("NAME") + ", Address =" + resultSet.getString("ADDRESS"));
 		}
 
 		/* Get table meta data information */
-		System.out.println("Column Count =" + rs.getMetaData().getColumnCount());
+		System.out.println("Column Count =" + resultSet.getMetaData().getColumnCount());
 
+		/* Close all statements/resultsets/connections */
+		resultSet.close();
 		selectStatement.close();
 		insertStatement.close();
 		conn.close();
