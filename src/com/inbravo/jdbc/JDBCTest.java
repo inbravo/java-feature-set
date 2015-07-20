@@ -1,6 +1,7 @@
 package com.inbravo.jdbc;
 
 import java.sql.Connection;
+
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -26,7 +27,7 @@ public final class JDBCTest {
 		final Statement insertStatement = conn.createStatement();
 
 		/* Insert a new record */
-		insertStatement.executeUpdate("INSERT INTO INBRAVO.TXT(NAME, ADDRESS) VALUES('AMIT','GHAZIABAD')");
+		insertStatement.executeUpdate("INSERT INTO INBRAVO.TXT(NAME, ADDRESS) VALUES('ALI','NOIDA')");
 
 		/* Create new SQL statement */
 		final Statement selectStatement = conn.createStatement();
@@ -42,6 +43,7 @@ public final class JDBCTest {
 
 		/* Get table meta data information */
 		System.out.println("Column Count =" + resultSet.getMetaData().getColumnCount());
+		System.out.println("Connection =" + conn.getClass().getName());
 
 		/* Close all statements/resultsets/connections */
 		resultSet.close();

@@ -4,7 +4,7 @@ import java.io.File;
 
 public class FileConv {
 
-	private static final String mainLocation = "E:\\my_personal\\songs\\english\\new-age";
+	private static final String mainLocation = "D:\\personal\\songs\\classical-songs";
 
 	public static void main(String[] args) {
 
@@ -14,14 +14,12 @@ public class FileConv {
 
 		for (int i = 0; i < listOfFiles.length; i++) {
 
-			/* If a directory */
-			if (listOfFiles[i].isDirectory()) {
+			/* If a file */
+			if (listOfFiles[i].isFile()) {
 
-				final File f = new File(mainLocation + "\\"
-						+ listOfFiles[i].getName());
+				final File f = new File(mainLocation + "\\" + listOfFiles[i].getName());
 
-				f.renameTo(new File(mainLocation + "\\"
-						+ f.getName().toLowerCase()));
+				f.renameTo(new File(mainLocation + "\\" + f.getName().toLowerCase().replaceAll(" ", "")));
 			}
 		}
 
