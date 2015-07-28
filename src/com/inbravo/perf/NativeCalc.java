@@ -1,4 +1,4 @@
-package com.inbravo.ds.perf;
+package com.inbravo.perf;
 
 /**
  * To analyse how Shift Operator based calculation is faster than Mathmatical

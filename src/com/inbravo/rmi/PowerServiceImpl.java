@@ -53,7 +53,7 @@ public final class PowerServiceImpl implements PowerService {
 	public static final void main(final String... args) throws Exception {
 
 		/* Create an instance of our power service implementation */
-		final PowerService stub = (PowerService) UnicastRemoteObject.exportObject(new PowerServiceImpl(), 0);
+		final PowerService stub = (PowerService) UnicastRemoteObject.exportObject(new PowerServiceImpl(), 1099);
 
 		/* Get local RMI registry */
 		final Registry registry = LocateRegistry.createRegistry(1099);

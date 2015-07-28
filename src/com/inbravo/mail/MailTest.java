@@ -1,4 +1,4 @@
-package com.inbravo.ds.mail;
+package com.inbravo.mail;
 
 import java.util.Properties;
 

@@ -1,4 +1,4 @@
-package com.inbravo.ds.hex;
+package com.inbravo.hex;
 
 /**
  * 

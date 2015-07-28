@@ -1,4 +1,4 @@
-package com.inbravo.ds.string;
+package com.inbravo.string;
 
 public class StringHashTest {
 
