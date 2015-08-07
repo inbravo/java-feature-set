@@ -119,6 +119,195 @@ public final class BinaryTree {
 		}
 	}
 
+	/**
+	 * 
+	 * @param key
+	 */
+	public final boolean delete(final int key) {
+
+		/* Variable to check if left variable */
+		boolean isLeftChild = false;
+
+		/* Start at root */
+		TreeNode current = root;
+		TreeNode parent = root;
+
+		/* Loop untill key is found */
+		while (current.iData != key) {
+
+			/* Start from parent as current */
+			parent = current;
+
+			/* Go left? */
+			if (key < current.iData) {
+
+				/* Take left child as current node */
+				current = current.leftChild;
+
+				/* Mark left variable as true */
+				isLeftChild = true;
+			}
+			/* Or go right? */
+			else {
+
+				/* Take left child as current node */
+				current = current.rightChild;
+			}
+
+			/* If end of the branch, */
+			if (current == null) {
+
+				return false;
+			}
+		}
+
+		/* Case 1: If no children */
+		if (current.leftChild == null && current.rightChild == null) {
+
+			/* If tree is empty */
+			if (current == root) {
+
+				/* Delete the root */
+				root = null;
+			}
+			/* If left child */
+			else if (isLeftChild) {
+
+				/* Disconnect left */
+				parent.leftChild = null;
+			} else {
+
+				/* Disconnect right */
+				parent.rightChild = null;
+			}
+		}
+		/* Case 2: If no right child */
+		else if (current.rightChild == null) {
+
+			/* If tree is empty */
+			if (current == root) {
+
+				/* Attach left child as parent */
+				parent = current.leftChild;
+			}
+			/* If left child */
+			else if (isLeftChild) {
+
+				/* Attach current left child as parent left child */
+				parent.leftChild = current.leftChild;
+			} else {
+
+				/* Attach current right child as parent right child */
+				parent.rightChild = current.rightChild;
+			}
+		}
+		/* Case 3: If no left child */
+		else if (current.leftChild == null) {
+
+			/* If tree is empty */
+			if (current == root) {
+
+				/* Attach right child as parent */
+				parent = current.rightChild;
+			}
+			/* If left child */
+			else if (isLeftChild) {
+
+				/* Attach current left child as parent left child */
+				parent.leftChild = current.leftChild;
+			} else {
+
+				/* Attach current right child as parent right child */
+				parent.rightChild = current.rightChild;
+			}
+		}
+
+		/* Case 4: If both children present */
+		else {
+
+			/* Get successor of node to delete (current) */
+			final TreeNode successor = this.getSuccessor(current);
+
+			/* If tree is empty */
+			if (current == root) {
+
+				/* Connect parent of current to successor instead */
+				root = successor;
+			}
+			/* If left child */
+			else if (isLeftChild) {
+
+				/* Attach successoras parent left child */
+				parent.leftChild = successor;
+			} else {
+
+				/* Attach successoras parent right child */
+				parent.rightChild = successor;
+			}
+
+			/* connect successor to current's left child */
+			successor.leftChild = current.leftChild;
+		}
+
+		return true;
+	}
+
+	/**
+	 * 
+	 * Returns node with next-highest value after delNode goes to right child,
+	 * then right child's left descendents
+	 */
+	private final TreeNode getSuccessor(final TreeNode delNode) {
+
+		TreeNode successorParent = delNode;
+		TreeNode successor = delNode;
+
+		/* Go to right child */
+		TreeNode current = delNode.rightChild;
+
+		/* Until no more */
+		while (current != null) {
+
+			/* left children */
+			successorParent = successor;
+			successor = current;
+
+			/* Go to right child */
+			current = current.leftChild;
+		}
+
+		/* If successor not right child */
+		if (successor != delNode.rightChild) {
+
+			/* Make connections */
+			successorParent.leftChild = successor.rightChild;
+			successor.rightChild = delNode.rightChild;
+		}
+
+		return successor;
+	}
+
+	/**
+	 * 
+	 * @param firstNode
+	 */
+	public void inOrder(final TreeNode firstNode) {
+
+		if (firstNode != null) {
+
+			/* Traverse left child/branch */
+			inOrder(firstNode.leftChild);
+
+			System.out.println(firstNode);
+
+			/* Traverse right child/branch */
+			inOrder(firstNode.rightChild);
+		}
+	}
+
+	/**
+	 * 
+	 */
 	public final void displayTree() {
 
 		/* Global stack to hold tree nodes */
@@ -202,6 +391,11 @@ public final class BinaryTree {
 		theTree.insert(87, 1.7);
 		theTree.insert(93, 1.5);
 		theTree.insert(97, 1.5);
+
+		/* Display it */
+		theTree.displayTree();
+
+		theTree.delete(25);
 
 		/* Display it */
 		theTree.displayTree();
