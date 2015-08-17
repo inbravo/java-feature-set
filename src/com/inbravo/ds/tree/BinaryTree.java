@@ -291,7 +291,7 @@ public final class BinaryTree {
 	 * 
 	 * @param firstNode
 	 */
-	public void inOrder(final TreeNode firstNode) {
+	public final void inOrder(final TreeNode firstNode) {
 
 		if (firstNode != null) {
 

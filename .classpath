@@ -3,5 +3,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.7.51"/>
 	<classpathentry kind="lib" path="lib/javax.mail.jar"/>
+	<classpathentry kind="lib" path="lib/hadoop-common-2.5.1.jar"/>
+	<classpathentry kind="lib" path="lib/hadoop-mapreduce-client-core-2.5.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
