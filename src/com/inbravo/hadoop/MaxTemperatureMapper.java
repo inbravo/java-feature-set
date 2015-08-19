@@ -22,11 +22,10 @@ public final class MaxTemperatureMapper extends Mapper<LongWritable, Text, Text,
 		/* Split the line */
 		final String[] data = value.toString().split(":");
 
-		/* Get year from line */
-		String year = data[0];
+		/* Get temperature */
 		int airTemperature = Integer.parseInt(data[1]);
 
 		/* Write year:temperature on context */
-		context.write(new Text(year), new IntWritable(airTemperature));
+		context.write(new Text(data[0]), new IntWritable(airTemperature));
 	}
 }

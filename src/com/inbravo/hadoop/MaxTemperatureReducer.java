@@ -22,6 +22,8 @@ public final class MaxTemperatureReducer extends Reducer<Text, IntWritable, Text
 		int maxValue = Integer.MIN_VALUE;
 
 		for (final IntWritable value : values) {
+
+			/* Find max temperature */
 			maxValue = Math.max(maxValue, value.get());
 		}
 

@@ -36,6 +36,9 @@ public final class MaxTemperature {
 		/* Set mapper */
 		job.setMapperClass(MaxTemperatureMapper.class);
 
+		/* Set combiner */
+		job.setCombinerClass(MaxTemperatureReducer.class);
+
 		/* Set reducer */
 		job.setReducerClass(MaxTemperatureReducer.class);
 
