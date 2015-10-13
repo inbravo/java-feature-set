@@ -101,6 +101,10 @@ public final class Stack {
 
 		return (Arrays.toString(storage));
 	}
+	
+	public final void showStackOverflowError(){
+		showStackOverflowError();
+	}
 
 	/**
 	 * Method or API
@@ -133,5 +137,7 @@ public final class Stack {
 		}
 
 		System.out.println("After element pop : " + stack);
+		
+		//stack.showStackOverflowError();
 	}
 }

@@ -79,7 +79,7 @@ public final class BinaryTree {
 		else {
 			/* Start at root */
 			TreeNode current = root;
-			TreeNode parent;
+			TreeNode parent = root;
 
 			/* (Exits internally) */
 			while (true) {
