@@ -19,7 +19,7 @@ public final class LinkList {
 	 */
 	public final void insertFirst(final Link newLink) {
 
-		/* New link will map to first link */
+		/* First node will become next of new link */
 		newLink.next = first;
 
 		/* Put new link in first position */
@@ -102,6 +102,7 @@ public final class LinkList {
 			/* Bypass Current Link Now */
 			previous.next = current.next;
 		}
+		
 		return current;
 	}
 

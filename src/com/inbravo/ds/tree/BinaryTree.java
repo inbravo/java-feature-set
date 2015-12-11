@@ -3,7 +3,7 @@ package com.inbravo.ds.tree;
 import java.util.Stack;
 
 /**
- * Complexity = O(log N)
+ * Complexity = O(log N); Tree = Ordered Array + Linked List
  * 
  * @author amit.dixit
  *

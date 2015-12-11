@@ -17,7 +17,7 @@ public final class MaxTemperatureMapper extends Mapper<LongWritable, Text, Text,
 	@Override
 	public final void map(final LongWritable key, final Text value, final Context context) throws IOException, InterruptedException {
 
-		System.out.println("---Mapper---");
+		System.out.println("---Inside mapper : value : " + value);
 
 		/* Split the line */
 		final String[] data = value.toString().split(":");
