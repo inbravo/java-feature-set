@@ -54,6 +54,7 @@ public final class MaxTemperatureDriver extends Configured implements Tool {
 
 	public static final void main(final String[] args) throws Exception {
 
+		/* Run with tool runner so that yarn can show the progress */
 		final int exitCode = ToolRunner.run(new MaxTemperatureDriver(), args);
 		System.exit(exitCode);
 	}
