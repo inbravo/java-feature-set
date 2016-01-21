@@ -1,6 +1,7 @@
 package com.inbravo.ds.list;
 
 /**
+ * Add this '-verbose:class' as VM argument
  * 
  * @author amit.dixit
  *
@@ -102,7 +103,7 @@ public final class LinkList {
 			/* Bypass Current Link Now */
 			previous.next = current.next;
 		}
-		
+
 		return current;
 	}
 
