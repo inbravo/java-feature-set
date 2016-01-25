@@ -2,24 +2,34 @@ package com.inbravo.number;
 
 import java.util.Scanner;
 
-public class FloydsTriangle {
-	public static void main(String args[]) {
-		int n, num = 1, c, d;
+/**
+ * 
+ * @author amit.dixit
+ *
+ */
+public final class FloydsTriangle {
+
+	public static final void main(final String... arg) {
+
 		@SuppressWarnings("resource")
-		Scanner in = new Scanner(System.in);
+		final Scanner in = new Scanner(System.in);
 
 		System.out.println("Enter the number of rows of floyd's triangle you want");
-		n = in.nextInt();
+		final int number = in.nextInt();
 
 		System.out.println("Floyd's triangle :-");
 
-		for (c = 1; c <= n; c++) {
-			for (d = 1; d <= c; d++) {
+		int num = 1;
+
+		for (int outer = 1; outer <= number; outer++) {
+
+			for (int inner = 1; inner <= outer; inner++) {
+
 				System.out.print(num + " ");
 				num++;
 			}
 
-			System.out.println();// imp
+			System.out.println();
 		}
 	}
 }

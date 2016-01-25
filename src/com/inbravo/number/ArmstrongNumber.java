@@ -3,7 +3,7 @@ package com.inbravo.number;
 import java.util.*;
 
 /**
- * 371 is an Armstrong number since 3**3 + 7**3 + 1**3 = 371.
+ * 371 is an Armstrong number since 3^3 + 7^3 + 1^3 = 371.
  * 
  * @author amit.dixit
  *
