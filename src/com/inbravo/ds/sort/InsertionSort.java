@@ -4,13 +4,12 @@ import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * Average execution time = O(N has a power of 2)
  * 
  * @author amit.dixit
  * 
- *         http://mathbits.com/MathBits/Java/arrays/Bubble.htm
+ *         http://mathbits.com/MathBits/Java/arrays/InsertionSort.htm
  */
-public final class BubbleSort {
+public final class InsertionSort {
 
 	private static long[] array;
 
@@ -45,25 +44,36 @@ public final class BubbleSort {
 		array[index.incrementAndGet()] = value;
 	}
 
-	private static final void sort() {
+	public static final long[] sort() {
 
 		/* Length of array */
 		final int lengthOfArr = array.length - 1;
 
-		/* First Loop (--): Start from end of array */
-		for (int outer = lengthOfArr; outer > 0; outer--) {
+		/* Index of temporary minimum value */
+		int minimum;
 
-			/* Second Loop (++): Start from 0 untill outer loop counter */
-			for (int inner = 0; inner < outer; inner++) {
+		/* Outer Loop (++): Start from start of array */
+		for (int outer = 0; outer < lengthOfArr; outer++) {
+
+			/* Temporary minimum = outer loop counter */
+			minimum = outer;
+
+			/* Inner Loop (++): Start from Outer+1 untill end of array */
+			for (int inner = outer + 1; inner < lengthOfArr; inner++) {
 
 				/* change to > for ascending sort */
-				if (array[inner] < array[inner + 1]) {
+				if (array[inner] < array[minimum]) {
 
 					/* Swap the elements */
-					swapValue(inner, inner + 1);
+					minimum = inner;
 				}
 			}
+
+			/* Swap the elements */
+			swapValue(outer, minimum);
 		}
+
+		return array;
 	}
 
 	private static final void swapValue(final int fromIndex, final int toIndex) {
@@ -90,5 +100,4 @@ public final class BubbleSort {
 
 		System.out.println("After sorting : " + Arrays.toString(array));
 	}
-
 }
