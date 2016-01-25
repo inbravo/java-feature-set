@@ -5,6 +5,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 
+ * Average execution time = O(N has a power of 2) but faster than bubble/selection
+ * 
  * @author amit.dixit
  * 
  *         http://mathbits.com/MathBits/Java/arrays/InsertionSort.htm
@@ -46,52 +48,34 @@ public final class InsertionSort {
 
 	public static final long[] sort() {
 
-		/* Length of array */
-		final int lengthOfArr = array.length - 1;
+		int outer, inner;
 
-		/* Index of temporary minimum value */
-		int minimum;
+		/* Index of key value */
+		long key;
 
-		/* Outer Loop (++): Start from start of array */
-		for (int outer = 0; outer < lengthOfArr; outer++) {
+		/* Outer Loop (++): Start from '1' */
+		for (outer = 1; outer < array.length; outer++) {
 
-			/* Temporary minimum = outer loop counter */
-			minimum = outer;
+			/* Temporary key = outer loop value */
+			key = array[outer];
 
-			/* Inner Loop (++): Start from Outer+1 untill end of array */
-			for (int inner = outer + 1; inner < lengthOfArr; inner++) {
+			/* Inner Loop (--): Start from Outer-1 untill end of array */
+			for (inner = outer - 1; (inner >= 0) && (array[inner] < key); inner--) {
 
-				/* change to > for ascending sort */
-				if (array[inner] < array[minimum]) {
-
-					/* Swap the elements */
-					minimum = inner;
-				}
+				/* Shift the elements */
+				array[inner + 1] = array[inner];
 			}
 
-			/* Swap the elements */
-			swapValue(outer, minimum);
+			/* Shjift the key */
+			array[inner + 1] = key;
 		}
 
 		return array;
 	}
 
-	private static final void swapValue(final int fromIndex, final int toIndex) {
-
-		/* Store value in temp */
-		final long tempVar = array[fromIndex];
-
-		/* Store new value at index */
-		array[fromIndex] = array[toIndex];
-
-		/* Store updated value at second location */
-		array[toIndex] = tempVar;
-	}
-
-	public static void main(String[] args) {
+	public static final void main(final String... args) {
 
 		/* Create a array first */
-
 		array = new long[] { 10, 7, 4, 9, 1, 3, 8, 5, 2, 6, 12, 11, 14, 13 };
 
 		System.out.println("Before sorting : " + Arrays.toString(array));
