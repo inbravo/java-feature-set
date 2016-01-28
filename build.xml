@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project basedir="." default="build" name="DS">
+<project basedir="." default="build" name="InBravo">
 
 	<property environment="env" />
 	<property name="debuglevel" value="source,lines,vars" />
@@ -7,7 +7,7 @@
 	<property name="target" value="1.7" />
 	<property name="source" value="1.7" />
 
-	<path id="DS.classpath">
+	<path id="InBravo.classpath">
 		<pathelement location="bin" />
 		<pathelement location="lib/javax.mail.jar" />
 		<pathelement location="lib/hadoop-common-2.5.1.jar" />
@@ -34,126 +34,126 @@
 		<echo message="${ant.project.name}: ${ant.file}" />
 		<javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
 			<src path="src" />
-			<classpath refid="DS.classpath" />
+			<classpath refid="InBravo.classpath" />
 		</javac>
 		<echo message="==========================================================" />
 		<echo message="Going for jar construction" />
 		<echo message="==========================================================" />
-		<jar destfile="ds.jar" basedir="bin" includes="**/*.class" />
+		<jar destfile="inbravo.jar" basedir="bin" includes="**/*.class" />
 	</target>
 
 	<target name="BinarySearch">
 		<java classname="com.inbravo.ds.search.BinarySearch" failonerror="true" fork="yes">
-			<classpath refid="DS.classpath" />
+			<classpath refid="InBravo.classpath" />
 		</java>
 	</target>
 
 	<target name="BinaryTree">
 		<java classname="com.inbravo.ds.tree.BinaryTree" failonerror="true" fork="yes">
 			<arg line="PASSIVE ARCHIVE" />
-			<classpath refid="DS.classpath" />
+			<classpath refid="InBravo.classpath" />
 		</java>
 	</target>
 
 	<target name="BubbleSort">
 		<java classname="com.inbravo.ds.sort.BubbleSort" failonerror="true" fork="yes">
-			<classpath refid="DS.classpath" />
+			<classpath refid="InBravo.classpath" />
 		</java>
 	</target>
 
 	<target name="Calculator">
 		<java classname="com.inbravo.ds.sort.Calculator" failonerror="true" fork="yes">
-			<classpath refid="DS.classpath" />
+			<classpath refid="InBravo.classpath" />
 		</java>
 	</target>
 
 	<target name="DoubleEndedLinkList">
 		<java classname="com.inbravo.ds.list.DoubleEndedLinkList" failonerror="true" fork="yes">
-			<classpath refid="DS.classpath" />
+			<classpath refid="InBravo.classpath" />
 		</java>
 	</target>
 
 	<target name="FileConv">
 		<java classname="com.inbravo.ds.file.FileConv" failonerror="true" fork="yes">
-			<classpath refid="DS.classpath" />
+			<classpath refid="InBravo.classpath" />
 		</java>
 	</target>
 
 	<target name="JDBCTest">
 		<java classname="com.inbravo.jdbc.JDBCTest" failonerror="true" fork="yes">
-			<classpath refid="DS.classpath" />
+			<classpath refid="InBravo.classpath" />
 		</java>
 	</target>
 
 	<target name="LinkedQueue">
 		<java classname="com.inbravo.ds.queue.LinkedQueue" failonerror="true" fork="yes">
-			<classpath refid="DS.classpath" />
+			<classpath refid="InBravo.classpath" />
 		</java>
 	</target>
 
 	<target name="LinkStack">
 		<java classname="com.inbravo.ds.stack.LinkStack" failonerror="true" fork="yes">
-			<classpath refid="DS.classpath" />
+			<classpath refid="InBravo.classpath" />
 		</java>
 	</target>
 
 	<target name="MailTest">
 		<java classname="com.inbravo.mail.MailTest" failonerror="true" fork="yes">
-			<classpath refid="DS.classpath" />
+			<classpath refid="InBravo.classpath" />
 		</java>
 	</target>
 
 	<target name="PowerServiceClient">
 		<java classname="com.inbravo.rmi.PowerServiceClient" failonerror="true" fork="yes">
-			<classpath refid="DS.classpath" />
+			<classpath refid="InBravo.classpath" />
 		</java>
 	</target>
 
 	<target name="PowerServiceImpl">
 		<java classname="com.inbravo.rmi.PowerServiceImpl" failonerror="true" fork="yes">
-			<classpath refid="DS.classpath" />
+			<classpath refid="InBravo.classpath" />
 		</java>
 	</target>
 
 	<target name="Queue">
 		<java classname="com.inbravo.ds.queue.Queue" failonerror="true" fork="yes">
-			<classpath refid="DS.classpath" />
+			<classpath refid="InBravo.classpath" />
 		</java>
 	</target>
 
 	<target name="ReverseTheWord">
 		<java classname="com.inbravo.ds.stack.ReverseTheWord" failonerror="true" fork="yes">
-			<classpath refid="DS.classpath" />
+			<classpath refid="InBravo.classpath" />
 		</java>
 	</target>
 
 	<target name="SelectionSort">
 		<java classname="com.inbravo.ds.sort.SelectionSort" failonerror="true" fork="yes">
-			<classpath refid="DS.classpath" />
+			<classpath refid="InBravo.classpath" />
 		</java>
 	</target>
 
 	<target name="Stack">
 		<java classname="com.inbravo.ds.stack.Stack" failonerror="true" fork="yes">
-			<classpath refid="DS.classpath" />
+			<classpath refid="InBravo.classpath" />
 		</java>
 	</target>
 
 	<target name="StringHashTest">
 		<java classname="com.inbravo.string.StringHashTest" failonerror="true" fork="yes">
-			<classpath refid="DS.classpath" />
+			<classpath refid="InBravo.classpath" />
 		</java>
 	</target>
 
 	<target name="StringTest">
 		<java classname="com.inbravo.string.StringTest" failonerror="true" fork="yes">
-			<classpath refid="DS.classpath" />
+			<classpath refid="InBravo.classpath" />
 		</java>
 	</target>
 
 	<target name="VolatileTest">
 		<java classname="com.inbravo.ds.concurrency.VolatileTest" failonerror="true" fork="yes">
-			<classpath refid="DS.classpath" />
+			<classpath refid="InBravo.classpath" />
 		</java>
 	</target>
 </project>
