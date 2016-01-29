@@ -8,5 +8,7 @@
 	<classpathentry kind="lib" path="lib/spark-core_2.10-1.5.2.jar"/>
 	<classpathentry kind="lib" path="lib/spark-streaming_2.10-1.5.2.jar"/>
 	<classpathentry kind="lib" path="lib/scala-library.jar"/>
+	<classpathentry kind="lib" path="lib/jsch-0.1.53.jar"/>
+	<classpathentry kind="lib" path="lib/guava-14.0-rc1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -1,9 +1,10 @@
 package com.inbravo.spark;
 
 import java.util.Arrays;
-import java.util.List;
+
 import java.util.regex.Pattern;
 
+import org.apache.hadoop.mapred.TextOutputFormat;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
@@ -33,7 +34,6 @@ public final class JavaWordCount {
 		final SparkConf sparkConf = new SparkConf().setAppName("JavaWordCount");
 
 		/* Create new spark context */
-		@SuppressWarnings("resource")
 		final JavaSparkContext ctx = new JavaSparkContext(sparkConf);
 
 		/* Create new Java RDD */
@@ -66,15 +66,14 @@ public final class JavaWordCount {
 			}
 		});
 
-		final List<Tuple2<String, Integer>> output = counts.collect();
-
-		for (final Tuple2<?, ?> tuple : output) {
-
-			System.out.println("====JavaWordCount : " + tuple._1() + ": " + tuple._2());
-		}
+		/* Save this output at hdfs */
+		counts.saveAsHadoopFile("/user/output", String.class, String.class, TextOutputFormat.class);
 
 		if (ctx != null) {
 			ctx.stop();
 		}
+
+		/* Close spark context */
+		ctx.close();
 	}
 }
