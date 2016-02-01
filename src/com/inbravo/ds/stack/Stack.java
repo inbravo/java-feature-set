@@ -6,10 +6,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Average execution time = O(1)
- * https://github.com/inbravo/ds/blob/master/src/com/inbravo/ds/stack/Stack.java
  * 
- * Java: class, constructor, static and instance variables, methods, Arrays and
- * AtomicInteger
+ * Java: class, constructor, static and instance variables, methods, Arrays and AtomicInteger
  * 
  * @author amit.dixit
  *
@@ -101,8 +99,8 @@ public final class Stack {
 
 		return (Arrays.toString(storage));
 	}
-	
-	public final void showStackOverflowError(){
+
+	public final void showStackOverflowError() {
 		showStackOverflowError();
 	}
 
@@ -137,7 +135,7 @@ public final class Stack {
 		}
 
 		System.out.println("After element pop : " + stack);
-		
-		//stack.showStackOverflowError();
+
+		// stack.showStackOverflowError();
 	}
 }

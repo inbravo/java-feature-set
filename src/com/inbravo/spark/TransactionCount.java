@@ -38,7 +38,7 @@ public final class TransactionCount {
 	}
 
 	@SuppressWarnings("serial")
-	public static JavaPairRDD<String, String> run(final JavaSparkContext sc, final String transaction, final String user) {
+	public static final JavaPairRDD<String, String> run(final JavaSparkContext sc, final String transaction, final String user) {
 
 		/* Step 1 : Read/transaform transactions data */
 		final JavaRDD<String> transactionInputFile = sc.textFile(transaction);
