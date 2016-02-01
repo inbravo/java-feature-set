@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 /**
+ * Create ODBC DSN in windows for text file using (http://www.herongyang.com/JDBC/JDBC-ODBC-DSN-for-Flat-File.html)
  * 
  * @author amit.dixit
  *
@@ -18,7 +19,7 @@ public final class JDBCTest {
 	 * @param args
 	 * @throws Exception
 	 */
-	public static void main(String[] args) throws Exception {
+	public static final void main(final String... args) throws Exception {
 
 		/* Create new connection */
 		final Connection conn = getConnection();
@@ -43,7 +44,6 @@ public final class JDBCTest {
 
 		/* Get table meta data information */
 		System.out.println("Column Count =" + resultSet.getMetaData().getColumnCount());
-		System.out.println("Connection =" + conn.getClass().getName());
 
 		/* Close all statements/resultsets/connections */
 		resultSet.close();
