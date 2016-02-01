@@ -17,6 +17,8 @@ import scala.Tuple2;
 /**
  * Count the number of words in text data received from a data server listening on a TCP socket
  * 
+ * Run this program and send it data using following unix command 'nc -lk 9999'
+ * 
  * @author amit.dixit
  *
  */

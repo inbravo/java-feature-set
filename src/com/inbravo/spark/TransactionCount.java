@@ -28,10 +28,10 @@ public final class TransactionCount {
 		final JavaSparkContext sc = new JavaSparkContext(new SparkConf().setAppName("TransactionCount").setMaster("local"));
 
 		/* Create new RDD */
-		final JavaPairRDD<String, String> output_rdd = TransactionCount.run(sc, args[0], args[1]);
+		final JavaPairRDD<String, String> outputRDD = TransactionCount.run(sc, args[0], args[1]);
 
 		/* Save output on HDFS */
-		output_rdd.saveAsHadoopFile(args[2], String.class, String.class, TextOutputFormat.class);
+		outputRDD.saveAsHadoopFile(args[2], String.class, String.class, TextOutputFormat.class);
 
 		/* Close spark context */
 		sc.close();
@@ -40,9 +40,10 @@ public final class TransactionCount {
 	@SuppressWarnings("serial")
 	public static final JavaPairRDD<String, String> run(final JavaSparkContext sc, final String transaction, final String user) {
 
-		/* Step 1 : Read/transaform transactions data */
+		/* Step 1: Read transactions data */
 		final JavaRDD<String> transactionInputFile = sc.textFile(transaction);
 
+		/* Step 2: Transaform transactions data into key-value pairs */
 		final JavaPairRDD<Integer, Integer> transactionPairs = transactionInputFile.mapToPair(new PairFunction<String, Integer, Integer>() {
 
 			public Tuple2<Integer, Integer> call(final String transaction) {
@@ -54,10 +55,11 @@ public final class TransactionCount {
 			}
 		});
 
-		/* Step 2 : Read/transaform user data */
-		final JavaRDD<String> customerInputFile = sc.textFile(user);
+		/* Step 3: Read user data */
+		final JavaRDD<String> userInputFile = sc.textFile(user);
 
-		final JavaPairRDD<Integer, String> customerPairs = customerInputFile.mapToPair(new PairFunction<String, Integer, String>() {
+		/* Step 4: Transaform users data into key-value pairs */
+		final JavaPairRDD<Integer, String> userPairs = userInputFile.mapToPair(new PairFunction<String, Integer, String>() {
 
 			public Tuple2<Integer, String> call(final String user) {
 
@@ -68,8 +70,14 @@ public final class TransactionCount {
 			}
 		});
 
-		/* Step 3 : Count the results after modification to key-value */
-		final Map<Integer, Object> result = countData(modifyData(joinData(transactionPairs, customerPairs)));
+		/* Step 5: Apply join on users and transactions */
+		final JavaRDD<Tuple2<Integer, Optional<String>>> userTransactions = joinData(transactionPairs, userPairs);
+
+		/* Step 6: Modify data, convert to key-value pairs */
+		final JavaPairRDD<Integer, String> userTransactionsModified = modifyData(userTransactions);
+
+		/* Step 7: Count the results */
+		final Map<Integer, Object> result = countData(userTransactionsModified);
 
 		final List<Tuple2<String, String>> output = new ArrayList<>();
 
@@ -80,22 +88,10 @@ public final class TransactionCount {
 		}
 
 		/* Create final RDD */
-		final JavaPairRDD<String, String> output_rdd = sc.parallelizePairs(output);
+		final JavaPairRDD<String, String> outputRDD = sc.parallelizePairs(output);
 
-		return output_rdd;
+		return outputRDD;
 	}
-
-	/**
-	 * 
-	 */
-	@SuppressWarnings("serial")
-	public static final PairFunction<Tuple2<Integer, Optional<String>>, Integer, String> KEY_VALUE_PAIRER = new PairFunction<Tuple2<Integer, Optional<String>>, Integer, String>() {
-
-		public final Tuple2<Integer, String> call(final Tuple2<Integer, Optional<String>> tuple) throws Exception {
-
-			return new Tuple2<Integer, String>(tuple._1, tuple._2.get());
-		}
-	};
 
 	/**
 	 * Left Outer Join of transactions on users
@@ -118,9 +114,17 @@ public final class TransactionCount {
 	 * @param data
 	 * @return
 	 */
-	public static final JavaPairRDD<Integer, String> modifyData(JavaRDD<Tuple2<Integer, Optional<String>>> data) {
+	@SuppressWarnings("serial")
+	public static final JavaPairRDD<Integer, String> modifyData(final JavaRDD<Tuple2<Integer, Optional<String>>> data) {
 
-		return data.mapToPair(KEY_VALUE_PAIRER);
+		/* Convert a Tuple to key-value of integer-string */
+		return data.mapToPair(new PairFunction<Tuple2<Integer, Optional<String>>, Integer, String>() {
+
+			public final Tuple2<Integer, String> call(final Tuple2<Integer, Optional<String>> tuple) throws Exception {
+
+				return new Tuple2<Integer, String>(tuple._1, tuple._2.get());
+			}
+		});
 	}
 
 	/**
