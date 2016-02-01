@@ -10,7 +10,7 @@ import java.lang.management.*;
  */
 public final class Memory {
 
-	public static long threadAllocatedBytes() {
+	public static final long threadAllocatedBytes() {
 		try {
 			return (Long) ManagementFactory.getPlatformMBeanServer().invoke(new ObjectName(ManagementFactory.THREAD_MXBEAN_NAME),
 					"getThreadAllocatedBytes", new Object[] { Thread.currentThread().getId() }, new String[] { long.class.getName() });

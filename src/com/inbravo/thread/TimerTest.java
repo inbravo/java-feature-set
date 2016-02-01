@@ -10,7 +10,7 @@ import java.util.TimerTask;
  */
 public final class TimerTest {
 
-	public final static void main(String[] args) {
+	public final static void main(final String... args) {
 
 		/* Create new timer */
 		final Timer timer = new Timer();
@@ -19,7 +19,7 @@ public final class TimerTest {
 		timer.schedule(new TimerTask() {
 
 			@Override
-			public void run() {
+			public final void run() {
 				System.out.println("------");
 			}
 

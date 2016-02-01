@@ -22,7 +22,7 @@ public final class PowerServiceImpl implements PowerService {
 	 * 
 	 * @see com.inbravo.rmi.PowerService#square(int)
 	 */
-	public BigInteger square(final int number) throws RemoteException {
+	public final BigInteger square(final int number) throws RemoteException {
 
 		System.out.println("Inside square operation");
 		final String numrep = String.valueOf(number);
@@ -36,7 +36,7 @@ public final class PowerServiceImpl implements PowerService {
 	 * 
 	 * @see com.inbravo.rmi.PowerService#power(int)
 	 */
-	public BigInteger power(final int num1, final int num2) throws RemoteException {
+	public final BigInteger power(final int num1, final int num2) throws RemoteException {
 
 		System.out.println("Inside power operation");
 		final String numrep = String.valueOf(num1);

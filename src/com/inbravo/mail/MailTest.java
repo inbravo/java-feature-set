@@ -10,29 +10,34 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-public class MailTest {
+/**
+ * 
+ * @author amit.dixit
+ *
+ */
+public final class MailTest {
 
-	public static void main(String[] args) {
+	public static void main(final String... args) {
 
 		final String username = args[0];
 		final String password = args[1];
 
-		Properties props = new Properties();
+		final Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.ssl.trust", "mail.impetus.co.in");
 		props.put("mail.smtp.starttls.enable", "true");
 		props.put("mail.smtp.host", "mail.impetus.co.in");
 		props.put("mail.smtp.port", "587");
 
-		Session session = Session.getInstance(props, new javax.mail.Authenticator() {
-			protected PasswordAuthentication getPasswordAuthentication() {
+		final Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+			protected final PasswordAuthentication getPasswordAuthentication() {
 				return new PasswordAuthentication(username, password);
 			}
 		});
 
 		try {
 
-			Message message = new MimeMessage(session);
+			final Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress("amit.dixit@impetus.co.in"));
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("arunkumar.m@impetus.co.in"));
 			message.setSubject("Testing Subject");
@@ -42,7 +47,7 @@ public class MailTest {
 
 			System.out.println("Done");
 
-		} catch (MessagingException e) {
+		} catch (final MessagingException e) {
 			throw new RuntimeException(e);
 		}
 	}
