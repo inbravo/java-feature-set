@@ -7,7 +7,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * Average execution time = O(1)
  * 
- * Java: class, constructor, static and instance variables, methods, Arrays and AtomicInteger
  * 
  * @author amit.dixit
  *
@@ -15,13 +14,13 @@ import java.util.concurrent.atomic.AtomicInteger;
 public final class Stack {
 
 	/* Array for local storage */
-	private long[] storage;
+	private final long[] storage;
 
 	/* Current index stack */
-	private static final AtomicInteger currentIndex = new AtomicInteger(-1);
+	private final AtomicInteger currentIndex = new AtomicInteger(-1);
 
 	/* Maximum size limit of Stack */
-	private int maxSize;
+	private final int maxSize;
 
 	/**
 	 * Constructor
@@ -100,7 +99,9 @@ public final class Stack {
 		return (Arrays.toString(storage));
 	}
 
-	public final void showStackOverflowError() {
+	public static final void showStackOverflowError() {
+
+		/* Call himself */
 		showStackOverflowError();
 	}
 
@@ -109,7 +110,7 @@ public final class Stack {
 	 * 
 	 * @param value
 	 */
-	public static final void main(final String[] args) {
+	public static final void main(final String... args) {
 
 		/* Create new stack */
 		final Stack stack = new Stack(10);

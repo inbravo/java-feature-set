@@ -11,13 +11,13 @@ import java.util.concurrent.atomic.AtomicInteger;
 public final class PriorityQueue {
 
 	/* Array for local storage */
-	private long[] storage;
+	private final long[] storage;
 
 	/* Maximum size limit of queue */
-	private int maxSize;
+	private final int maxSize;
 
 	/* Numbers of item in queue */
-	private static final AtomicInteger currentItemsCount = new AtomicInteger(0);
+	private final AtomicInteger currentItemsCount = new AtomicInteger(0);
 
 	public PriorityQueue(final int maxSize) {
 
@@ -48,7 +48,7 @@ public final class PriorityQueue {
 			/* Iterate of existing elemens array */
 			for (i = currentItemsCount.get() - 1; i >= 0; i--) {
 
-				/* Check if insertion value is greater then current index value */
+				/* Check if insertion value is smaller than current index value */
 				if (value < storage[i]) {
 
 					/* Shift elements to one index higher */
@@ -99,7 +99,7 @@ public final class PriorityQueue {
 		return (Arrays.toString(storage));
 	}
 
-	public static final void main(final String[] args) {
+	public static final void main(final String... args) {
 
 		/* Create new queue */
 		final PriorityQueue queue = new PriorityQueue(10);

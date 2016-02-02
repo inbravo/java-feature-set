@@ -131,7 +131,7 @@ public final class LinkList {
 		return (first == null);
 	}
 
-	public static final void main(final String[] args) {
+	public static final void main(final String... args) {
 
 		/* Create new LinkList */
 		final LinkList linkList = new LinkList();

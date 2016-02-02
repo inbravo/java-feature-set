@@ -9,24 +9,36 @@ public final class ReverseTheWord {
 
 	public static final void main(final String... args) {
 
-		/* Create new stack */
-		final Stack stack = new Stack(20);
-		final String wordToReverse = "inbravo";
+		System.out.println(reverse("inbravo"));
+	}
+
+	public static final String reverse(final String inputString) {
+
+		/* Check if string is palindrom using stack */
+		final Stack stack = new Stack(inputString.length());
 
 		/* Push the char in stack */
-		for (int i = 0; i < wordToReverse.length(); i++) {
+		for (int i = 0; i < inputString.length(); i++) {
 
 			/* Get each char */
-			final char ch = wordToReverse.charAt(i);
+			final char ch = inputString.charAt(i);
 
 			/* Push on stack */
 			stack.push(ch);
 		}
 
-		for (int i = 0; i < wordToReverse.length(); i++) {
+		/* Reverse of input string */
+		String reverse = "";
 
-			/* Push on stack */
-			System.out.println((char) stack.pop());
+		for (int i = 0; i < inputString.length(); i++) {
+
+			/* Pop from stack */
+			final char poppedValue = (char) stack.pop();
+
+			/* Add this char in string */
+			reverse = reverse.concat("" + poppedValue);
 		}
+
+		return reverse;
 	}
 }

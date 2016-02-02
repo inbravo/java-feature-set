@@ -3,22 +3,27 @@ package com.inbravo.ds.queue;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class Queue {
+/**
+ * 
+ * @author amit.dixit
+ *
+ */
+public final class Queue {
 
 	/* Array for local storage */
-	private long[] storage;
+	private final long[] storage;
 
 	/* Maximum size limit of queue */
-	private int maxSize;
+	private final int maxSize;
 
 	/* Numbers of item in queue */
-	private static final AtomicInteger currentItemsCount = new AtomicInteger(0);
+	private final AtomicInteger currentItemsCount = new AtomicInteger(0);
 
 	/* Front of queue */
-	private static final AtomicInteger front = new AtomicInteger(0);
+	private final AtomicInteger front = new AtomicInteger(0);
 
 	/* Rear of queue */
-	private static final AtomicInteger rear = new AtomicInteger(-1);
+	private final AtomicInteger rear = new AtomicInteger(-1);
 
 	public Queue(final int maxSize) {
 
@@ -101,7 +106,7 @@ public class Queue {
 		return (Arrays.toString(storage));
 	}
 
-	public static final void main(final String[] args) {
+	public static final void main(final String... args) {
 
 		/* Create new queue */
 		final Queue queue = new Queue(10);

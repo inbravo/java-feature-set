@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
+ * Storage on the basis of Front and Rear movements
  * 
  * @author amit.dixit
  *
@@ -11,19 +12,19 @@ import java.util.concurrent.atomic.AtomicInteger;
 public final class CircularQueue {
 
 	/* Array for local storage */
-	private long[] storage;
+	private final long[] storage;
 
 	/* Maximum size limit of queue */
-	private int maxSize;
+	private final int maxSize;
 
 	/* Numbers of item in queue */
-	private static final AtomicInteger currentItemsCount = new AtomicInteger(0);
+	private final AtomicInteger currentItemsCount = new AtomicInteger(0);
 
 	/* Front of queue */
-	private static final AtomicInteger front = new AtomicInteger(0);
+	private final AtomicInteger front = new AtomicInteger(0);
 
 	/* Rear of queue */
-	private static final AtomicInteger rear = new AtomicInteger(-1);
+	private final AtomicInteger rear = new AtomicInteger(-1);
 
 	public CircularQueue(final int maxSize) {
 
@@ -35,7 +36,7 @@ public final class CircularQueue {
 	}
 
 	/**
-	 * Insert at REAR of queue
+	 * Insert at REAR
 	 * 
 	 * @param value
 	 */
@@ -44,7 +45,7 @@ public final class CircularQueue {
 		/* Insert only if Queue is not FULL */
 		if (!isFull()) {
 
-			/* Make the queue circular */
+			/* If Rear = Max Size; Make the queue circular */
 			if (rear.get() == (maxSize - 1)) {
 
 				/* Reset the rear */
@@ -64,7 +65,7 @@ public final class CircularQueue {
 	}
 
 	/**
-	 * Remove from FRONT of queue
+	 * Remove from FRONT
 	 * 
 	 * @return
 	 */
@@ -76,7 +77,7 @@ public final class CircularQueue {
 			/* Take value at front */
 			final long removedValue = storage[front.get()];
 
-			/* Make the queue circular */
+			/* If Front = Max Size; Make the queue circular */
 			if (front.get() == maxSize) {
 
 				/* Reset the front */
@@ -120,7 +121,7 @@ public final class CircularQueue {
 		return (Arrays.toString(storage));
 	}
 
-	public static final void main(final String[] args) {
+	public static final void main(final String... args) {
 
 		/* Create new queue */
 		final CircularQueue queue = new CircularQueue(10);
