@@ -4,12 +4,12 @@ public final class StringTest {
 
 	public static final void main(final String[] args) {
 
-		String a = "A";
+		final String a = "A";
 
-		String b = a + "B";
+		final String b = a + "B";
 
-		String c = "AB";
-		String d = "A";
+		final String c = "AB";
+		final String d = "A";
 
 		System.out.println("a location : " + Integer.toHexString(a.hashCode()));
 		System.out.println("b location : " + Integer.toHexString(b.hashCode()));
