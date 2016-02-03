@@ -9,12 +9,12 @@
 
 	<path id="java-src.classpath">
 		<pathelement location="bin" />
-		<pathelement location="lib/javax.mail.jar" />
-		<pathelement location="lib/hadoop-common-2.5.1.jar" />
-		<pathelement location="lib/hadoop-mapreduce-client-core-2.5.1.jar" />
+		<fileset dir="lib/">
+			<include name="**/*.jar" />
+		</fileset>
 	</path>
 
-	<target name="init">
+	<target name="init" depends="cleanall">
 		<mkdir dir="bin" />
 		<copy includeemptydirs="false" todir="bin">
 			<fileset dir="src">
@@ -24,6 +24,9 @@
 	</target>
 
 	<target name="clean">
+		<echo message="==========================================================" />
+		<echo message="CLEAN" />
+		<echo message="==========================================================" />
 		<delete dir="bin" />
 	</target>
 
@@ -32,12 +35,15 @@
 
 	<target depends="init" name="build-project">
 		<echo message="${ant.project.name}: ${ant.file}" />
+		<echo message="==========================================================" />
+		<echo message="COMPILE" />
+		<echo message="==========================================================" />
 		<javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
 			<src path="src" />
 			<classpath refid="java-src.classpath" />
 		</javac>
 		<echo message="==========================================================" />
-		<echo message="Going for jar construction" />
+		<echo message="JAR" />
 		<echo message="==========================================================" />
 		<jar destfile="inbravo.jar" basedir="bin" includes="**/*.class" />
 	</target>
@@ -158,7 +164,7 @@
 	</target>
 
 	<target name="deploy" depends="build-project">
-		<scp file="inbravo.jar" password="impetus" todir="root@192.168.148.76:/root/amit/spark/" trust="true" />
+		<scp file="inbravo.jar" password="*******" todir="root@192.168.148.76:/root/amit/spark/" trust="true" />
 	</target>
 
 </project>
