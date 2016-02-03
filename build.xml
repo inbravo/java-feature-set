@@ -43,6 +43,11 @@
 			<classpath refid="java-src.classpath" />
 		</javac>
 		<echo message="==========================================================" />
+		<echo message="CONFIG" />
+		<echo message="==========================================================" />
+		<copy file="conf/inbravo-version.txt" tofile="bin/inbravo-version.txt" overwrite="true" />
+		<copy file="conf/inbravo-log4j.properties" tofile="bin/inbravo-log4j.properties" overwrite="true" />
+		<echo message="==========================================================" />
 		<echo message="JAR" />
 		<echo message="==========================================================" />
 		<jar destfile="inbravo.jar" basedir="bin" includes="**/*.class" />
@@ -164,7 +169,7 @@
 	</target>
 
 	<target name="deploy" depends="build-project">
-		<scp file="inbravo.jar" password="*******" todir="root@192.168.148.76:/root/amit/spark/" trust="true" />
+		<scp file="inbravo.jar" password="impetus" todir="root@192.168.148.76:/root/amit/spark/" trust="true" />
 	</target>
 
 </project>
