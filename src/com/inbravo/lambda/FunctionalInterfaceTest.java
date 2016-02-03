@@ -16,7 +16,7 @@ public final class FunctionalInterfaceTest {
 }
 
 /**
- * Interface only contains one abstract method
+ * FunctionalInterface can only contain one abstract method
  * 
  * @author amit.dixit
  *

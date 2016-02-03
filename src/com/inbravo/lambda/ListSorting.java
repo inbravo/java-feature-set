@@ -16,6 +16,7 @@ public final class ListSorting {
 
 		System.out.println(oldSort(Arrays.asList("peter", "anna", "mike", "xenia")));
 		System.out.println(newSort(Arrays.asList("peter", "anna", "mike", "xenia")));
+		System.out.println(Arrays.asList(newSort(new String[] { "peter", "anna", "mike", "xenia" })));
 	}
 
 	/**
@@ -30,7 +31,7 @@ public final class ListSorting {
 
 			@Override
 			public int compare(final String a, final String b) {
-				return b.compareTo(a);
+				return a.compareTo(b);
 			}
 		});
 
@@ -38,15 +39,28 @@ public final class ListSorting {
 	}
 
 	/**
-	 * Sort using LAMBDA
+	 * Sort using LAMBDA and Collections
 	 * 
 	 * @param inputList
 	 * @return
 	 */
 	public static final List<String> newSort(final List<String> inputList) {
 
-		Collections.sort(inputList, (a, b) -> b.compareTo(a));
+		Collections.sort(inputList, (a, b) -> a.compareTo(b));
 
 		return inputList;
+	}
+
+	/**
+	 * Sort using LAMBDA and Arrays
+	 * 
+	 * @param inputList
+	 * @return
+	 */
+	public static final String[] newSort(final String... inputArray) {
+
+		Arrays.sort(inputArray, String::compareToIgnoreCase);
+
+		return inputArray;
 	}
 }
