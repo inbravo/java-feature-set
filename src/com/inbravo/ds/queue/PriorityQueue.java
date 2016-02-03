@@ -45,13 +45,13 @@ public final class PriorityQueue {
 		else {
 			int i;
 
-			/* Iterate of existing elemens array */
+			/* Iterate on array */
 			for (i = currentItemsCount.get() - 1; i >= 0; i--) {
 
-				/* Check if insertion value is smaller than current index value */
-				if (value < storage[i]) {
+				/* Check if value to be inserted, is smaller than current index value */
+				if (value <= storage[i]) {
 
-					/* Shift elements to one index higher */
+					/* Shift all greater elements to one index higher */
 					storage[i + 1] = storage[i];
 				} else {
 					break;
@@ -121,5 +121,9 @@ public final class PriorityQueue {
 		System.out.println("After element inserting value '4' : " + queue);
 		queue.insert(2);
 		System.out.println("After element inserting value '2' : " + queue);
+		queue.insert(3);
+		System.out.println("After element inserting value '3' : " + queue);
+		queue.insert(1);
+		System.out.println("After element inserting value '1' : " + queue);
 	}
 }
