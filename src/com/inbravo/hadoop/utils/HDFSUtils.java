@@ -27,7 +27,7 @@ import com.inbravo.log.LogFactory;
 public final class HDFSUtils {
 
 	/** The Constant LOG. */
-	private static final Logger logger = LogFactory.getLog(HDFSUtils.class);
+	private static final Logger logger = LogFactory.getLogger(HDFSUtils.class);
 
 	/** The hdfs file system class */
 	private static FileSystem fs = null;

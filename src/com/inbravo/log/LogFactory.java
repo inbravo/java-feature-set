@@ -1,6 +1,7 @@
 package com.inbravo.log;
 
 import java.io.BufferedReader;
+
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -28,6 +29,7 @@ public final class LogFactory {
 		try {
 			/* Get file locations */
 			final URL loggingFileLocation = LogFactory.class.getClassLoader().getResource(logConfigFile);
+
 			System.out.println("==========================================================================================");
 			System.out.println("=== Release : '" + getReleaseVersion() + "'");
 			System.out.println("=== Logging file : '" + loggingFileLocation + "'");
@@ -52,6 +54,7 @@ public final class LogFactory {
 	 * @throws IOException
 	 */
 	private static final String getReleaseVersion() throws IOException {
+
 		BufferedReader bReader = null;
 		InputStreamReader inputStreamReader = null;
 		try {
@@ -66,11 +69,13 @@ public final class LogFactory {
 
 		} finally {
 			if (bReader != null) {
+
 				/* Close the reader */
 				bReader.close();
 			}
 
 			if (inputStreamReader != null) {
+
 				/* Close the reader */
 				inputStreamReader.close();
 			}
@@ -82,12 +87,13 @@ public final class LogFactory {
 	 * @param clazz
 	 * @return
 	 */
-	public static final Logger getLog(@SuppressWarnings("rawtypes") final Class clazz) {
+	public static final Logger getLogger(@SuppressWarnings("rawtypes") final Class clazz) {
 
 		if (!initialized.get()) {
+
 			init();
 		}
 
-		return LogFactory.getLog(clazz);
+		return Logger.getLogger(clazz);
 	}
 }

@@ -50,7 +50,7 @@
 		<echo message="==========================================================" />
 		<echo message="JAR" />
 		<echo message="==========================================================" />
-		<jar destfile="inbravo.jar" basedir="bin" includes="**/*.class" />
+		<jar destfile="inbravo.jar" basedir="bin" />
 	</target>
 
 	<target name="BinarySearch">

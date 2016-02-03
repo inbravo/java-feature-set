@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import org.apache.hadoop.mapred.TextOutputFormat;
+import org.apache.log4j.Logger;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
@@ -17,6 +18,7 @@ import scala.Tuple2;
 
 import com.google.common.base.Optional;
 import com.inbravo.hadoop.utils.HDFSUtils;
+import com.inbravo.log.LogFactory;
 
 /**
  * 
@@ -24,6 +26,9 @@ import com.inbravo.hadoop.utils.HDFSUtils;
  *
  */
 public final class UserTransactionCount {
+
+	/** The Constant LOG. */
+	private static final Logger logger = LogFactory.getLogger(UserTransactionCount.class);
 
 	private static final String HDFS_OUTPUT_DIR = "/output";
 	private static final String HDFS_TRANS_OUTPUT_DIR = "/trans-output";
@@ -43,13 +48,12 @@ public final class UserTransactionCount {
 	public static final void main(final String... args) throws Exception {
 
 		/* First setup */
-		setup(args[2] + HDFS_OUTPUT_DIR);
+		setup(args[2]);
 
 		final JavaSparkContext sc = new JavaSparkContext(new SparkConf().setAppName("UserTransactionCount").setMaster("local"));
 
 		/* Process input files and calculate transaction count of users */
-		final JavaPairRDD<String, String> outputRDD = UserTransactionCount.getUserTransactionCount(sc, args[0], args[1], args[2]
-				+ HDFS_OUTPUT_DIR);
+		final JavaPairRDD<String, String> outputRDD = UserTransactionCount.getUserTransactionCount(sc, args[0], args[1], args[2]);
 
 		/* Save output on HDFS */
 		outputRDD.saveAsHadoopFile(args[2] + HDFS_OUTPUT_DIR, String.class, String.class, TextOutputFormat.class);
@@ -79,7 +83,7 @@ public final class UserTransactionCount {
 		/* Save transaction info for debug purpose */
 		userTransactions.saveAsTextFile(outputRoot + HDFS_TRANS_OUTPUT_DIR);
 
-		System.out.println("[DEBUG] : Ttransaction count of user saved at : " + outputRoot + HDFS_TRANS_OUTPUT_DIR);
+		logger.debug("Transaction count of user saved at : " + outputRoot + HDFS_TRANS_OUTPUT_DIR);
 
 		/* Step 6: Modify data, convert to key-value pairs */
 		final JavaPairRDD<Integer, String> userTransactionsModified = modifyData(userTransactions);
@@ -87,12 +91,12 @@ public final class UserTransactionCount {
 		/* Save transaction info for debug purpose */
 		userTransactionsModified.saveAsTextFile(outputRoot + HDFS_MOD_TRANS_OUTPUT_DIR);
 
-		System.out.println("[DEBUG] : Modified transaction of user : " + outputRoot + HDFS_MOD_TRANS_OUTPUT_DIR);
+		logger.debug("Modified transaction of user : " + outputRoot + HDFS_MOD_TRANS_OUTPUT_DIR);
 
 		/* Step 7: Count the result */
 		final Map<Integer, Object> result = countData(userTransactionsModified);
 
-		System.out.println("[DEBUG] : Count of transactions of user : " + result);
+		logger.debug("Count of transactions of user : " + result);
 
 		final List<Tuple2<String, String>> output = new ArrayList<>();
 
@@ -115,7 +119,7 @@ public final class UserTransactionCount {
 
 			public Tuple2<Integer, Integer> call(final String transaction) {
 
-				System.out.println("[DEBUG] : Transaction : " + transaction);
+				logger.debug("Transaction : " + transaction);
 				final String[] transactionSplit = transaction.split("\t");
 
 				/* Tuple : key (user-id) : value (product-id) */
@@ -132,7 +136,7 @@ public final class UserTransactionCount {
 
 			public Tuple2<Integer, String> call(final String user) {
 
-				System.out.println("[DEBUG] : User : " + user);
+				logger.debug("User : " + user);
 				final String[] userSplit = user.split("\t");
 
 				/* Tuple : key (user-id) : value (country) */
