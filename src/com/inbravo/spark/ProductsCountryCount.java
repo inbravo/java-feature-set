@@ -31,8 +31,7 @@ public final class ProductsCountryCount {
 	private static final Logger logger = LogFactory.getLogger(ProductsCountryCount.class);
 
 	private static final String HDFS_OUTPUT_DIR = "/output";
-	private static final String HDFS_TRANS_OUTPUT_DIR = "/trans-output";
-	private static final String HDFS_MOD_TRANS_OUTPUT_DIR = "/mod-trans-output";
+	private static final String HDFS_TRANS_OUTPUT_DIR = "/product-country";
 
 	/**
 	 * 
@@ -42,7 +41,6 @@ public final class ProductsCountryCount {
 
 		HDFSUtils.removeFileStructureFromHDFS(outputRoot + HDFS_OUTPUT_DIR);
 		HDFSUtils.removeFileStructureFromHDFS(outputRoot + HDFS_TRANS_OUTPUT_DIR);
-		HDFSUtils.removeFileStructureFromHDFS(outputRoot + HDFS_MOD_TRANS_OUTPUT_DIR);
 	}
 
 	public static final void main(final String... args) throws Exception {
@@ -63,7 +61,7 @@ public final class ProductsCountryCount {
 	}
 
 	/**
-	 * This API will tell Number of Countries where each Product is sold
+	 * This API will tell Number of Countries where each sold Product
 	 * 
 	 * @param sc
 	 * @param transactionFilePath
@@ -86,26 +84,19 @@ public final class ProductsCountryCount {
 		/* Step 4: Convert users data into key-value pairs */
 		final JavaPairRDD<Integer, String> userPairs = userDataAsKeyValue(userInputFile);
 
-		/* Step 5: Get Product <--> Country on the basis of User */
+		/* Step 5: Get Product-Id <--> Country-Id on the basis of User-Id */
 		final JavaRDD<Tuple2<Integer, Optional<String>>> userTransactions = joinData(transactionPairs, userPairs);
-
-		/* Save transaction info for debug purpose */
-		userTransactions.saveAsTextFile(outputRoot + HDFS_TRANS_OUTPUT_DIR);
-
-		logger.debug("Transaction count of user saved at : " + outputRoot + HDFS_TRANS_OUTPUT_DIR);
 
 		/* Step 6: Simplify the RDD into Integer (Product-Id) <--> String pairs */
 		final JavaPairRDD<Integer, String> userTransactionsModified = modifyData(userTransactions);
 
 		/* Save transaction info for debug purpose */
-		userTransactionsModified.saveAsTextFile(outputRoot + HDFS_MOD_TRANS_OUTPUT_DIR);
+		userTransactionsModified.saveAsTextFile(outputRoot + HDFS_TRANS_OUTPUT_DIR);
 
-		logger.debug("Modified transaction count of user : " + outputRoot + HDFS_MOD_TRANS_OUTPUT_DIR);
+		logger.debug("Product-ID <----> Country-Id mapping saved at : " + outputRoot + HDFS_TRANS_OUTPUT_DIR);
 
 		/* Step 7: Find number of Countries for each Product */
 		final Map<Integer, Object> result = countData(userTransactionsModified);
-
-		logger.debug("Count of transactions of user : " + result);
 
 		final List<Tuple2<String, String>> output = new ArrayList<>();
 
