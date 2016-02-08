@@ -1,4 +1,3 @@
-ds
+Java experiments
 ==
 
-Data structure classes in java/ruby
