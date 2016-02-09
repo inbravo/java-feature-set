@@ -3,9 +3,12 @@ package com.inbravo.spark;
 import java.util.Arrays;
 
 import org.apache.spark.SparkConf;
+import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
-import org.apache.spark.api.java.function.Function2;
+import org.apache.spark.api.java.function.PairFunction;
+
+import scala.Tuple2;
 
 /**
  * 
@@ -26,23 +29,20 @@ public final class SparkKeyValueEx {
 		System.out.println("=========================================================================================================");
 		System.out.println("---------Various Trans/actions on RDD " + rddOne.collect() + "} & RDD {" + rddTwo.collect() + "}---------");
 
-		/* Apply union */
-		final JavaRDD<Integer> unionResult = rddOne.union(rddTwo);
+		/* Collect all elements */
+		System.out.println("-------Collect : " + rddOne.collect());
 
-		/* Show result */
-		System.out.println("----------Union : " + unionResult.collect());
+		/* Show union */
+		System.out.println("---------Union : " + rddOne.union(rddTwo).collect());
 
 		/* Show intersection */
-		System.out.println("---Intersection : " + rddOne.intersection(rddTwo).collect());
+		System.out.println("--Intersection : " + rddOne.intersection(rddTwo).collect());
 
 		/* Apply subtract */
-		System.out.println("-------Subtract : " + rddOne.subtract(rddTwo).collect());
+		System.out.println("------Subtract : " + rddOne.subtract(rddTwo).collect());
 
 		/* Apply cartesian */
-		System.out.println("------Cartesian : " + rddOne.cartesian(rddTwo).collect());
-
-		/* Get all elements */
-		System.out.println("-------Collect : " + rddOne.collect());
+		System.out.println("-----Cartesian : " + rddOne.cartesian(rddTwo).collect());
 
 		/* Count all elements in RDDs */
 		System.out.println("---------Count : " + (rddOne.count() + rddTwo.count()));
@@ -57,13 +57,40 @@ public final class SparkKeyValueEx {
 		System.out.println("--------Filter : " + rddOne.filter(x -> x.intValue() < 3).collect());
 
 		/* Show Reduce result */
-		System.out.println("--------Reduce : " + rddOne.reduce(reduce()));
+		System.out.println("--------Reduce : " + rddOne.union(rddTwo).reduce((x, y) -> Math.max(x, y)));
 
 		/* Show Map result */
 		System.out.println("-----------Map : " + rddOne.map(x -> x * x).collect());
 
-		/* FlatMap returns list */
+		/* FlatMap returns java.lang.Iterable */
 		System.out.println("-------FlatMap : " + rddOne.flatMap(x -> Arrays.asList(x * x)).collect());
+
+		/* MapToPair returns Tuple2 */
+		final JavaPairRDD<Integer, Integer> jpRDD = rddOne.mapToPair(convertToKeyValue());
+
+		System.out.println("-----MapToPair : " + jpRDD.collect());
+
+		/* Keys returns JavaRDD */
+		System.out.println("----------Keys : " + jpRDD.keys().collect());
+
+		/* Values returns JavaRDD */
+		System.out.println("--------Values : " + jpRDD.values().collect());
+
+		/* Values returns JavaRDD */
+		System.out.println("-----SortByKey : " + jpRDD.sortByKey().collect());
+
+		/* Keys returns JavaRDD */
+		System.out.println("----GroupByKey : " + jpRDD.groupByKey().collect());
+
+		/* ReduceByKey returns Function2 */
+		System.out.println("---ReduceByKey : " + jpRDD.reduceByKey((x, y) -> x + y).collect());
+
+		/* ReduceByKey returns Function */
+		System.out.println("-----MapValues : " + jpRDD.mapValues(x -> x * x).collect());
+
+		/* ReduceByKey returns Function */
+		System.out.println("-FlatMapValues : " + jpRDD.flatMapValues(x -> Arrays.asList(x * x * x)).collect());
+
 		System.out.println("=========================================================================================================");
 
 		/* Close spark context */
@@ -71,17 +98,18 @@ public final class SparkKeyValueEx {
 	}
 
 	@SuppressWarnings("serial")
-	private static final Function2<Integer, Integer, Integer> reduce() {
+	private static final PairFunction<Integer, Integer, Integer> convertToKeyValue() {
 
 		/**
-		 * Return higher value
+		 * Convert to key-value [key (integer) : value (integer * integer)]
 		 */
-		return new Function2<Integer, Integer, Integer>() {
+		return new PairFunction<Integer, Integer, Integer>() {
 
 			@Override
-			public final Integer call(final Integer first, final Integer second) throws Exception {
+			public final Tuple2<Integer, Integer> call(final Integer integer) throws Exception {
 
-				return Math.max(first, second);
+				/* Tuple : key (integer) : value (integer * integer) */
+				return new Tuple2<Integer, Integer>(integer, integer * integer);
 			}
 		};
 	}
