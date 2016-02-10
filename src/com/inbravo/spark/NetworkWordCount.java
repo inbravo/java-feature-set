@@ -43,7 +43,7 @@ public final class NetworkWordCount {
 			private static final long serialVersionUID = 1L;
 
 			@Override
-			public Iterable<String> call(String x) {
+			public final Iterable<String> call(final String x) {
 				return Arrays.asList(x.split(" "));
 			}
 		});
@@ -54,7 +54,7 @@ public final class NetworkWordCount {
 			private static final long serialVersionUID = 1L;
 
 			@Override
-			public Tuple2<String, Integer> call(String s) {
+			public final Tuple2<String, Integer> call(final String s) {
 				return new Tuple2<String, Integer>(s, 1);
 			}
 		});
@@ -64,7 +64,7 @@ public final class NetworkWordCount {
 			private static final long serialVersionUID = 1L;
 
 			@Override
-			public Integer call(Integer i1, Integer i2) {
+			public final Integer call(final Integer i1, final Integer i2) {
 				return i1 + i2;
 			}
 		});
