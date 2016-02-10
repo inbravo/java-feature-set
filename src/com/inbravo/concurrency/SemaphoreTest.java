@@ -13,7 +13,7 @@ public final class SemaphoreTest {
 	final private Semaphore lock = new Semaphore(1);
 
 	/* Change this mode before running the program */
-	final private static SafetyMode _MODE = SafetyMode.UNSAFE;
+	final private static SafetyMode _MODE = SafetyMode.SAFE;
 
 	public static final void main(final String... args) {
 
@@ -54,7 +54,14 @@ public final class SemaphoreTest {
 	}
 
 	/**
+	 * First thread is still in critical section and second thread also enters
 	 * 
+	 * Output:
+	 * 
+	 * First-Thread is inside critical section
+	 * Second-Thread is inside critical section
+	 * Second-Thread is out of critical section
+	 * First-Thread is out of critical section
 	 */
 	private final void iAmNotThreadSafe() {
 
@@ -74,7 +81,14 @@ public final class SemaphoreTest {
 	}
 
 	/**
+	 * Second thread only enters critical section only when first thread is out 
 	 * 
+	 * Output:
+	 * 
+	 * First-Thread is inside critical section
+	 * First-Thread is out of critical section
+	 * Second-Thread is inside critical section
+	 * Second-Thread is out of critical section
 	 */
 	private final void iAmThreadSafe() {
 

@@ -69,8 +69,8 @@ public final class HDFSUtils {
 	 */
 	public static final String readFileFromHDFS(final String inFilePath) throws IOException {
 
-		final StringBuffer data = new StringBuffer();
 		String strLine = "";
+		final StringBuffer data = new StringBuffer();
 		final Path inFile = new Path(inFilePath);
 		final FSDataInputStream in = fs.open(inFile);
 
@@ -118,15 +118,16 @@ public final class HDFSUtils {
 		out = fs.create(outFile);
 		br = new BufferedWriter(new OutputStreamWriter(fs.create(outFile, true)));
 
-		// To append data to a file, use fs.append(Path f)
+		/* To append data to a file, use fs.append(Path f) */
 		try {
 			fstream = new FileInputStream(inputLocalFilePath);
 			in = new DataInputStream(fstream);
 			br1 = new BufferedReader(new InputStreamReader(in));
+
 			while ((strLine = br1.readLine()) != null) {
 				br.write(strLine + "\n");
 			}
-		} catch (final Exception e) {// Catch exception if any
+		} catch (final Exception e) {
 			logger.error(e);
 		} finally {
 			fstream.close();
