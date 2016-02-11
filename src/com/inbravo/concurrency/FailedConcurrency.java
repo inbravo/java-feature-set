@@ -1,9 +1,9 @@
 package com.inbravo.concurrency;
 
 /**
- * Run this class several time; you will find many values of counter e.g. -5, 0,
- * 5, 10 etc. volatile/static does not gurantee the variable integrity during
- * concurrency
+ * Run this class several time. 
+ * you will find many values of counter e.g. -5, 0, 5, 10 etc. 
+ * Keywords volatile/static does not gurantee the variable integrity.
  * 
  * @author amit.dixit
  *

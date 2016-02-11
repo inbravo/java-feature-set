@@ -3,8 +3,9 @@ package com.inbravo.concurrency;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * Run this class several time; you will find only single value of counter = 0
- * volatile/static does not gurantee the variable integrity during concurrency
+ * Run this class several time. 
+ * you will find only single value of counter 0. 
+ * AtomicInteger gurantee the variable integrity.
  * 
  * @author amit.dixit
  *
