@@ -1,4 +1,4 @@
-package com.inbravo.thread;
+package com.inbravo.concurrency;
 
 /**
  * Run this class several time; you will find many values of counter e.g. -5, 0,

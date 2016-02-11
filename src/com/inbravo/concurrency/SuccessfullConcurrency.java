@@ -1,4 +1,4 @@
-package com.inbravo.thread;
+package com.inbravo.concurrency;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
