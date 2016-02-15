@@ -45,6 +45,11 @@ public final class SelectionSort {
 		array[index.incrementAndGet()] = value;
 	}
 
+	/**
+	 * Selection Sort
+	 * 
+	 * @return
+	 */
 	public static final long[] sort() {
 
 		/* Length of array */

@@ -45,6 +45,9 @@ public final class BubbleSort {
 		array[index.incrementAndGet()] = value;
 	}
 
+	/**
+	 * Bubble Sort
+	 */
 	private static final void sort() {
 
 		/* Length of array */

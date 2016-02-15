@@ -46,6 +46,9 @@ public final class InsertionSort {
 		array[index.incrementAndGet()] = value;
 	}
 
+	/**
+	 * Insertion Sort
+	 */
 	public static final long[] sort() {
 
 		int outer, inner;
