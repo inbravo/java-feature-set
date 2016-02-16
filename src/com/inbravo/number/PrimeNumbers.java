@@ -28,18 +28,18 @@ public final class PrimeNumbers {
 
 			boolean isPrime = true;
 
-			/* check to see if the number is prime */
+			/* Check to see if the number is prime */
 			for (int inner = 2; inner < outer; inner++) {
 
 				/* If no remainder */
 				if (outer % inner == 0) {
 
-					/* It is prime */
+					/* It is not prime */
 					isPrime = false;
 					break;
 				}
 			}
-			/* print the number */
+			/* Print the number */
 			if (isPrime) {
 				System.out.print(outer + " ");
 			}

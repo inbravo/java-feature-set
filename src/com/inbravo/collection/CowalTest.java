@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
+ * Test of CopyOnWriteArrayList (COWAL)
  * 
  * @author amit.dixit
  *
@@ -26,7 +27,7 @@ public final class CowalTest {
 	 * 
 	 */
 	public static final void withCowal() {
-
+		System.out.println("No CMEx with Cowal >>>");
 		final CopyOnWriteArrayList<String> list = new CopyOnWriteArrayList<String>();
 		list.add("vivek");
 		list.add("kumar");
@@ -39,21 +40,13 @@ public final class CowalTest {
 			/* Change the list; it will not fail on next iteration */
 			list.add("abhishek");
 		}
-
-		System.out.println("After modification:");
-
-		final Iterator<String> i2 = list.iterator();
-
-		while (i2.hasNext()) {
-			System.out.println(i2.next());
-		}
 	}
 
 	/**
 	 * 
 	 */
 	public static final void withoutCowal() {
-
+		System.out.println("CMEx without Cowal >>>");
 		final List<String> list = new ArrayList<String>();
 		list.add("vivek");
 		list.add("kumar");
@@ -65,14 +58,6 @@ public final class CowalTest {
 
 			/* Change the list; it will fail on next iteration */
 			list.add("abhishek");
-		}
-
-		System.out.println("After modification:");
-
-		final Iterator<String> i2 = list.iterator();
-
-		while (i2.hasNext()) {
-			System.out.println(i2.next());
 		}
 	}
 }

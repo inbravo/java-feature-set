@@ -10,7 +10,7 @@ import java.util.*;
  */
 public final class ArmstrongNumber {
 
-	public static void main(String... args) {
+	public static final void main(String... args) {
 
 		int n, sum = 0, temp, r;
 
@@ -23,6 +23,7 @@ public final class ArmstrongNumber {
 		temp = n;
 
 		while (temp != 0) {
+
 			r = temp % 10;
 			sum = sum + r * r * r;
 			temp = temp / 10;
