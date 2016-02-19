@@ -15,10 +15,10 @@ public final class BlockingArray {
 	final private Lock lock = new ReentrantLock();
 
 	/* Array is NOT FULL */
-	final private Condition notFull = lock.newCondition();
+	final private Condition waitingToDeposit = lock.newCondition();
 
 	/* Array is NOT EMPTY */
-	final private Condition notEmpty = lock.newCondition();
+	final private Condition waitingToFetch = lock.newCondition();
 
 	/* Size of array */
 	final private int maxSize;
@@ -53,8 +53,8 @@ public final class BlockingArray {
 
 				System.out.println("[Thread: " + Thread.currentThread().getName() + "] Array is Full!");
 
-				/* WAIT ... Array is not empty */
-				notFull.await();
+				/* Force this thread to await untill a fetch */
+				waitingToDeposit.await();
 			}
 
 			/* Put the value in array after incrementing the current index */
@@ -63,8 +63,8 @@ public final class BlockingArray {
 			/* Increment the current index */
 			currentIndex++;
 
-			/* Send signal to all NOT-EMPTY waiting threads */
-			notEmpty.signal();
+			/* Send signal to threads; waiting to fetch */
+			waitingToFetch.signal();
 		} finally {
 
 			/* Release lock */
@@ -90,8 +90,8 @@ public final class BlockingArray {
 
 				System.out.println("[Thread: " + Thread.currentThread().getName() + "] Array is Empty!");
 
-				/* WAIT ... Array is empty */
-				notEmpty.await();
+				/* Force this thread to await untill a deposit */
+				waitingToFetch.await();
 			}
 
 			/* Put the value in array */
@@ -100,8 +100,8 @@ public final class BlockingArray {
 			/* Decrement the current index */
 			currentIndex--;
 
-			/* Send signal to all NOT-FULL waiting threads */
-			notFull.signal();
+			/* Send signal to threads; waiting to deposit */
+			waitingToDeposit.signal();
 
 			return existingObject;
 		} finally {
