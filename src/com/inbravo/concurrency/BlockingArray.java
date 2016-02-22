@@ -1,5 +1,6 @@
 package com.inbravo.concurrency;
 
+import java.util.Arrays;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -28,6 +29,9 @@ public final class BlockingArray {
 
 	/* Current counter */
 	private int currentIndex;
+
+	/* Array counter */
+	private static int counter;
 
 	public BlockingArray(final int size) {
 
@@ -111,44 +115,53 @@ public final class BlockingArray {
 		}
 	}
 
-	public static final void main(final String... args) {
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "BlockingArray [items=" + Arrays.toString(items) + "]";
+	}
+
+	public static final void main(final String... args) throws InterruptedException {
 
 		/* Create new instance of lock test */
-		final BlockingArray array = new BlockingArray(100);
+		final BlockingArray bArray = new BlockingArray(1000);
 
-		/* Start second anonymous thread */
-		new Thread("Fetcher") {
+		for (counter = 0; counter < 1000; counter++) {
 
-			@Override
-			public void run() {
+			/* Start first anonymous thread */
+			new Thread("Fetcher") {
 
-				for (int i = 0; i < 100; i++) {
+				@Override
+				public void run() {
+
 					try {
 
 						/* Fetch from array */
-						array.fetch();
+						bArray.fetch();
 					} catch (final InterruptedException e) {
 						e.printStackTrace();
 					}
 				}
-			}
-		}.start();
+			}.start();
 
-		/* Start first anonymous thread */
-		new Thread("Depositor") {
+			/* Start second anonymous thread */
+			new Thread("Depositor") {
 
-			@Override
-			public void run() {
+				@Override
+				public void run() {
 
-				for (int i = 0; i < 100; i++) {
 					try {
 						/* Put in array */
-						array.deposit("Object-" + i);
+						bArray.deposit("Object-" + counter);
 					} catch (final InterruptedException e) {
 						e.printStackTrace();
 					}
 				}
-			}
-		}.start();
+			}.start();
+		}
 	}
 }
