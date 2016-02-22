@@ -1,0 +1,41 @@
+=====================================================================================================================================================
+#	Spark 
+=====================================================================================================================================================
+#.	Running on yarn : http://spark.apache.org/docs/latest/running-on-yarn.html
+#.	To submit a spark job : ./bin/spark-submit --class com.inbravo.spark.JavaWordCount --master yarn --deploy-mode cluster --driver-memory 1g --executor-memory 1g --executor-cores 1 --queue default ../amit/spark/ds.jar /user/input.txt
+
+=====================================================================================================================================================
+#	HDFS Commands
+=====================================================================================================================================================
+#.	Create new directory on hdfs : hdfs dfs -mkdir /user
+#.	List the contents of a directory : hdfs dfs -ls /user
+#.	File copy :  hadoop fs -copyFromLocal /root/amit/hadoop-book/input/docs/quangle.txt hdfs://localhost:9000/user/amit/quangle.txt
+#.	File put : hadoop fs -put input/ncdc/sample.txt /user/test
+#.	File print : hadoop fs -cat /user/root/output/part-r-00000
+
+=====================================================================================================================================================
+#	Spark Certification
+=====================================================================================================================================================
+#.	Learning-Spark is must(Learning Spark Lightning-Fast Big Data Analysis) One should go with this book thoroughly. 
+	This would make you comfortable with spark architecture and framework and would be enough for all the theoretically questions.
+#.	Try all the example given in this book(Learning-Spark). Including all RDD APIs, Spark Streaming and Spark SQL.
+#.	Go through with all the examples given @ http://spark.apache.org/docs/latest/quick-start.html . 
+	I did Mllib and Graph-X from here. Here they have very well explanation of all the topics.
+#.	Make sure you do enough hands on before appearing for the exam. 
+	Most of the questions were related to programming so must have through understanding how API works in detail.
+#.	Last but not lest I see many people are asking about which language they should focus (Scala/Python or Java). 
+	Certification is more on programing oriented and they are covering all scala, python, java & sql [Spark core(more question), Dataframe, streaming & machine learning (2 question), Graphx(2 Question)].
+	But to answer the question I don't think you have to be expert in programming language and basic understanding would work if you're clear about how Spark API works.
+#.	HERE'RE TOPICS ONE MUST COVER:
+    #.	Different transformation & actions in RDD
+    #.	Pair RDD and Dstreams
+    #.	Batch and window sizing in spark streaming
+    #.	Various Joins and Cartesian operations in RDD
+    #.	Broadcast and accumulator
+    #.	Word count example (Specially in Java)
+    #.	pyspark especially set and join
+    #.	schemaRDD in spark sql
+    #.	Lineage and memory usage
+    #.	MLLib : Regression, K-means and Clustering
+    #.	Graph-X: Spark Quick Start guide would be enough.
+

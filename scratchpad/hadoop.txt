@@ -1,0 +1,83 @@
+=====================================================================================================================================================
+#	Definitions
+=====================================================================================================================================================
+#.	Big Data : Big data is a broad term for data sets so large or complex that traditional data processing applications are inadequate. 
+#.	Hadoop : Solution for deciphering the avalanche of Big Data
+
+=====================================================================================================================================================
+#	Hadoop admin
+=====================================================================================================================================================
+#.	Single node setup : https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html
+#.	Set following in bash profile,
+	-------------------------------------------------------------------------------------------------------------------------------------------------
+	# Hadoop variables
+	export HADOOP_HOME=/root/hadoop
+	export HADOOP_INSTALL=/root/hadoop
+	export HADOOP_MAPRED_HOME=$HADOOP_INSTALL
+	export HADOOP_COMMON_HOME=$HADOOP_INSTALL
+	export HADOOP_HDFS_HOME=$HADOOP_INSTALL
+	export YARN_HOME=$HADOOP_INSTALL
+	#Also used by Apache Spark
+	export HADOOP_CONF_DIR=$HADOOP_INSTALL/etc/hadoop
+	
+	# Packer.io/Maven/Ant/Splunk executables in PATH
+	export PATH=$HOME/bin:/root/downloads/packer:/root/maven/bin:/root/amit/apache-ant-1.9.4/bin:/opt/chef/embedded/bin:$SPLUNK_HOME/bin:/usr/java/jdk1.7.0_17/bin/:$HADOOP_INSTALL/bin:$HADOOP_INSTALL/sbin:$PATH
+	-------------------------------------------------------------------------------------------------------------------------------------------------
+#.	Start NameNode and Secondry NameNode using command:  sbin/start-dfs.sh and access namenode at http://192.168.148.76:50070/
+#.	Start Yarn using command : sbin/start-yarn.sh Resource Manager/Yarn : http://192.168.148.76:8088/cluster
+#.	JAVA issue 
+	#.	cd /usr/lib/jvm
+	#.	sudo ln -s /usr/java/jdk1.7.0_17/ java
+#.	Hadoop connection refused issue : http://stackoverflow.com/questions/29192088/java-net-connectexception-connection-refused-in-hadoop-while-using-shell-comman
+
+=====================================================================================================================================================
+#	HDFS Commands
+=====================================================================================================================================================
+#.	Create new directory on hdfs : hdfs dfs -mkdir /user
+#.	List the contents of a directory : hdfs dfs -ls /user
+#.	File copy :  hadoop fs -copyFromLocal /root/amit/hadoop-book/input/docs/quangle.txt hdfs://localhost:9000/user/amit/quangle.txt
+#.	File put : hadoop fs -put input/ncdc/sample.txt /user/test
+#.	File print : hadoop fs -cat /user/root/output/part-r-00000
+=====================================================================================================================================================
+#	YARN
+=====================================================================================================================================================
+#.	To check status of an application : yarn logs -applicationId application_1453903755565_0008 
+
+=====================================================================================================================================================
+#	My development enviornment details
+=====================================================================================================================================================
+#.	Run job on local 
+	#.	export HADOOP_CLASSPATH=ds.jar 
+	#.	hadoop MaxTemperature ../../input/ncdc/sample.txt output
+	#.	hadoop com.inbravo.hadoop.MaxTemperature ../hadoop-book/input/ncdc/sample.txt output
+	#.	Output is available at /output/part-r-00000
+#.	Run job on local cluster
+	#.	Put sample file on hdfs : hadoop fs -put input/ncdc/sample.txt /user/test
+	#.	Now run job with cluster : hadoop com.inbravo.hadoop.MaxTemperatureDriver -conf conf/hadoop-cluster.xml /user/test/sample.txt output
+	#.	Output is available at : hadoop fs -cat /user/root/output/part-r-00000
+
+=====================================================================================================================================================
+#	Processing tools information
+=====================================================================================================================================================
+#.	Spark : It performs Data-Parallel computations. 
+	#.	Data parallelism is achieved when each processor performs the same task on different pieces of distributed data
+	#.	Spark white paper : https://www.cs.berkeley.edu/~matei/papers/2012/nsdi_spark.pdf
+#.	Storm : It performs Task-Parallel computations. 
+	#.	Task parallelism is achieved when each processor executes a different thread (or process) on the same or different data.
+	#.	Documentation : http://spark.apache.org/docs/latest/
+#.	Tachyon
+	#.	Homepage: http://tachyon-project.org/documentation/index.html 
+#.	Spring XD
+	#.	http://projects.spring.io/spring-xd/
+#.	Nifi
+	#.	https://nifi.apache.org/docs.html
+=====================================================================================================================================================
+#	Comparision
+=====================================================================================================================================================
+#.	https://amplab.cs.berkeley.edu/benchmark/
+=====================================================================================================================================================
+#	Hadoop Certification
+=====================================================================================================================================================
+#.	Horten : http://hortonworks.com/training/class/hdp-certified-java-developer-exam/
+
+
