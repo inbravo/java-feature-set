@@ -18,7 +18,7 @@ public final class PredicateTest {
 		final Predicate<Integer> atLeast5 = (x) -> x > 5;
 
 		/* Create a list of numberss */
-		final List<Integer> integers = Arrays.asList(new Integer[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 });
+		final List<Integer> integers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
 
 		/* Weedout integers which have value less than 5 */
 		final List<Integer> filteredIntegers = integers.stream().filter(atLeast5).collect(Collectors.<Integer> toList());
