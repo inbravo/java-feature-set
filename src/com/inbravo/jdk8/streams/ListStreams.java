@@ -1,4 +1,4 @@
-package com.inbravo.stream;
+package com.inbravo.jdk8.streams;
 
 import java.util.Arrays;
 import java.util.List;

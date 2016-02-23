@@ -1,4 +1,4 @@
-package com.inbravo.lambda;
+package com.inbravo.jdk8.lambda;
 
 import java.util.Arrays;
 import java.util.Collections;
