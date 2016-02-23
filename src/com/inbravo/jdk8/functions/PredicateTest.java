@@ -20,9 +20,10 @@ public final class PredicateTest {
 		/* Create a list of numberss */
 		final List<Integer> integers = Arrays.asList(new Integer[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 });
 
-		/* Weedout integers which has value less than 5 */
+		/* Weedout integers which have value less than 5 */
 		final List<Integer> filteredIntegers = integers.stream().filter(atLeast5).collect(Collectors.<Integer> toList());
 
+		/* Print the list */
 		System.out.println(filteredIntegers);
 	}
 }

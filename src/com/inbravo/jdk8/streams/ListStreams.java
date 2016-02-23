@@ -16,5 +16,9 @@ public final class ListStreams {
 
 		/* Print only those strings which starts with char 'c' in sorted order */
 		myList.stream().filter(s -> s.startsWith("c")).map(String::toUpperCase).sorted().forEach(System.out::println);
+
+		/* Count number of elements. Method count is known as 'EAGER' */
+		System.out.println("Number of elements: "
+				+ myList.stream().filter(s -> s.startsWith("c")).map(String::toUpperCase).sorted().count());
 	}
 }
