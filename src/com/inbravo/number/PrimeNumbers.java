@@ -19,6 +19,13 @@ public final class PrimeNumbers {
 		/* Get input as int value from scanner */
 		final int number = in.nextInt();
 
+		/* Check if its prime */
+		primeUsingSqrt(number);
+		printAllPrimes(number);
+	}
+
+	public static final void printAllPrimes(final double number) {
+
 		if (number >= 1) {
 			System.out.println("First " + number + " prime numbers are :-");
 		}
@@ -44,5 +51,23 @@ public final class PrimeNumbers {
 				System.out.print(outer + " ");
 			}
 		}
+	}
+
+	public static final void primeUsingSqrt(final double number) {
+
+		boolean isPrime = true;
+
+		/* Check to see if the number is prime */
+		for (int counter = 2; counter < Math.sqrt(number); counter++) {
+
+			/* If no remainder */
+			if (number % counter == 0) {
+
+				/* It is not prime */
+				isPrime = false;
+				break;
+			}
+		}
+		System.out.println("Number " + number + " is: " + (isPrime == true ? "Prime" : "Not- Prime"));
 	}
 }
