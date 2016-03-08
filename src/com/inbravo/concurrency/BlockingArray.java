@@ -41,7 +41,7 @@ public final class BlockingArray {
 
 	/**
 	 * 
-	 * @param x
+	 * @param newObject
 	 * @throws InterruptedException
 	 */
 	public final void deposit(final Object newObject) throws InterruptedException {
