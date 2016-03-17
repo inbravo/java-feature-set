@@ -1,7 +1,10 @@
 package com.inbravo.memory;
 
+import java.lang.management.ManagementFactory;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.management.ObjectName;
 
 /**
  * Add as VM args: -Xmx512m -XX:+HeapDumpOnOutOfMemoryError
@@ -14,10 +17,14 @@ public final class OutOfMemoryErrorSim {
 	/* Number of default iterations */
 	private final static int NB_ITERATIONS = 500000;
 
-	// ~1 KB data footprint
-	private final static String LEAKING_DATA_PREFIX = "datadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadata";
+	/* ~1 KB data footprint */
+	private final static String LEAKING_DATA_PREFIX = "datadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadat"
+			+ "adatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatada"
+			+ "tadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatada"
+			+ "tadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadat"
+			+ "adatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadatadata";
 
-	// Map used to stored our leaking String instances
+	/* Map used to stored our leaking String instances */
 	private static Map<String, String> leakingMap;
 
 	static {
@@ -38,14 +45,14 @@ public final class OutOfMemoryErrorSim {
 
 				final String data = LEAKING_DATA_PREFIX + i;
 
-				// Add data to our leaking Map data structure...
+				/* Add data to our leaking Map data structure... */
 				leakingMap.put(data, data);
-				System.out.println("Thread bytes : " + Memory.getThreadAllocatedBytes());
+				System.out.println("Thread bytes : " + getThreadAllocatedBytes());
 			}
 
 		} catch (final Throwable any) {
 
-			// If error is OOM
+			/* If error is OOM */
 			if (any instanceof java.lang.OutOfMemoryError) {
 				System.out.println("OutOfMemoryError triggered! " + any.getMessage() + " [" + any + "]");
 
@@ -55,5 +62,14 @@ public final class OutOfMemoryErrorSim {
 		}
 
 		System.out.println("simulator done!");
+	}
+
+	public static final long getThreadAllocatedBytes() {
+		try {
+			return (Long) ManagementFactory.getPlatformMBeanServer().invoke(new ObjectName(ManagementFactory.THREAD_MXBEAN_NAME),
+					"getThreadAllocatedBytes", new Object[] { Thread.currentThread().getId() }, new String[] { long.class.getName() });
+		} catch (final Exception e) {
+			throw new IllegalArgumentException(e);
+		}
 	}
 }

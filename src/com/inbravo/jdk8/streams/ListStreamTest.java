@@ -19,6 +19,6 @@ public final class ListStreamTest {
 
 		/* Count number of elements. Method count is known as 'EAGER' */
 		System.out.println("Number of elements: "
-				+ myList.stream().filter(s -> s.startsWith("c")).map(String::toUpperCase).sorted().count());
+				+ myList.parallelStream().filter(s -> s.startsWith("c")).map(String::toUpperCase).sorted().count());
 	}
 }

@@ -34,7 +34,10 @@
 	<target depends="build-project" name="build" />
 
 	<target depends="init" name="build-project">
-		<echo message="${ant.project.name}: ${ant.file}" />
+		<echo message="==========================================================" />
+		<echo message="Project[${ant.project.name}] Build file: ${ant.file}" />
+		<echo message="Using Java version ${ant.java.version}." />
+		<echo message="==========================================================" />
 		<echo message="==========================================================" />
 		<echo message="COMPILE" />
 		<echo message="==========================================================" />
@@ -168,8 +171,27 @@
 		</java>
 	</target>
 
-	<target name="deploy" depends="build-project">
+	<target name="ObjectSize" depends="build">
+		<java classname="com.inbravo.memory.Memory" failonerror="true" fork="yes">
+			<classpath refid="java-src.classpath" />
+		</java>
+	</target>
+
+	<target name="deploy" depends="build">
 		<scp file="inbravo.jar" password="impetus" todir="root@192.168.148.76:/root/amit/spark/" trust="true" />
+	</target>
+
+	<target name="inst-jar" depends="build-project">
+		<echo message="==========================================================" />
+		<echo message="INSTRUMENTATION JAR" />
+		<echo message="==========================================================" />
+
+		<jar destfile="inbravo-inst.jar" basedir="bin">
+			<manifest>
+				<attribute name="Premain-class" value="com.inbravo.memory.inst.InstrumentationAgent" />
+				<attribute name="Agent-class" value="com.inbravo.memory.inst.InstrumentationAgent" />
+			</manifest>
+		</jar>
 	</target>
 
 </project>

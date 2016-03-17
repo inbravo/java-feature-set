@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /**
  * 
- * If two strings are made of same chars
+ * If two strings are made of same chars. A word, phrase, or name formed by rearranging the letters of another, such as spar, formed from rasp.
  * 
  * @author amit.dixit
  *
@@ -39,7 +39,7 @@ public final class Anagram {
 		final char[] firstStringChars = firstString.toLowerCase().toCharArray();
 		final char[] secondStringChars = secondString.toLowerCase().toCharArray();
 
-		/* Apply Dual Pivot sorting */
+		/* Apply Dual-Pivot Quicksort by Vladimir Yaroslavskiy, Jon Bentley, and Joshua Bloch */
 		Arrays.sort(firstStringChars);
 		Arrays.sort(secondStringChars);
 
