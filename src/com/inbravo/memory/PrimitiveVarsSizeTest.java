@@ -58,7 +58,7 @@ public final class PrimitiveVarsSizeTest {
 	/* Actual memory consumption = 16 bytes (12 bytes meta info + 4 byte for a 'char') */
 	static class CharClass {
 
-		/* 1 bytes each */
+		/* 2 bytes each */
 		char ch;
 
 		public CharClass(final char ch) {
