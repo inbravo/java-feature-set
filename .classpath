@@ -2,15 +2,6 @@
 <classpath>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk8"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="lib/javax.mail.jar"/>
-	<classpathentry kind="lib" path="lib/hadoop-common-2.5.1.jar"/>
-	<classpathentry kind="lib" path="lib/hadoop-mapreduce-client-core-2.5.1.jar" sourcepath="C:/Users/amit.dixit/.m2/repository/org/apache/hadoop/hadoop-mapreduce-client-core/2.5.1/hadoop-mapreduce-client-core-2.5.1-sources.jar"/>
-	<classpathentry kind="lib" path="lib/spark-core_2.10-1.5.2.jar"/>
-	<classpathentry kind="lib" path="lib/spark-streaming_2.10-1.5.2.jar"/>
-	<classpathentry kind="lib" path="lib/scala-library.jar"/>
-	<classpathentry kind="lib" path="lib/jsch-0.1.53.jar"/>
-	<classpathentry kind="lib" path="lib/guava-14.0-rc1.jar"/>
-	<classpathentry kind="lib" path="lib/log4j-1.2.17.jar"/>
-	<classpathentry kind="lib" path="lib/object-explorer.jar"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/JAVA-SRC-LIBS"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
