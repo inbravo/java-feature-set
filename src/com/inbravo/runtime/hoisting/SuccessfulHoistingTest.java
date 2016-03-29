@@ -1,4 +1,4 @@
-package com.inbravo.concurrency.hoisting;
+package com.inbravo.runtime.hoisting;
 
 import java.util.concurrent.TimeUnit;
 
