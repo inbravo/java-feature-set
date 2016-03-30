@@ -1,4 +1,4 @@
-package com.inbravo.runtime.hoisting;
+package com.inbravo.runtime.jit;
 
 import java.util.concurrent.TimeUnit;
 
@@ -7,17 +7,9 @@ import java.util.concurrent.TimeUnit;
  * @author amit.dixit
  *
  */
-public final class AnotherSuccessfullHoistingTest {
+public final class SuccessfulHoistingTest {
 
-  private static boolean stopRequested;
-
-  private static synchronized void requestStop() {
-    stopRequested = true;
-  }
-
-  private static synchronized boolean stopRequested() {
-    return stopRequested;
-  }
+  private static volatile boolean stopRequested;
 
   public static final void main(final String... args) throws InterruptedException {
 
@@ -28,7 +20,8 @@ public final class AnotherSuccessfullHoistingTest {
         @SuppressWarnings("unused")
         int i = 0;
 
-        while (!stopRequested()) {
+        /* Background thread will stop if stop is requested */
+        while (!stopRequested) {
           i++;
         }
       }
@@ -37,6 +30,8 @@ public final class AnotherSuccessfullHoistingTest {
     backgroundThread.start();
 
     TimeUnit.SECONDS.sleep(1);
-    requestStop();
+
+    /* Main thread is changing the status to true */
+    stopRequested = true;
   }
 }
