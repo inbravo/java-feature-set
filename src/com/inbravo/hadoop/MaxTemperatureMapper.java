@@ -14,18 +14,18 @@ import org.apache.hadoop.mapreduce.Mapper;
  */
 public final class MaxTemperatureMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
 
-	@Override
-	public final void map(final LongWritable key, final Text value, final Context context) throws IOException, InterruptedException {
+  @Override
+  public final void map(final LongWritable key, final Text value, final Context context) throws IOException, InterruptedException {
 
-		System.out.println("---Inside mapper : value : " + value);
+    System.out.println("---Inside mapper : value : " + value);
 
-		/* Split the line */
-		final String[] data = value.toString().split(":");
+    /* Split the line */
+    final String[] data = value.toString().split(":");
 
-		/* Get temperature */
-		int airTemperature = Integer.parseInt(data[1]);
+    /* Get temperature */
+    int airTemperature = Integer.parseInt(data[1]);
 
-		/* Write year:temperature on context */
-		context.write(new Text(data[0]), new IntWritable(airTemperature));
-	}
+    /* Write year:temperature on context */
+    context.write(new Text(data[0]), new IntWritable(airTemperature));
+  }
 }

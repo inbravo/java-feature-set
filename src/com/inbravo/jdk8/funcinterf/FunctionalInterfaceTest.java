@@ -7,13 +7,14 @@ package com.inbravo.jdk8.funcinterf;
  */
 public final class FunctionalInterfaceTest {
 
-	public static final void main(final String... args) {
+  public static final void main(final String... args) {
 
-		final Converter<String, Integer> converter = (from) -> Integer.valueOf(from);
+    final Converter<String, Integer> converter = (from) -> Integer.valueOf(from);
 
-		System.out.println(converter.convert("123"));
-	}
+    System.out.println(converter.convert("123"));
+  }
 }
+
 
 /**
  * FunctionalInterface can only contain one abstract method
@@ -26,5 +27,5 @@ public final class FunctionalInterfaceTest {
 @FunctionalInterface
 interface Converter<From, To> {
 
-	To convert(final From from);
+  To convert(final From from);
 }

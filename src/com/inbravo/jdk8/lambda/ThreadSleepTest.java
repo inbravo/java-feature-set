@@ -7,24 +7,24 @@ package com.inbravo.jdk8.lambda;
  */
 public final class ThreadSleepTest {
 
-	public static final void main(final String... args) {
+  public static final void main(final String... args) {
 
-		/* Runnable is a functional inteface now (java.lang.FunctionalInterface) */
-		final Runnable sleeper = () -> {
+    /* Runnable is a functional inteface now (java.lang.FunctionalInterface) */
+    final Runnable sleeper = () -> {
 
-			try {
-				for (int i = 0; i < 100; i++) {
+      try {
+        for (int i = 0; i < 100; i++) {
 
-					System.out.println("Zzz");
-					Thread.sleep(1000);
-				}
-			} catch (final InterruptedException e) {
+          System.out.println("Zzz");
+          Thread.sleep(1000);
+        }
+      } catch (final InterruptedException e) {
 
-				e.printStackTrace();
-			}
-		};
+        e.printStackTrace();
+      }
+    };
 
-		/* Start new thread */
-		new Thread(sleeper).start();
-	}
+    /* Start new thread */
+    new Thread(sleeper).start();
+  }
 }

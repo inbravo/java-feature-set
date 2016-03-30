@@ -7,25 +7,25 @@ package com.inbravo.ds.tree;
  */
 public final class TreeNode {
 
-	/* Data item (key) */
-	public int iData;
+  /* Data item (key) */
+  public int iData;
 
-	/* Data item */
-	public double dData;
+  /* Data item */
+  public double dData;
 
-	/* This node's left child */
-	public TreeNode leftChild;
+  /* This node's left child */
+  public TreeNode leftChild;
 
-	/* This node's right child */
-	public TreeNode rightChild;
+  /* This node's right child */
+  public TreeNode rightChild;
 
-	public TreeNode(final int iData, final double dData) {
-		this.iData = iData;
-		this.dData = dData;
-	}
+  public TreeNode(final int iData, final double dData) {
+    this.iData = iData;
+    this.dData = dData;
+  }
 
-	@Override
-	public final String toString() {
-		return "TreeNode [iData=" + iData + ", dData=" + dData + "]";
-	}
+  @Override
+  public final String toString() {
+    return "TreeNode [iData=" + iData + ", dData=" + dData + "]";
+  }
 }

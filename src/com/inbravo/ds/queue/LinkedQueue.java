@@ -10,81 +10,81 @@ import com.inbravo.ds.list.Link;
  */
 public final class LinkedQueue {
 
-	/* Double Ended Link List local storage */
-	private DoubleEndedLinkList linkList;
+  /* Double Ended Link List local storage */
+  private DoubleEndedLinkList linkList;
 
-	public LinkedQueue() {
+  public LinkedQueue() {
 
-		/* Create Double Ended Link List */
-		linkList = new DoubleEndedLinkList();
-	}
+    /* Create Double Ended Link List */
+    linkList = new DoubleEndedLinkList();
+  }
 
-	/**
-	 * Insert at REAR of queue
-	 * 
-	 * @param value
-	 */
-	public final void insert(final int value) {
+  /**
+   * Insert at REAR of queue
+   * 
+   * @param value
+   */
+  public final void insert(final int value) {
 
-		/* Insert at last position always */
-		linkList.insertLast(new Link(value, 0D));
-	}
+    /* Insert at last position always */
+    linkList.insertLast(new Link(value, 0D));
+  }
 
-	/**
-	 * Remove from FRONT of queue
-	 * 
-	 * @return
-	 */
-	public final long remove() {
+  /**
+   * Remove from FRONT of queue
+   * 
+   * @return
+   */
+  public final long remove() {
 
-		/* Remove only if Queue is not EMPTY */
-		if (!isEmpty()) {
+    /* Remove only if Queue is not EMPTY */
+    if (!isEmpty()) {
 
-			/* Delete from first position always */
-			final Link removedValue = linkList.deleteFirst();
+      /* Delete from first position always */
+      final Link removedValue = linkList.deleteFirst();
 
-			return removedValue.iData;
-		} else {
+      return removedValue.iData;
+    } else {
 
-			/* Throw error */
-			throw new RuntimeException("Queue is empty");
-		}
+      /* Throw error */
+      throw new RuntimeException("Queue is empty");
+    }
 
-	}
+  }
 
-	public final boolean isEmpty() {
+  public final boolean isEmpty() {
 
-		return linkList.isEmpty();
-	}
+    return linkList.isEmpty();
+  }
 
-	@Override
-	public final String toString() {
+  @Override
+  public final String toString() {
 
-		return linkList.toString();
-	}
+    return linkList.toString();
+  }
 
-	public static final void main(final String[] args) {
+  public static final void main(final String[] args) {
 
-		/* Create new queue */
-		final LinkedQueue queue = new LinkedQueue();
+    /* Create new queue */
+    final LinkedQueue queue = new LinkedQueue();
 
-		/* Check for empty */
-		System.out.println("Queue is empty ? " + queue.isEmpty());
+    /* Check for empty */
+    System.out.println("Queue is empty ? " + queue.isEmpty());
 
-		System.out.println("Before element insert : " + queue);
+    System.out.println("Before element insert : " + queue);
 
-		for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 10; i++) {
 
-			/* Insert items on queue */
-			queue.insert(i + 10);
-		}
+      /* Insert items on queue */
+      queue.insert(i + 10);
+    }
 
-		System.out.println("After element insert : " + queue);
+    System.out.println("After element insert : " + queue);
 
-		while (!queue.isEmpty()) {
-			System.out.println("Removed " + queue.remove());
-		}
+    while (!queue.isEmpty()) {
+      System.out.println("Removed " + queue.remove());
+    }
 
-		System.out.println("After element remove : " + queue);
-	}
+    System.out.println("After element remove : " + queue);
+  }
 }

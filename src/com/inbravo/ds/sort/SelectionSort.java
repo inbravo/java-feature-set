@@ -12,98 +12,98 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public final class SelectionSort {
 
-	private static long[] array;
+  private static long[] array;
 
-	private static final AtomicInteger index = new AtomicInteger(0);
+  private static final AtomicInteger index = new AtomicInteger(0);
 
-	public static final void createInstance(final int numberOfElements) {
+  public static final void createInstance(final int numberOfElements) {
 
-		/* Create new array with given size */
-		array = new long[numberOfElements];
-	}
+    /* Create new array with given size */
+    array = new long[numberOfElements];
+  }
 
-	public static final void add(final long... values) {
+  public static final void add(final long... values) {
 
-		/* Update the array to add more elements */
-		final long[] updatedArray = Arrays.copyOf(array, array.length + values.length);
+    /* Update the array to add more elements */
+    final long[] updatedArray = Arrays.copyOf(array, array.length + values.length);
 
-		for (int i = 0; i < values.length; i++) {
+    for (int i = 0; i < values.length; i++) {
 
-			/* Set the value at current index */
-			updatedArray[index.incrementAndGet()] = values[i];
-		}
+      /* Set the value at current index */
+      updatedArray[index.incrementAndGet()] = values[i];
+    }
 
-		array = updatedArray;
-	}
+    array = updatedArray;
+  }
 
-	public static final void add(final long value) {
+  public static final void add(final long value) {
 
-		/* Update the array to add more elements */
-		array = Arrays.copyOf(array, array.length + 1);
+    /* Update the array to add more elements */
+    array = Arrays.copyOf(array, array.length + 1);
 
-		/* Set the value at current index */
-		array[index.incrementAndGet()] = value;
-	}
+    /* Set the value at current index */
+    array[index.incrementAndGet()] = value;
+  }
 
-	/**
-	 * Selection Sort
-	 * 
-	 * @return
-	 */
-	public static final long[] sort() {
+  /**
+   * Selection Sort
+   * 
+   * @return
+   */
+  public static final long[] sort() {
 
-		/* Length of array */
-		final int lengthOfArr = array.length - 1;
+    /* Length of array */
+    final int lengthOfArr = array.length - 1;
 
-		/* Index of temporary minimum value */
-		int minimum;
+    /* Index of temporary minimum value */
+    int minimum;
 
-		/* Outer Loop (++): Start from start of array */
-		for (int outer = 0; outer < lengthOfArr; outer++) {
+    /* Outer Loop (++): Start from start of array */
+    for (int outer = 0; outer < lengthOfArr; outer++) {
 
-			/* Temporary minimum = outer loop counter */
-			minimum = outer;
+      /* Temporary minimum = outer loop counter */
+      minimum = outer;
 
-			/* Inner Loop (++): Start from Outer+1 untill end of array */
-			for (int inner = outer + 1; inner < lengthOfArr; inner++) {
+      /* Inner Loop (++): Start from Outer+1 untill end of array */
+      for (int inner = outer + 1; inner < lengthOfArr; inner++) {
 
-				/* change to > for ascending sort */
-				if (array[inner] < array[minimum]) {
+        /* change to > for ascending sort */
+        if (array[inner] < array[minimum]) {
 
-					/* Swap the elements */
-					minimum = inner;
-				}
-			}
+          /* Swap the elements */
+          minimum = inner;
+        }
+      }
 
-			/* Swap the elements */
-			swapValue(outer, minimum);
-		}
+      /* Swap the elements */
+      swapValue(outer, minimum);
+    }
 
-		return array;
-	}
+    return array;
+  }
 
-	private static final void swapValue(final int fromIndex, final int toIndex) {
+  private static final void swapValue(final int fromIndex, final int toIndex) {
 
-		/* Store value in temp */
-		final long tempVar = array[fromIndex];
+    /* Store value in temp */
+    final long tempVar = array[fromIndex];
 
-		/* Store new value at index */
-		array[fromIndex] = array[toIndex];
+    /* Store new value at index */
+    array[fromIndex] = array[toIndex];
 
-		/* Store updated value at second location */
-		array[toIndex] = tempVar;
-	}
+    /* Store updated value at second location */
+    array[toIndex] = tempVar;
+  }
 
-	public static void main(String[] args) {
+  public static void main(String[] args) {
 
-		/* Create a array first */
+    /* Create a array first */
 
-		array = new long[] { 10, 7, 4, 9, 1, 3, 8, 5, 2, 6, 12, 11, 14, 13 };
+    array = new long[] {10, 7, 4, 9, 1, 3, 8, 5, 2, 6, 12, 11, 14, 13};
 
-		System.out.println("Before sorting : " + Arrays.toString(array));
+    System.out.println("Before sorting : " + Arrays.toString(array));
 
-		sort();
+    sort();
 
-		System.out.println("After sorting : " + Arrays.toString(array));
-	}
+    System.out.println("After sorting : " + Arrays.toString(array));
+  }
 }

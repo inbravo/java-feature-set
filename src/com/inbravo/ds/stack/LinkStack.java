@@ -10,74 +10,74 @@ import com.inbravo.ds.list.LinkList;
  */
 public final class LinkStack {
 
-	/* Link List for local storage */
-	private LinkList linkList;
+  /* Link List for local storage */
+  private LinkList linkList;
 
-	public LinkStack() {
+  public LinkStack() {
 
-		/* Create new Link List */
-		linkList = new LinkList();
-	}
+    /* Create new Link List */
+    linkList = new LinkList();
+  }
 
-	/**
-	 * 
-	 * @param value
-	 */
-	public final void push(final int value) {
+  /**
+   * 
+   * @param value
+   */
+  public final void push(final int value) {
 
-		/* Insert at first position always */
-		linkList.insertFirst(new Link(value, 0D));
-	}
+    /* Insert at first position always */
+    linkList.insertFirst(new Link(value, 0D));
+  }
 
-	/**
-	 * 
-	 * @return
-	 */
-	public final int pop() {
+  /**
+   * 
+   * @return
+   */
+  public final int pop() {
 
-		/* Delete from first position always */
-		final Link poppedValue = linkList.deleteFirst();
+    /* Delete from first position always */
+    final Link poppedValue = linkList.deleteFirst();
 
-		return poppedValue.iData;
-	}
+    return poppedValue.iData;
+  }
 
-	/**
-	 * 
-	 * @return
-	 */
-	public final boolean isEmpty() {
+  /**
+   * 
+   * @return
+   */
+  public final boolean isEmpty() {
 
-		return linkList.isEmpty();
-	}
+    return linkList.isEmpty();
+  }
 
-	@Override
-	public final String toString() {
+  @Override
+  public final String toString() {
 
-		return linkList.toString();
-	}
+    return linkList.toString();
+  }
 
-	public static final void main(final String[] args) {
+  public static final void main(final String[] args) {
 
-		/* Create new stack */
-		final LinkStack stack = new LinkStack();
+    /* Create new stack */
+    final LinkStack stack = new LinkStack();
 
-		/* Check for empty */
-		System.out.println("Stack is empty ? " + stack.isEmpty());
+    /* Check for empty */
+    System.out.println("Stack is empty ? " + stack.isEmpty());
 
-		System.out.println("Before element push : " + stack);
+    System.out.println("Before element push : " + stack);
 
-		for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 10; i++) {
 
-			/* Push items on stack */
-			stack.push(i + 10);
-		}
+      /* Push items on stack */
+      stack.push(i + 10);
+    }
 
-		System.out.println("After element push : " + stack);
+    System.out.println("After element push : " + stack);
 
-		while (!stack.isEmpty()) {
-			System.out.println("Popped " + stack.pop());
-		}
+    while (!stack.isEmpty()) {
+      System.out.println("Popped " + stack.pop());
+    }
 
-		System.out.println("After element pop : " + stack);
-	}
+    System.out.println("After element pop : " + stack);
+  }
 }

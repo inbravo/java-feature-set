@@ -9,26 +9,26 @@ import java.math.BigInteger;
  */
 public final class IdentityHashCode {
 
-	public final static void main(final String... args) {
+  public final static void main(final String... args) {
 
-		/* Hash-code will be different */
-		System.out.println(System.identityHashCode(new String("1")));
-		System.out.println(System.identityHashCode(new String("2")));
-		System.out.println(System.identityHashCode(new String("1")));
+    /* Hash-code will be different */
+    System.out.println(System.identityHashCode(new String("1")));
+    System.out.println(System.identityHashCode(new String("2")));
+    System.out.println(System.identityHashCode(new String("1")));
 
-		/* Has-code will be same */
-		System.out.println(System.identityHashCode("1"));
-		System.out.println(System.identityHashCode("1"));
+    /* Has-code will be same */
+    System.out.println(System.identityHashCode("1"));
+    System.out.println(System.identityHashCode("1"));
 
-		System.out.println(IdentityHashCode.toHex("amit"));
-	}
+    System.out.println(IdentityHashCode.toHex("amit"));
+  }
 
-	/**
-	 * 
-	 * @param arg
-	 * @return
-	 */
-	private static final String toHex(final String arg) {
-		return String.format("%040x", new BigInteger(1, arg.getBytes(/* YOUR_CHARSET? */)));
-	}
+  /**
+   * 
+   * @param arg
+   * @return
+   */
+  private static final String toHex(final String arg) {
+    return String.format("%040x", new BigInteger(1, arg.getBytes(/* YOUR_CHARSET? */)));
+  }
 }

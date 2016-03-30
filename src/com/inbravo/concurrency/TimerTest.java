@@ -10,19 +10,19 @@ import java.util.TimerTask;
  */
 public final class TimerTest {
 
-	public final static void main(final String... args) {
+  public final static void main(final String... args) {
 
-		/* Create new timer */
-		final Timer timer = new Timer();
+    /* Create new timer */
+    final Timer timer = new Timer();
 
-		/* Add new timer task */
-		timer.schedule(new TimerTask() {
+    /* Add new timer task */
+    timer.schedule(new TimerTask() {
 
-			@Override
-			public final void run() {
-				System.out.println("------");
-			}
+      @Override
+      public final void run() {
+        System.out.println("------");
+      }
 
-		}, 0, 3000);
-	}
+    }, 0, 3000);
+  }
 }

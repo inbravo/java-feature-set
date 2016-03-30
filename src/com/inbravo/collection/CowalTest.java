@@ -28,7 +28,11 @@ public final class CowalTest {
 	 */
   public static final void withCowal() {
     System.out.println("No CMEx with Cowal >>>");
+
+    /* Create new COWAL */
     final CopyOnWriteArrayList<String> list = new CopyOnWriteArrayList<String>();
+
+    /* Add elements in COWAL */
     list.add("vivek");
     list.add("kumar");
 

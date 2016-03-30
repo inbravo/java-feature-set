@@ -7,18 +7,19 @@ package com.inbravo.puzzle;
  */
 public final class NoClassInstance {
 
-	public static final void main(final String... args) {
-		System.out.println(TestClass.noClassConstant);
-	}
+  public static final void main(final String... args) {
+    System.out.println(TestClass.noClassConstant);
+  }
 }
+
 
 /* This class will not be instantiated */
 final class TestClass {
 
-	public static final int noClassConstant = 100;
+  public static final int noClassConstant = 100;
 
-	/* This method will never be called */
-	static {
-		System.out.println("--TestClass loaded--");
-	}
+  /* This method will never be called */
+  static {
+    System.out.println("--TestClass loaded--");
+  }
 }

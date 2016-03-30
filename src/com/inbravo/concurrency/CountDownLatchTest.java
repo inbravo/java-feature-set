@@ -9,21 +9,22 @@ import java.util.concurrent.CountDownLatch;
  */
 public final class CountDownLatchTest {
 
-	public static final void main(final String... args) throws InterruptedException {
+  public static final void main(final String... args) throws InterruptedException {
 
-		/* A latch with 3 wait count */
-		final CountDownLatch latch = new CountDownLatch(3);
+    /* A latch with 3 wait count */
+    final CountDownLatch latch = new CountDownLatch(3);
 
-		final Waiter waiter = new Waiter(latch);
-		final Decrementer decrementer = new Decrementer(latch);
+    final Waiter waiter = new Waiter(latch);
+    final Decrementer decrementer = new Decrementer(latch);
 
-		/* Start anonymous threads */
-		new Thread(waiter).start();
-		new Thread(decrementer).start();
+    /* Start anonymous threads */
+    new Thread(waiter).start();
+    new Thread(decrementer).start();
 
-		Thread.sleep(4000);
-	}
+    Thread.sleep(4000);
+  }
 }
+
 
 /**
  * Inner class to perform work of Waiting Thread
@@ -33,24 +34,25 @@ public final class CountDownLatchTest {
  */
 final class Waiter implements Runnable {
 
-	CountDownLatch latch = null;
+  CountDownLatch latch = null;
 
-	public Waiter(final CountDownLatch latch) {
-		this.latch = latch;
-	}
+  public Waiter(final CountDownLatch latch) {
+    this.latch = latch;
+  }
 
-	public void run() {
-		try {
+  public void run() {
+    try {
 
-			/* All threads will wait here untill latch count down 3 times */
-			latch.await();
+      /* All threads will wait here untill latch count down 3 times */
+      latch.await();
 
-			System.out.println("Waiter Released");
-		} catch (final InterruptedException e) {
-			e.printStackTrace();
-		}
-	}
+      System.out.println("Waiter Released");
+    } catch (final InterruptedException e) {
+      e.printStackTrace();
+    }
+  }
 }
+
 
 /**
  * Inner class to perform work of Decrementing Thread
@@ -60,32 +62,32 @@ final class Waiter implements Runnable {
  */
 final class Decrementer implements Runnable {
 
-	CountDownLatch latch = null;
+  CountDownLatch latch = null;
 
-	public Decrementer(final CountDownLatch latch) {
-		this.latch = latch;
-	}
+  public Decrementer(final CountDownLatch latch) {
+    this.latch = latch;
+  }
 
-	public void run() {
+  public void run() {
 
-		try {
-			Thread.sleep(1000);
+    try {
+      Thread.sleep(1000);
 
-			/* First countdown */
-			this.latch.countDown();
+      /* First countdown */
+      this.latch.countDown();
 
-			Thread.sleep(1000);
+      Thread.sleep(1000);
 
-			/* Second countdown */
-			this.latch.countDown();
+      /* Second countdown */
+      this.latch.countDown();
 
-			Thread.sleep(1000);
+      Thread.sleep(1000);
 
-			/* Third countdown */
-			this.latch.countDown();
+      /* Third countdown */
+      this.latch.countDown();
 
-		} catch (final InterruptedException e) {
-			e.printStackTrace();
-		}
-	}
+    } catch (final InterruptedException e) {
+      e.printStackTrace();
+    }
+  }
 }

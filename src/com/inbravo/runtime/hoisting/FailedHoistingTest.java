@@ -7,6 +7,8 @@ import java.util.concurrent.TimeUnit;
  * affect the result of the operation. In your case, you are hoisting the conditional test out of
  * the while loop.
  * 
+ * Add this flag at runtime: -XX:+PrintCompilation
+ * 
  * @author amit.dixit
  *
  */

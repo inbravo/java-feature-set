@@ -17,45 +17,45 @@ import org.apache.hadoop.util.ToolRunner;
  */
 public final class MaxTemperatureDriver extends Configured implements Tool {
 
-	@Override
-	public final int run(final String[] args) throws Exception {
+  @Override
+  public final int run(final String[] args) throws Exception {
 
-		if (args.length != 2) {
-			System.err.printf("Usage: %s [generic options] <input path> <output path>", getClass().getSimpleName());
-			System.exit(-1);
-		}
+    if (args.length != 2) {
+      System.err.printf("Usage: %s [generic options] <input path> <output path>", getClass().getSimpleName());
+      System.exit(-1);
+    }
 
-		/* Create new hadoop job instance */
-		@SuppressWarnings("deprecation")
-		final Job job = new Job(super.getConf(), "Max temperature");
+    /* Create new hadoop job instance */
+    @SuppressWarnings("deprecation")
+    final Job job = new Job(super.getConf(), "Max temperature");
 
-		/* Set job class information */
-		job.setJarByClass(getClass());
+    /* Set job class information */
+    job.setJarByClass(getClass());
 
-		/* Add file type input/output format */
-		FileInputFormat.addInputPath(job, new Path(args[0]));
-		FileOutputFormat.setOutputPath(job, new Path(args[1]));
+    /* Add file type input/output format */
+    FileInputFormat.addInputPath(job, new Path(args[0]));
+    FileOutputFormat.setOutputPath(job, new Path(args[1]));
 
-		/* Set mapper */
-		job.setMapperClass(MaxTemperatureMapper.class);
+    /* Set mapper */
+    job.setMapperClass(MaxTemperatureMapper.class);
 
-		/* Set combiner */
-		job.setCombinerClass(MaxTemperatureReducer.class);
+    /* Set combiner */
+    job.setCombinerClass(MaxTemperatureReducer.class);
 
-		/* Set reducer */
-		job.setReducerClass(MaxTemperatureReducer.class);
+    /* Set reducer */
+    job.setReducerClass(MaxTemperatureReducer.class);
 
-		/* Set output information */
-		job.setOutputKeyClass(Text.class);
-		job.setOutputValueClass(IntWritable.class);
+    /* Set output information */
+    job.setOutputKeyClass(Text.class);
+    job.setOutputValueClass(IntWritable.class);
 
-		return job.waitForCompletion(true) ? 0 : 1;
-	}
+    return job.waitForCompletion(true) ? 0 : 1;
+  }
 
-	public static final void main(final String[] args) throws Exception {
+  public static final void main(final String[] args) throws Exception {
 
-		/* Run with tool runner so that yarn can show the progress */
-		final int exitCode = ToolRunner.run(new MaxTemperatureDriver(), args);
-		System.exit(exitCode);
-	}
+    /* Run with tool runner so that yarn can show the progress */
+    final int exitCode = ToolRunner.run(new MaxTemperatureDriver(), args);
+    System.exit(exitCode);
+  }
 }

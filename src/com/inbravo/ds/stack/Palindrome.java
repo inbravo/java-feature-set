@@ -7,34 +7,34 @@ package com.inbravo.ds.stack;
  */
 public final class Palindrome {
 
-	public static final void main(final String... args) {
+  public static final void main(final String... args) {
 
-		final String inputString = "KATAK";
+    final String inputString = "KATAK";
 
-		/* Check if reverse of string is palindrom */
-		if (checkIfPalindrome(inputString)) {
+    /* Check if reverse of string is palindrom */
+    if (checkIfPalindrome(inputString)) {
 
-			System.out.println("User string '" + inputString + "' is found to be a Palindrom");
-		} else {
+      System.out.println("User string '" + inputString + "' is found to be a Palindrom");
+    } else {
 
-			System.out.println("User string '" + inputString + "' is not a Palindrom");
-		}
-	}
+      System.out.println("User string '" + inputString + "' is not a Palindrom");
+    }
+  }
 
-	/**
-	 * 
-	 * @param inputString
-	 * @return
-	 */
-	private static final boolean checkIfPalindrome(final String inputString) {
+  /**
+   * 
+   * @param inputString
+   * @return
+   */
+  private static final boolean checkIfPalindrome(final String inputString) {
 
-		/* Check if reverse of string is palindrom */
-		if (inputString.equals(ReverseTheWord.reverse(inputString))) {
+    /* Check if reverse of string is palindrom */
+    if (inputString.equals(ReverseTheWord.reverse(inputString))) {
 
-			return true;
-		} else {
+      return true;
+    } else {
 
-			return false;
-		}
-	}
+      return false;
+    }
+  }
 }

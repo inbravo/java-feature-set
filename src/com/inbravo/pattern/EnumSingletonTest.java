@@ -9,11 +9,12 @@ import java.util.Arrays;
  */
 public final class EnumSingletonTest {
 
-	public static final void main(final String... args) {
+  public static final void main(final String... args) {
 
-		SingletonEnum.INSTANCE.printFavorites();
-	}
+    SingletonEnum.INSTANCE.printFavorites();
+  }
 }
+
 
 /**
  * 
@@ -22,12 +23,12 @@ public final class EnumSingletonTest {
  */
 enum SingletonEnum {
 
-	/* Only available instance */
-	INSTANCE;
+  /* Only available instance */
+  INSTANCE;
 
-	private final String[] favoriteSongs = { "The rainmaker", "Beyond the deap sea" };
+  private final String[] favoriteSongs = {"The rainmaker", "Beyond the deap sea"};
 
-	public void printFavorites() {
-		System.out.println(Arrays.toString(favoriteSongs));
-	}
+  public void printFavorites() {
+    System.out.println(Arrays.toString(favoriteSongs));
+  }
 }

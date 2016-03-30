@@ -4,25 +4,25 @@ import java.io.File;
 
 public class FileConv {
 
-	private static final String mainLocation = "D:\\personal\\songs\\classical-songs";
+  private static final String mainLocation = "D:\\personal\\songs\\classical-songs";
 
-	public static void main(String[] args) {
+  public static void main(String[] args) {
 
-		final File folder = new File(mainLocation);
+    final File folder = new File(mainLocation);
 
-		final File[] listOfFiles = folder.listFiles();
+    final File[] listOfFiles = folder.listFiles();
 
-		for (int i = 0; i < listOfFiles.length; i++) {
+    for (int i = 0; i < listOfFiles.length; i++) {
 
-			/* If a file */
-			if (listOfFiles[i].isFile()) {
+      /* If a file */
+      if (listOfFiles[i].isFile()) {
 
-				final File f = new File(mainLocation + "\\" + listOfFiles[i].getName());
+        final File f = new File(mainLocation + "\\" + listOfFiles[i].getName());
 
-				f.renameTo(new File(mainLocation + "\\" + f.getName().toLowerCase().replaceAll(" ", "")));
-			}
-		}
+        f.renameTo(new File(mainLocation + "\\" + f.getName().toLowerCase().replaceAll(" ", "")));
+      }
+    }
 
-		System.out.println("conversion is done");
-	}
+    System.out.println("conversion is done");
+  }
 }

@@ -10,120 +10,120 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public final class PriorityQueue {
 
-	/* Array for local storage */
-	private final long[] storage;
+  /* Array for local storage */
+  private final long[] storage;
 
-	/* Maximum size limit of queue */
-	private final int maxSize;
+  /* Maximum size limit of queue */
+  private final int maxSize;
 
-	/* Numbers of item in queue */
-	private final AtomicInteger currentItemsCount = new AtomicInteger(0);
+  /* Numbers of item in queue */
+  private final AtomicInteger currentItemsCount = new AtomicInteger(0);
 
-	public PriorityQueue(final int maxSize) {
+  public PriorityQueue(final int maxSize) {
 
-		/* Create array with given size of queue */
-		storage = new long[maxSize];
+    /* Create array with given size of queue */
+    storage = new long[maxSize];
 
-		/* Set max size */
-		this.maxSize = maxSize;
-	}
+    /* Set max size */
+    this.maxSize = maxSize;
+  }
 
-	/**
-	 * Insert at a suitable position of queue
-	 * 
-	 * @param value
-	 */
-	public final void insert(final long value) {
+  /**
+   * Insert at a suitable position of queue
+   * 
+   * @param value
+   */
+  public final void insert(final long value) {
 
-		/* If internal storage is empty */
-		if (currentItemsCount.get() == 0) {
+    /* If internal storage is empty */
+    if (currentItemsCount.get() == 0) {
 
-			/* Store the value at first position */
-			storage[currentItemsCount.getAndIncrement()] = value;
-		}
-		/* Fit at correct position */
-		else {
-			int i;
+      /* Store the value at first position */
+      storage[currentItemsCount.getAndIncrement()] = value;
+    }
+    /* Fit at correct position */
+    else {
+      int i;
 
-			/* Iterate on array */
-			for (i = currentItemsCount.get() - 1; i >= 0; i--) {
+      /* Iterate on array */
+      for (i = currentItemsCount.get() - 1; i >= 0; i--) {
 
-				/* Check if value to be inserted, is smaller than current index value */
-				if (value <= storage[i]) {
+        /* Check if value to be inserted, is smaller than current index value */
+        if (value <= storage[i]) {
 
-					/* Shift all greater elements to one index higher */
-					storage[i + 1] = storage[i];
-				} else {
-					break;
-				}
-			}
+          /* Shift all greater elements to one index higher */
+          storage[i + 1] = storage[i];
+        } else {
+          break;
+        }
+      }
 
-			/* Put insertion value at cavity created by last loop */
-			storage[i + 1] = value;
+      /* Put insertion value at cavity created by last loop */
+      storage[i + 1] = value;
 
-			/* Increment the current items count */
-			currentItemsCount.incrementAndGet();
-		}
-	}
+      /* Increment the current items count */
+      currentItemsCount.incrementAndGet();
+    }
+  }
 
-	/**
-	 * Remove from FRONT of queue
-	 * 
-	 * @return
-	 */
-	public final long remove() {
+  /**
+   * Remove from FRONT of queue
+   * 
+   * @return
+   */
+  public final long remove() {
 
-		/* Reset the current front value and increment */
-		return storage[currentItemsCount.decrementAndGet()];
-	}
+    /* Reset the current front value and increment */
+    return storage[currentItemsCount.decrementAndGet()];
+  }
 
-	public final long peekFront() {
+  public final long peekFront() {
 
-		/* Return value at current index */
-		return storage[currentItemsCount.get()];
-	}
+    /* Return value at current index */
+    return storage[currentItemsCount.get()];
+  }
 
-	public final boolean isFull() {
+  public final boolean isFull() {
 
-		return (currentItemsCount.get() == maxSize);
-	}
+    return (currentItemsCount.get() == maxSize);
+  }
 
-	public final boolean isEmpty() {
+  public final boolean isEmpty() {
 
-		return (currentItemsCount.get() == 0);
-	}
+    return (currentItemsCount.get() == 0);
+  }
 
-	@Override
-	public final String toString() {
+  @Override
+  public final String toString() {
 
-		return (Arrays.toString(storage));
-	}
+    return (Arrays.toString(storage));
+  }
 
-	public static final void main(final String... args) {
+  public static final void main(final String... args) {
 
-		/* Create new queue */
-		final PriorityQueue queue = new PriorityQueue(10);
+    /* Create new queue */
+    final PriorityQueue queue = new PriorityQueue(10);
 
-		/* Check for full */
-		System.out.println("Queue is full ? " + queue.isFull());
+    /* Check for full */
+    System.out.println("Queue is full ? " + queue.isFull());
 
-		/* Check for empty */
-		System.out.println("Queue is empty ? " + queue.isEmpty());
+    /* Check for empty */
+    System.out.println("Queue is empty ? " + queue.isEmpty());
 
-		System.out.println("Before element insert : " + queue);
+    System.out.println("Before element insert : " + queue);
 
-		/* Insert items on queue */
-		queue.insert(1);
-		System.out.println("After element inserting value '1' : " + queue);
-		queue.insert(3);
-		System.out.println("After element inserting value '3' : " + queue);
-		queue.insert(4);
-		System.out.println("After element inserting value '4' : " + queue);
-		queue.insert(2);
-		System.out.println("After element inserting value '2' : " + queue);
-		queue.insert(3);
-		System.out.println("After element inserting value '3' : " + queue);
-		queue.insert(1);
-		System.out.println("After element inserting value '1' : " + queue);
-	}
+    /* Insert items on queue */
+    queue.insert(1);
+    System.out.println("After element inserting value '1' : " + queue);
+    queue.insert(3);
+    System.out.println("After element inserting value '3' : " + queue);
+    queue.insert(4);
+    System.out.println("After element inserting value '4' : " + queue);
+    queue.insert(2);
+    System.out.println("After element inserting value '2' : " + queue);
+    queue.insert(3);
+    System.out.println("After element inserting value '3' : " + queue);
+    queue.insert(1);
+    System.out.println("After element inserting value '1' : " + queue);
+  }
 }

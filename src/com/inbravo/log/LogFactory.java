@@ -17,83 +17,83 @@ import org.apache.log4j.PropertyConfigurator;
  */
 public final class LogFactory {
 
-	private static AtomicBoolean initialized = new AtomicBoolean(false);
-	private static final String logConfigFile = "inbravo-log4j.properties";
-	private static final String versionConfigFile = "inbravo-version.txt";
-	private static String releaseVersion;
+  private static AtomicBoolean initialized = new AtomicBoolean(false);
+  private static final String logConfigFile = "inbravo-log4j.properties";
+  private static final String versionConfigFile = "inbravo-version.txt";
+  private static String releaseVersion;
 
-	/**
+  /**
 	 * 
 	 */
-	private static final void init() {
-		try {
-			/* Get file locations */
-			final URL loggingFileLocation = LogFactory.class.getClassLoader().getResource(logConfigFile);
+  private static final void init() {
+    try {
+      /* Get file locations */
+      final URL loggingFileLocation = LogFactory.class.getClassLoader().getResource(logConfigFile);
 
-			System.out.println("==========================================================================================");
-			System.out.println("=== Release : '" + getReleaseVersion() + "'");
-			System.out.println("=== Logging file : '" + loggingFileLocation + "'");
-			System.out.println("==========================================================================================");
+      System.out.println("==========================================================================================");
+      System.out.println("=== Release : '" + getReleaseVersion() + "'");
+      System.out.println("=== Logging file : '" + loggingFileLocation + "'");
+      System.out.println("==========================================================================================");
 
-			/* Configure Log4j */
-			PropertyConfigurator.configure(loggingFileLocation);
+      /* Configure Log4j */
+      PropertyConfigurator.configure(loggingFileLocation);
 
-			/* Log4j is initialized */
-			initialized.getAndSet(true);
+      /* Log4j is initialized */
+      initialized.getAndSet(true);
 
-		} catch (final Exception e) {
-			e.printStackTrace();
-			System.err.println("***Exception in initialization of PortPS System services " + e);
-		}
-	}
+    } catch (final Exception e) {
+      e.printStackTrace();
+      System.err.println("***Exception in initialization of PortPS System services " + e);
+    }
+  }
 
-	/**
-	 * 
-	 * @param versionFileLocation
-	 * @return
-	 * @throws IOException
-	 */
-	private static final String getReleaseVersion() throws IOException {
+  /**
+   * 
+   * @param versionFileLocation
+   * @return
+   * @throws IOException
+   */
+  private static final String getReleaseVersion() throws IOException {
 
-		BufferedReader bReader = null;
-		InputStreamReader inputStreamReader = null;
-		try {
-			/* Get byte code version information */
-			inputStreamReader = new InputStreamReader(LogFactory.class.getResourceAsStream("/" + versionConfigFile));
-			bReader = new BufferedReader(inputStreamReader);
+    BufferedReader bReader = null;
+    InputStreamReader inputStreamReader = null;
+    try {
+      /* Get byte code version information */
+      inputStreamReader = new InputStreamReader(LogFactory.class.getResourceAsStream("/" + versionConfigFile));
+      bReader = new BufferedReader(inputStreamReader);
 
-			/* Read version */
-			releaseVersion = bReader.readLine();
+      /* Read version */
+      releaseVersion = bReader.readLine();
 
-			return releaseVersion;
+      return releaseVersion;
 
-		} finally {
-			if (bReader != null) {
+    } finally {
+      if (bReader != null) {
 
-				/* Close the reader */
-				bReader.close();
-			}
+        /* Close the reader */
+        bReader.close();
+      }
 
-			if (inputStreamReader != null) {
+      if (inputStreamReader != null) {
 
-				/* Close the reader */
-				inputStreamReader.close();
-			}
-		}
-	}
+        /* Close the reader */
+        inputStreamReader.close();
+      }
+    }
+  }
 
-	/**
-	 * 
-	 * @param clazz
-	 * @return
-	 */
-	public static final Logger getLogger(@SuppressWarnings("rawtypes") final Class clazz) {
+  /**
+   * 
+   * @param clazz
+   * @return
+   */
+  public static final Logger getLogger(@SuppressWarnings("rawtypes") final Class clazz) {
 
-		if (!initialized.get()) {
+    if (!initialized.get()) {
 
-			init();
-		}
+      init();
+    }
 
-		return Logger.getLogger(clazz);
-	}
+    return Logger.getLogger(clazz);
+  }
 }

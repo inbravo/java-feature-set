@@ -9,27 +9,27 @@ import java.util.Scanner;
  */
 public final class FloydsTriangle {
 
-	public static final void main(final String... arg) {
+  public static final void main(final String... arg) {
 
-		@SuppressWarnings("resource")
-		final Scanner in = new Scanner(System.in);
+    @SuppressWarnings("resource")
+    final Scanner in = new Scanner(System.in);
 
-		System.out.println("Enter the number of rows of floyd's triangle you want");
-		final int number = in.nextInt();
+    System.out.println("Enter the number of rows of floyd's triangle you want");
+    final int number = in.nextInt();
 
-		System.out.println("Floyd's triangle :-");
+    System.out.println("Floyd's triangle :-");
 
-		int num = 1;
+    int num = 1;
 
-		for (int outer = 1; outer <= number; outer++) {
+    for (int outer = 1; outer <= number; outer++) {
 
-			for (int inner = 1; inner <= outer; inner++) {
+      for (int inner = 1; inner <= outer; inner++) {
 
-				System.out.print(num + " ");
-				num++;
-			}
+        System.out.print(num + " ");
+        num++;
+      }
 
-			System.out.println();
-		}
-	}
+      System.out.println();
+    }
+  }
 }

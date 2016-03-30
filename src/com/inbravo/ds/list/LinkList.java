@@ -8,157 +8,157 @@ package com.inbravo.ds.list;
  */
 public final class LinkList {
 
-	private Link first;
+  private Link first;
 
-	public LinkList() {
-		first = null;
-	}
+  public LinkList() {
+    first = null;
+  }
 
-	/**
-	 * 
-	 * @param newLink
-	 */
-	public final void insertFirst(final Link newLink) {
+  /**
+   * 
+   * @param newLink
+   */
+  public final void insertFirst(final Link newLink) {
 
-		/* First node will become next of new link */
-		newLink.next = first;
+    /* First node will become next of new link */
+    newLink.next = first;
 
-		/* Put new link in first position */
-		first = newLink;
-	}
+    /* Put new link in first position */
+    first = newLink;
+  }
 
-	/**
-	 * 
-	 * @return
-	 */
-	public final Link deleteFirst() {
+  /**
+   * 
+   * @return
+   */
+  public final Link deleteFirst() {
 
-		/* Take first link in temp */
-		final Link temp = first;
+    /* Take first link in temp */
+    final Link temp = first;
 
-		first = first.next;
-		return temp;
-	}
+    first = first.next;
+    return temp;
+  }
 
-	/**
-	 * 
-	 * @param key
-	 * @return
-	 */
-	public final Link find(final int key) {
+  /**
+   * 
+   * @param key
+   * @return
+   */
+  public final Link find(final int key) {
 
-		/* Start from first as current link */
-		Link current = first;
+    /* Start from first as current link */
+    Link current = first;
 
-		/* Loop until key is not found */
-		while (current.iData != key) {
+    /* Loop until key is not found */
+    while (current.iData != key) {
 
-			if (current.next == null) {
+      if (current.next == null) {
 
-				return null;
-			} else {
+        return null;
+      } else {
 
-				/* Make next node as current */
-				current = current.next;
-			}
-		}
+        /* Make next node as current */
+        current = current.next;
+      }
+    }
 
-		return current;
-	}
+    return current;
+  }
 
-	/**
-	 * 
-	 * @param key
-	 * @return
-	 */
-	public final Link delete(final int key) {
+  /**
+   * 
+   * @param key
+   * @return
+   */
+  public final Link delete(final int key) {
 
-		/* Start from first as current link */
-		Link current = first;
-		Link previous = first;
+    /* Start from first as current link */
+    Link current = first;
+    Link previous = first;
 
-		/* Loop until key is not found */
-		while (current.iData != key) {
+    /* Loop until key is not found */
+    while (current.iData != key) {
 
-			if (current.next == null) {
+      if (current.next == null) {
 
-				return null;
-			} else {
+        return null;
+      } else {
 
-				/* Go to Previous Link of Current Link */
-				previous = current;
+        /* Go to Previous Link of Current Link */
+        previous = current;
 
-				/* Make Current's Next Link as Current Link */
-				current = current.next;
-			}
-		}
+        /* Make Current's Next Link as Current Link */
+        current = current.next;
+      }
+    }
 
-		/* If Current Link is First Link */
-		if (current == first) {
+    /* If Current Link is First Link */
+    if (current == first) {
 
-			/* Change First */
-			first = first.next;
-		} else {
+      /* Change First */
+      first = first.next;
+    } else {
 
-			/* Bypass Current Link Now */
-			previous.next = current.next;
-		}
+      /* Bypass Current Link Now */
+      previous.next = current.next;
+    }
 
-		return current;
-	}
+    return current;
+  }
 
-	@Override
-	public final String toString() {
+  @Override
+  public final String toString() {
 
-		String output = "";
+    String output = "";
 
-		/* Start from first link */
-		Link current = first;
+    /* Start from first link */
+    Link current = first;
 
-		while (current != null) {
+    while (current != null) {
 
-			/* Add current link info */
-			output = output + current + "\n";
+      /* Add current link info */
+      output = output + current + "\n";
 
-			/* Get next as current */
-			current = current.next;
-		}
+      /* Get next as current */
+      current = current.next;
+    }
 
-		return output;
-	}
+    return output;
+  }
 
-	public final boolean isEmpty() {
-		return (first == null);
-	}
+  public final boolean isEmpty() {
+    return (first == null);
+  }
 
-	public static final void main(final String... args) {
+  public static final void main(final String... args) {
 
-		/* Create new LinkList */
-		final LinkList linkList = new LinkList();
+    /* Create new LinkList */
+    final LinkList linkList = new LinkList();
 
-		/* Add Links */
-		linkList.insertFirst(new Link(10, 100.001));
-		linkList.insertFirst(new Link(20, 200.002));
-		linkList.insertFirst(new Link(30, 300.003));
-		linkList.insertFirst(new Link(40, 400.004));
-		linkList.insertFirst(new Link(50, 500.005));
-		linkList.insertFirst(new Link(60, 600.006));
-		linkList.insertFirst(new Link(70, 700.007));
-		linkList.insertFirst(new Link(80, 800.008));
-		linkList.insertFirst(new Link(90, 900.009));
+    /* Add Links */
+    linkList.insertFirst(new Link(10, 100.001));
+    linkList.insertFirst(new Link(20, 200.002));
+    linkList.insertFirst(new Link(30, 300.003));
+    linkList.insertFirst(new Link(40, 400.004));
+    linkList.insertFirst(new Link(50, 500.005));
+    linkList.insertFirst(new Link(60, 600.006));
+    linkList.insertFirst(new Link(70, 700.007));
+    linkList.insertFirst(new Link(80, 800.008));
+    linkList.insertFirst(new Link(90, 900.009));
 
-		System.out.println(linkList);
+    System.out.println(linkList);
 
-		System.out.println("Check if Link(70, 700.007) is existing in List : " + linkList.find(70));
+    System.out.println("Check if Link(70, 700.007) is existing in List : " + linkList.find(70));
 
-		System.out.println("Delete Link(70, 700.007)" + linkList.delete(70));
-		System.out.println("After Deletion : " + linkList);
+    System.out.println("Delete Link(70, 700.007)" + linkList.delete(70));
+    System.out.println("After Deletion : " + linkList);
 
-		while (!linkList.isEmpty()) {
+    while (!linkList.isEmpty()) {
 
-			/* Delete first link */
-			final Link deleted = linkList.deleteFirst();
-			System.out.println("Deleted : " + deleted + "\n");
-		}
-	}
+      /* Delete first link */
+      final Link deleted = linkList.deleteFirst();
+      System.out.println("Deleted : " + deleted + "\n");
+    }
+  }
 }

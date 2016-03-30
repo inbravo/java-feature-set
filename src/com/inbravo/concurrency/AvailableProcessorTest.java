@@ -7,10 +7,10 @@ package com.inbravo.concurrency;
  */
 public final class AvailableProcessorTest {
 
-	public static final void main(final String... args) {
+  public static final void main(final String... args) {
 
-		final int numProcessores = Runtime.getRuntime().availableProcessors();
+    final int numProcessores = Runtime.getRuntime().availableProcessors();
 
-		System.out.println("Processor has " + numProcessores + " cores");
-	}
+    System.out.println("Processor has " + numProcessores + " cores");
+  }
 }

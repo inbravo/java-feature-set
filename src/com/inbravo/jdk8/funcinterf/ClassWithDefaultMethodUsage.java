@@ -7,25 +7,26 @@ package com.inbravo.jdk8.funcinterf;
  */
 public final class ClassWithDefaultMethodUsage implements SubInterfaceWithMethod {
 
-	@Override
-	public double calculate(int a) {
-		System.out.println("ClassWithDefaultMethodUsage.sqrt");
-		return a * a;
-	}
+  @Override
+  public double calculate(int a) {
+    System.out.println("ClassWithDefaultMethodUsage.sqrt");
+    return a * a;
+  }
 
-	public static final void main(final String... args) {
+  public static final void main(final String... args) {
 
-		/* Create all possible instances */
-		final InterfaceWithMethod interfaceWithMethod = new ClassWithDefaultMethodUsage();
-		final SubInterfaceWithMethod subInterfaceWithMethod = new ClassWithDefaultMethodUsage();
-		final ClassWithDefaultMethodUsage classWithDefaultMethodUsage = new ClassWithDefaultMethodUsage();
+    /* Create all possible instances */
+    final InterfaceWithMethod interfaceWithMethod = new ClassWithDefaultMethodUsage();
+    final SubInterfaceWithMethod subInterfaceWithMethod = new ClassWithDefaultMethodUsage();
+    final ClassWithDefaultMethodUsage classWithDefaultMethodUsage = new ClassWithDefaultMethodUsage();
 
-		/* Call same method from all objects */
-		interfaceWithMethod.sqrt(1);
-		subInterfaceWithMethod.sqrt(1);
-		classWithDefaultMethodUsage.sqrt(1);
-	}
+    /* Call same method from all objects */
+    interfaceWithMethod.sqrt(1);
+    subInterfaceWithMethod.sqrt(1);
+    classWithDefaultMethodUsage.sqrt(1);
+  }
 }
+
 
 /**
  * 
@@ -34,14 +35,15 @@ public final class ClassWithDefaultMethodUsage implements SubInterfaceWithMethod
  */
 interface SubInterfaceWithMethod extends InterfaceWithMethod {
 
-	/**
-	 * This method will replace the super interface method
-	 */
-	default double sqrt(final int a) {
-		System.out.println("SubInterfaceWithMethod.sqrt");
-		return Math.sqrt(a);
-	}
+  /**
+   * This method will replace the super interface method
+   */
+  default double sqrt(final int a) {
+    System.out.println("SubInterfaceWithMethod.sqrt");
+    return Math.sqrt(a);
+  }
 }
+
 
 /**
  * 
@@ -50,10 +52,10 @@ interface SubInterfaceWithMethod extends InterfaceWithMethod {
  */
 interface InterfaceWithMethod {
 
-	double calculate(int a);
+  double calculate(int a);
 
-	default double sqrt(final int a) {
-		System.out.println("InterfaceWithMethod.sqrt");
-		return Math.sqrt(a);
-	}
+  default double sqrt(final int a) {
+    System.out.println("InterfaceWithMethod.sqrt");
+    return Math.sqrt(a);
+  }
 }
