@@ -15,7 +15,7 @@ public final class AnotherSuccessfullHoistingTest {
     stopRequested = true;
   }
 
-  private static synchronized boolean stopRequested() {
+  private static synchronized boolean checkIfStopRequested() {
     return stopRequested;
   }
 
@@ -28,7 +28,7 @@ public final class AnotherSuccessfullHoistingTest {
         @SuppressWarnings("unused")
         int i = 0;
 
-        while (!stopRequested()) {
+        while (!checkIfStopRequested()) {
           i++;
         }
       }

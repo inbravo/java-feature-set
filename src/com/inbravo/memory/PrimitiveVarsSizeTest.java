@@ -22,9 +22,9 @@ public final class PrimitiveVarsSizeTest {
   public static void main(final String... args) throws InterruptedException {
 
     out.println("==========================================================================================================================");
-    out.println("[*] Total Obejct Memory: [OBJECT META INFO] + [OBJECT DATA]");
+    out.println("[*] Total Object Memory: [OBJECT META INFO] + [OBJECT DATA]");
     out.println("[*] [OBJECT META DATA]: [CLASS INFO = 4 bytes] + [FLAGS = 4 bytes] + [LOCK INFO = 4 bytes]");
-    out.println("[*] Total Obejct Memory: [12 bytes] + [OBJECT DATA]");
+    out.println("[*] Total Object Memory: [12 bytes] + [OBJECT DATA]");
     out.println("[*] [OBJECT DATA]: Size of all fields in Object");
     out.println("[*] Default Size: 'byte': 1 byte, 'char': 2 bytes, 'int'/'float': 4 bytes, 'long'/'double': 8 bytes");
     out.println("[*] Even if the data member is a byte, it will still take up 4 bytes!");
@@ -32,6 +32,8 @@ public final class PrimitiveVarsSizeTest {
     out.println("--------------------------------------------------------------------------------------------------------------------------");
 
     final ByteClass byteClass = new ByteClass("0".getBytes()[0]);
+    final BooleanClass booleanClass = new BooleanClass(true);
+    final ShortClass shortClass = new ShortClass("0".getBytes()[0]);
     final MultipleByteClass multipleByteClass = new MultipleByteClass("0".getBytes()[0]);
     final CharClass charClass = new CharClass('0');
     final IntClass intClass = new IntClass(5);
@@ -40,6 +42,8 @@ public final class PrimitiveVarsSizeTest {
     final DoubleClass doubleClass = new DoubleClass(5);
 
     out.println("[*] Size of 'byte': 					" + MemoryMeasurer.measureBytes(byteClass) + " bytes");
+    out.println("[*] Size of 'boolean':                                  " + MemoryMeasurer.measureBytes(booleanClass) + " bytes");
+    out.println("[*] Size of 'short':                                    " + MemoryMeasurer.measureBytes(shortClass) + " bytes");
     out.println("[*] Size of multiple 'byte': 				" + MemoryMeasurer.measureBytes(multipleByteClass) + " bytes");
     out.println("[*] Size of 'char':					" + MemoryMeasurer.measureBytes(charClass) + " bytes");
     out.println("[*] Size of 'int': 					" + MemoryMeasurer.measureBytes(intClass) + " bytes");
@@ -58,10 +62,21 @@ public final class PrimitiveVarsSizeTest {
   /* Actual memory consumption = 16 bytes (12 bytes meta info + 4 byte for a 'char') */
   static class CharClass {
 
-    /* 2 bytes each */
+    /* 2 bytes */
     char ch;
 
     public CharClass(final char ch) {
+      this.ch = ch;
+    }
+  }
+  
+  /* Actual memory consumption = 16 bytes (12 bytes meta info + 4 byte for a 'boolean') */
+  static class BooleanClass {
+
+    /* 1 byte */
+    boolean ch;
+
+    public BooleanClass(final boolean ch) {
       this.ch = ch;
     }
   }
@@ -89,6 +104,16 @@ public final class PrimitiveVarsSizeTest {
       this.numberTwo = number;
       this.numberThree = number;
       this.numberFour = number;
+    }
+  }
+
+  /* Actual memory consumption = 16 bytes (12 bytes meta info + 4 byte for a 'short') */
+  static class ShortClass {
+
+    short number;
+
+    public ShortClass(final byte number) {
+      this.number = number;
     }
   }
 

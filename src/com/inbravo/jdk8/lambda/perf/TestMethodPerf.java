@@ -86,6 +86,7 @@ public final class TestMethodPerf {
    * @throws Throwable
    */
   private final static int testMethodHandle(int v, final MethodHandle mh) throws Throwable {
+
     for (int i = 0; i < ITERATIONS; i++) {
       v += (int) mh.invokeExact(1000, v);
     }
@@ -100,6 +101,7 @@ public final class TestMethodPerf {
    * @throws Throwable
    */
   private final static int testReflection(int v, final Method mh) throws Throwable {
+
     for (int i = 0; i < ITERATIONS; i++) {
       v += (int) mh.invoke(null, 1000, v);
     }
@@ -112,6 +114,7 @@ public final class TestMethodPerf {
    * @return
    */
   private final static int testDirect(int v) {
+
     for (int i = 0; i < ITERATIONS; i++) {
       v += myMethod(1000, v);
     }
@@ -125,6 +128,7 @@ public final class TestMethodPerf {
    * @return
    */
   private final static int testLambda(int v, final IntBinaryOperator accessor) {
+
     for (int i = 0; i < ITERATIONS; i++) {
       v += accessor.applyAsInt(1000, v);
     }
@@ -133,6 +137,7 @@ public final class TestMethodPerf {
 
   /* This method of subject of experiment */
   private final static int myMethod(final int a, final int b) {
+
     return a < b ? a : b;
   }
 }

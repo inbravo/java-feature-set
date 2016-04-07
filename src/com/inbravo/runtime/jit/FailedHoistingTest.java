@@ -29,8 +29,7 @@ public final class FailedHoistingTest {
          * In that case, since the loop doesn't change the value of done, its value can be
          * effectively ignored, and the compiler can hoist the evaluation of that variable outside
          * the loop, preventing it from being evaluated in the "hot" part of the loop. This makes
-         * the loop run faster because it has to do less work... jvm converts the code into .. if
-         * (!done) { while(true) i++ }
+         * the loop run faster... jvm converts below given code into "if(!done) { while(true) i++ }"
          */
         while (!stopRequested) {
           i++;

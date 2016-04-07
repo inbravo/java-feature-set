@@ -14,8 +14,8 @@ public final class Anagram {
 
   public static final void main(final String... args) {
 
-    final String firstString = "KATAK";
-    final String secondString = "TAKAK";
+    final String firstString = "IMPETUS";
+    final String secondString = "SUTEPMI";
 
     /* Check if both strings are anagram */
     if (checkIfAnagram(firstString, secondString)) {
