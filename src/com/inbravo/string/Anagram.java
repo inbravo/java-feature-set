@@ -14,17 +14,21 @@ public final class Anagram {
 
   public static final void main(final String... args) {
 
-    final String firstString = "IMPETUS";
-    final String secondString = "SUTEPMI";
+    final String firstString = "LOKI";
+    final String secondString = "KILO";
 
     /* Check if both strings are anagram */
-    if (checkIfAnagram(firstString, secondString)) {
+    final boolean anagramStatus = checkIfAnagram(firstString, secondString);
+
+    System.out.println("----------------------------------------------------");
+    if (anagramStatus) {
 
       System.out.println("Strings '" + firstString + "' & '" + secondString + "' are Anagrams");
     } else {
 
       System.out.println("Strings '" + firstString + "' & '" + secondString + "' are not Anagrams");
     }
+    System.out.println("----------------------------------------------------");
   }
 
   /**
