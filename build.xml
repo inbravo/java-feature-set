@@ -56,6 +56,12 @@
 		<jar destfile="inbravo.jar" basedir="bin" />
 	</target>
 
+	<target name="test">
+		<java classname="com.inbravo.jdk8.InterfaceWithMainTest$MainClass" failonerror="true" fork="yes">
+			<classpath refid="java-src.classpath" />
+		</java>
+	</target>
+
 	<target name="BinarySearch">
 		<java classname="com.inbravo.ds.search.BinarySearch" failonerror="true" fork="yes">
 			<classpath refid="java-src.classpath" />
