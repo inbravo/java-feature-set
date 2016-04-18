@@ -14,12 +14,12 @@ public final class ExchangerTest {
     final Exchanger<String> exchanger = new Exchanger<String>();
 
     /* Start new threads */
-    new Thread(new ExchangerRunnable(exchanger, "A")).start();
-    new Thread(new ExchangerRunnable(exchanger, "B")).start();
+    new Thread(new ExchangerRunnable(exchanger, "A"), "One").start();
+    new Thread(new ExchangerRunnable(exchanger, "B"), "Two").start();
 
     /* Minimum two threads required for exchanger */
-    new Thread(new ExchangerRunnable(exchanger, "C")).start();
-    new Thread(new ExchangerRunnable(exchanger, "D")).start();
+    new Thread(new ExchangerRunnable(exchanger, "C"), "Three").start();
+    new Thread(new ExchangerRunnable(exchanger, "D"), "Four").start();
   }
 }
 
@@ -28,21 +28,23 @@ public final class ExchangerTest {
 class ExchangerRunnable implements Runnable {
 
   Exchanger<String> exchanger;
-  String object;
+  String latest;
 
   public ExchangerRunnable(final Exchanger<String> exchanger, final String object) {
     this.exchanger = exchanger;
-    this.object = object;
+    this.latest = object;
   }
 
   public void run() {
     try {
 
-      final String previous = this.object;
+      /* Save latest object as previous */
+      final String previous = this.latest;
 
-      this.object = this.exchanger.exchange(this.object);
+      /* Get latest by exchanging */
+      this.latest = this.exchanger.exchange(this.latest);
 
-      System.out.println(Thread.currentThread().getName() + " exchanged " + previous + " for " + this.object);
+      System.out.println(Thread.currentThread().getName() + " exchanged " + previous + " for " + this.latest);
 
     } catch (final InterruptedException e) {
       e.printStackTrace();
