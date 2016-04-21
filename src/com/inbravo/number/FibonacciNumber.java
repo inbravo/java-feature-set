@@ -9,8 +9,8 @@ public final class FibonacciNumber {
 
   public static final void main(String... args) {
 
-    /* Take a value */
-    final int i = 10;
+    /* Convert the user argument to int */
+    final int i = Integer.valueOf(args[0]);
 
     /* Find its fibonacci */
     System.out.println(fibonacci(i));
