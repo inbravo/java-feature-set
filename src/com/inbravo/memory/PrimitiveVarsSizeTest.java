@@ -7,7 +7,8 @@ import java.util.concurrent.TimeUnit;
 import objectexplorer.MemoryMeasurer;
 
 /**
- * Add VM arguments before running: -javaagent:lib/object-explorer.jar
+ * Add VM arguments before running: -javaagent:lib/object-explorer.jar -XX:+UseG1GC
+ * -XX:ConcGCThreads=2 -XX:+UnlockExperimentalVMOptions -verbosegc -XX:G1LogLevel=finest
  * 
  * @author amit.dixit
  */
@@ -56,6 +57,9 @@ public final class PrimitiveVarsSizeTest {
 
       /* Sleep for 10 seconds */
       TimeUnit.SECONDS.sleep(10);
+
+      /* Call GC */
+      System.gc();
     }
   }
 
@@ -69,7 +73,7 @@ public final class PrimitiveVarsSizeTest {
       this.ch = ch;
     }
   }
-  
+
   /* Actual memory consumption = 16 bytes (12 bytes meta info + 4 byte for a 'boolean') */
   static class BooleanClass {
 
