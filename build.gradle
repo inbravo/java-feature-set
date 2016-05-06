@@ -1,1 +1,5 @@
 ant.importBuild 'build.xml'
+
+task check << {
+    println 'checking source'
+}
