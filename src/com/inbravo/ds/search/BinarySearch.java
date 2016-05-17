@@ -93,14 +93,9 @@ public final class BinarySearch {
    */
   public static final int binarySearch(final long searchValue) {
 
-    /* Upper bound of array */
-    int start = 0;
-
-    /* Lower bound of array */
-    int end = array.length - 1;
-
-    /* Current index */
-    int currentIndex = 0;
+    int searchStart = 0;
+    int searchEnd = array.length - 1;
+    int searchIndex = 0;
 
     while (true) {
 
@@ -108,34 +103,47 @@ public final class BinarySearch {
       loopCount++;
 
       /* Calculate current index each time */
-      currentIndex = (start + end) / 2;
+      searchIndex = (searchStart + searchEnd) / 2;
 
-      if (array[currentIndex] == searchValue) {
-
-        /* Return current index */
-        return currentIndex;
-      } else if (start > end) {
+      /* If search is completed */
+      if (searchStart > searchEnd) {
 
         /* Could not find it */
         throw new RuntimeException("Cant find: '" + searchValue + "'");
-      } else {
+      }
 
-        /* If value is in second half */
-        if (searchValue > array[currentIndex]) {
+      // ===========================================
+      // If search value is at MID of Array
+      // ===========================================
+      if (searchValue == array[searchIndex]) {
 
-          /* Set new lowerBound bound */
-          start = currentIndex + 1;
-        }
-        /* If value is in first half */
-        else if (searchValue < array[currentIndex]) {
+        return searchIndex;
+      }
+      // ===========================================
+      // If search value is at UPPER Array
+      // ===========================================
+      else if (searchValue > array[searchIndex]) {
 
-          /* Set new upper bound */
-          end = currentIndex - 1;
-        }
+        searchStart = searchIndex + 1;
+      }
+      // ===========================================
+      // If search value is at LOWER Array
+      // ===========================================
+      else if (searchValue < array[searchIndex]) {
+
+        searchEnd = searchIndex - 1;
       }
     }
   }
 
+
+  /**
+   * 
+   * @param searchValue
+   * @param start
+   * @param end
+   * @return
+   */
   public static final int recursiveBinarySearch(final long searchValue, final int start, final int end) {
 
     /* Check if search value is less than highest value in array */
@@ -167,6 +175,10 @@ public final class BinarySearch {
     }
   }
 
+  /**
+   * 
+   * @param numberOfElements
+   */
   private static final void populate(final int numberOfElements) {
 
     /* Create new array first */
@@ -174,20 +186,19 @@ public final class BinarySearch {
 
     for (int i = 0; i < numberOfElements; i++) {
 
-      array[i] = i;
+      array[i] = i + 1;
     }
 
     /* Set array index */
     index.set(numberOfElements - 1);
   }
 
-  public static void main(String[] args) {
+  public static void main(final String... args) {
 
     /* Create a array first */
     populate(100);
     System.out.println("Before searching : " + Arrays.toString(array));
-    System.out.println(recursiveBinarySearch(99, 0, array.length - 1));
-
+    System.out.println("Index of item: " + binarySearch(89));
     System.out.println("Number of comparisions for this search: " + loopCount);
   }
 }
