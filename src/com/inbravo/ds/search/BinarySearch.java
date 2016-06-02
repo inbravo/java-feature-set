@@ -112,6 +112,12 @@ public final class BinarySearch {
         throw new RuntimeException("Cant find: '" + searchValue + "'");
       }
 
+      //                   |
+      //                   |
+      //-------------------|-------------------------
+      //                   |
+      //                   |
+      
       // ===========================================
       // If search value is at MID of Array
       // ===========================================

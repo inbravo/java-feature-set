@@ -64,10 +64,10 @@ public final class BinaryTree {
    * @param id
    * @param dd
    */
-  public final void insert(final int iData, final double dData) {
+  public final void insert(final int iData) {
 
     /* Make new node */
-    final TreeNode newNode = new TreeNode(iData, dData);
+    final TreeNode newNode = new TreeNode(iData);
 
     /* No node in root */
     if (root == null) {
@@ -75,7 +75,7 @@ public final class BinaryTree {
       /* New node will be at root */
       root = newNode;
     }
-    /* Root occupied */
+    /* If root occupied */
     else {
       /* Start at root */
       TreeNode current = root;
@@ -289,21 +289,59 @@ public final class BinaryTree {
 
   /**
    * 
-   * @param firstNode
+   * @param root
    */
-  public final void inOrder(final TreeNode firstNode) {
+  public final void preOrder(final TreeNode root) {
 
-    if (firstNode != null) {
+    if (root != null) {
+
+      System.out.println(root);
 
       /* Traverse left child/branch */
-      inOrder(firstNode.leftChild);
-
-      System.out.println(firstNode);
+      preOrder(root.leftChild);
 
       /* Traverse right child/branch */
-      inOrder(firstNode.rightChild);
+      preOrder(root.rightChild);
     }
   }
+
+
+  /**
+   * 
+   * @param root
+   */
+  public final void inOrder(final TreeNode root) {
+
+    if (root != null) {
+
+      /* Traverse left child/branch */
+      inOrder(root.leftChild);
+
+      System.out.println(root);
+
+      /* Traverse right child/branch */
+      inOrder(root.rightChild);
+    }
+  }
+
+  /**
+   * 
+   * @param root
+   */
+  public final void postOrder(final TreeNode root) {
+
+    if (root != null) {
+
+      /* Traverse left child/branch */
+      postOrder(root.leftChild);
+
+      /* Traverse right child/branch */
+      postOrder(root.rightChild);
+
+      System.out.println(root);
+    }
+  }
+
 
   /**
 	 * 
@@ -376,28 +414,28 @@ public final class BinaryTree {
     System.out.println("......................................................");
   }
 
-  public static void main(String[] args) {
+  public static void main(final String... args) {
 
+    /* Create new binary tree */
     final BinaryTree theTree = new BinaryTree();
 
-    theTree.insert(50, 1.5);
-    theTree.insert(25, 1.2);
-    theTree.insert(75, 1.7);
-    theTree.insert(12, 1.5);
-    theTree.insert(37, 1.2);
-    theTree.insert(43, 1.7);
-    theTree.insert(30, 1.5);
-    theTree.insert(33, 1.2);
-    theTree.insert(87, 1.7);
-    theTree.insert(93, 1.5);
-    theTree.insert(97, 1.5);
+    /* Insert some tlements */
+    theTree.insert(10);
+    theTree.insert(20);
+    theTree.insert(30);
+    theTree.insert(40);
+    theTree.insert(50);
+    theTree.insert(60);
+    theTree.insert(70);
 
     /* Display it */
     theTree.displayTree();
 
-    theTree.delete(25);
-
-    /* Display it */
-    theTree.displayTree();
+    System.out.println("Preorder: ");
+    theTree.preOrder(theTree.root);
+    System.out.println("Inorder: ");
+    theTree.inOrder(theTree.root);
+    System.out.println("Postorder: ");
+    theTree.postOrder(theTree.root);
   }
 }

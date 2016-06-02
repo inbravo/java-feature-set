@@ -10,22 +10,18 @@ public final class TreeNode {
   /* Data item (key) */
   public int iData;
 
-  /* Data item */
-  public double dData;
-
   /* This node's left child */
   public TreeNode leftChild;
 
   /* This node's right child */
   public TreeNode rightChild;
 
-  public TreeNode(final int iData, final double dData) {
+  public TreeNode(final int iData) {
     this.iData = iData;
-    this.dData = dData;
   }
 
   @Override
   public final String toString() {
-    return "TreeNode [iData=" + iData + ", dData=" + dData + "]";
+    return "TreeNode [iData=" + iData + "]";
   }
 }
