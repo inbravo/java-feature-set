@@ -8,18 +8,16 @@ package com.inbravo.ds.list;
 public final class Link {
 
   public int iData;
-  public double dData;
 
   /* Self referencing Class */
   public Link next;
 
-  public Link(final int iData, final double dData) {
+  public Link(final int iData) {
     this.iData = iData;
-    this.dData = dData;
   }
 
   @Override
   public final String toString() {
-    return "Link [iData=" + iData + ", dData=" + dData + "]";
+    return "Link [iData=" + iData + "]";
   }
 }

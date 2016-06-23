@@ -26,7 +26,7 @@ public final class LinkStack {
   public final void push(final int value) {
 
     /* Insert at first position always */
-    linkList.insertFirst(new Link(value, 0D));
+    linkList.insertFirst(new Link(value));
   }
 
   /**

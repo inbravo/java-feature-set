@@ -19,6 +19,7 @@ public final class Queue {
   /* Numbers of item in queue */
   private final AtomicInteger currentItemsCount = new AtomicInteger(0);
 
+  /* FORM: Front at Zero (0) and Rear at Minus One (-1) */
   /* Front of queue */
   private final AtomicInteger front = new AtomicInteger(0);
 

@@ -27,7 +27,7 @@ public final class LinkedQueue {
   public final void insert(final int value) {
 
     /* Insert at last position always */
-    linkList.insertLast(new Link(value, 0D));
+    linkList.insertLast(new Link(value));
   }
 
   /**

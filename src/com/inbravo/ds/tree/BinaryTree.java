@@ -75,8 +75,9 @@ public final class BinaryTree {
       /* New node will be at root */
       root = newNode;
     }
-    /* If root occupied */
+    /* If root is occupied */
     else {
+
       /* Start at root */
       TreeNode current = root;
       TreeNode parent = root;
@@ -420,13 +421,13 @@ public final class BinaryTree {
     final BinaryTree theTree = new BinaryTree();
 
     /* Insert some tlements */
-    theTree.insert(10);
-    theTree.insert(20);
-    theTree.insert(30);
-    theTree.insert(40);
-    theTree.insert(50);
     theTree.insert(60);
     theTree.insert(70);
+    theTree.insert(20);
+    theTree.insert(10);
+    theTree.insert(40);
+    theTree.insert(30);
+    theTree.insert(50);
 
     /* Display it */
     theTree.displayTree();

@@ -137,15 +137,15 @@ public final class LinkList {
     final LinkList linkList = new LinkList();
 
     /* Add Links */
-    linkList.insertFirst(new Link(10, 100.001));
-    linkList.insertFirst(new Link(20, 200.002));
-    linkList.insertFirst(new Link(30, 300.003));
-    linkList.insertFirst(new Link(40, 400.004));
-    linkList.insertFirst(new Link(50, 500.005));
-    linkList.insertFirst(new Link(60, 600.006));
-    linkList.insertFirst(new Link(70, 700.007));
-    linkList.insertFirst(new Link(80, 800.008));
-    linkList.insertFirst(new Link(90, 900.009));
+    linkList.insertFirst(new Link(10));
+    linkList.insertFirst(new Link(20));
+    linkList.insertFirst(new Link(30));
+    linkList.insertFirst(new Link(40));
+    linkList.insertFirst(new Link(50));
+    linkList.insertFirst(new Link(60));
+    linkList.insertFirst(new Link(70));
+    linkList.insertFirst(new Link(80));
+    linkList.insertFirst(new Link(90));
 
     System.out.println(linkList);
 
