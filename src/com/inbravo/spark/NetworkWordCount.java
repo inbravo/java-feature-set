@@ -24,7 +24,7 @@ import scala.Tuple2;
  */
 public final class NetworkWordCount {
 
-  public static final void main(final String[] args) {
+  public static final void main(final String... args) {
     networkWordCount();
   }
 
