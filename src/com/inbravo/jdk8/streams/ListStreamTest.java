@@ -2,6 +2,7 @@ package com.inbravo.jdk8.streams;
 
 import java.util.Arrays;
 import java.util.List;
+import static java.lang.System.out;
 
 /**
  * 
@@ -18,6 +19,6 @@ public final class ListStreamTest {
     myList.stream().filter(s -> s.startsWith("c")).map(String::toUpperCase).sorted().forEach(System.out::println);
 
     /* Count number of elements. Method count is known as 'EAGER' */
-    System.out.println("Number of elements: " + myList.parallelStream().filter(s -> s.startsWith("c")).map(String::toUpperCase).sorted().count());
+    out.println("Number of elements: " + myList.parallelStream().filter(s -> s.startsWith("c")).map(String::toUpperCase).sorted().count());
   }
 }
