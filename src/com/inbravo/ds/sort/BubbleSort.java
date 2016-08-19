@@ -4,11 +4,9 @@ import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * Average execution time = O(N has a power of 2)
+ * Average execution time = O(N^2)
  * 
  * @author amit.dixit
- * 
- *         http://mathbits.com/MathBits/Java/arrays/Bubble.htm
  */
 public final class BubbleSort {
 
