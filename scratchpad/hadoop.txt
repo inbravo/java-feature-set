@@ -57,27 +57,30 @@
 	#.	Output is available at : hadoop fs -cat /user/root/output/part-r-00000
 
 =====================================================================================================================================================
-#	Processing tools information
+#	Linux profile details to support hadoop/hive/spark
 =====================================================================================================================================================
-#.	Spark : It performs Data-Parallel computations. 
-	#.	Data parallelism is achieved when each processor performs the same task on different pieces of distributed data
-	#.	Spark white paper : https://www.cs.berkeley.edu/~matei/papers/2012/nsdi_spark.pdf
-#.	Storm : It performs Task-Parallel computations. 
-	#.	Task parallelism is achieved when each processor executes a different thread (or process) on the same or different data.
-	#.	Documentation : http://spark.apache.org/docs/latest/
-#.	Tachyon
-	#.	Homepage: http://tachyon-project.org/documentation/index.html 
-#.	Spring XD
-	#.	http://projects.spring.io/spring-xd/
-#.	Nifi
-	#.	https://nifi.apache.org/docs.html
-=====================================================================================================================================================
-#	Comparision
-=====================================================================================================================================================
-#.	https://amplab.cs.berkeley.edu/benchmark/
-=====================================================================================================================================================
-#	Hadoop Certification
-=====================================================================================================================================================
-#.	Horten : http://hortonworks.com/training/class/hdp-certified-java-developer-exam/
+# Set Java enviornment
+# For JDK 8 use path: /home/impadmin/opensource/java/jdk1.8.0_45
+# For JDK 7 use path: /home/impadmin/opensource/java/jdk1.7.0_76
+export JAVA_HOME=/home/impadmin/opensource/java/jdk1.8.0_45
+export ANT_HOME=/home/impadmin/opensource/ant
+export SBT_HOME=/home/impadmin/opensource/sbt
+export MAVEN_HOME=/home/impadmin/opensource/maven-3.3.9
+export TOMCAT_HOME=/home/impadmin/opensource/tomcat-8
 
+# HDFS settings
+export HADOOP_HOME=/home/impadmin/opensource/hadoop-2.6.0
+export HADOOP_MAPRED_HOME=$HADOOP_HOME
+export HADOOP_COMMON_HOME=$HADOOP_HOME
+export HADOOP_HDFS_HOME=$HADOOP_HOME
+export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
+export YARN_HOME=$HADOOP_HOME
+export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
+export HIVE_HOME=/home/impadmin/opensource/hive-1.2.1
+export SQOOP_HOME=/home/impadmin/opensource/sqoop-1.4.6
+export SPARK_HOME=/home/impadmin/opensource/spark-1.6
+
+
+# Update PATH variable to include all libraries
+export PATH=$PATH:$JAVA_HOME/bin:$MAVEN_HOME/bin:$HADOOP_HOME/bin:$SQOOP_HOME/bin:$TOMCAT_HOME/bin:$HIVE_HOME/bin:$SPARK_HOME /bin:$ANT_HOME/bin:$SBT_HOME/bin
 
