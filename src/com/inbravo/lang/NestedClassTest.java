@@ -1,11 +1,13 @@
 package com.inbravo.lang;
 
 /**
+ * If a nested class is static, it's called Static Nested class
+ * If a nested class is NOT static, it's called Inner Class
  * 
  * @author amit.dixit
  *
  */
-public final class NestedClass {
+public final class NestedClassTest {
 
   public static final void main(final String... args) {
 
@@ -15,7 +17,7 @@ public final class NestedClass {
     // OuterClass.InnerClass innerClassInstance = new OuterClass.InnerClass(); <- Compiling Error
 
     final OuterClass outerClassInstance = new OuterClass();
-    OuterClass.InnerClass innerClassInstance = outerClassInstance.new InnerClass();
+    final OuterClass.InnerClass innerClassInstance = outerClassInstance.new InnerClass();
     innerClassInstance.printOuterClassFields();
   }
 }
