@@ -1,4 +1,4 @@
-package com.inbravo.collection;
+package com.inbravo.lang;
 
 /**
  * 
