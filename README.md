@@ -5,11 +5,11 @@
 -  [Usage of 'MethodHandles' in Java] [MethodHandleTest.md]
 
 #### JDK 8 features
--  [New diamond operator(<>) in Java] [DiamondOperatorTest.md]
--  [Interface with 'default' method in Java] [InterfaceWithMainTest.md]
--  [Interface with 'static' method in Java] [InterfaceWithStaticMethod.md]
--  [Class with 'default' method in Java] [ClassWithDefaultMethodUsage.md]
--  [Functional interfaces in Java] [FunctionalInterfaceTest.md]
+-  [New diamond operator(<>)] [DiamondOperatorTest.md]
+-  [Interface with 'default' method] [InterfaceWithMainTest.md]
+-  [Interface with 'static' method] [InterfaceWithStaticMethod.md]
+-  [Class with 'default' method] [ClassWithDefaultMethodUsage.md]
+-  [Functional interfaces] [FunctionalInterfaceTest.md]
 
 ##### Lambda
 
@@ -20,7 +20,7 @@
 #### Class and methods
 
 #### Collection
--  [Usage of 'CopyOnWriteArrayList' in Java] [CowalTest.md]
+-  [Usage of 'CopyOnWriteArrayList'] [CowalTest.md]
 
 
 #### Socket
@@ -43,18 +43,18 @@
 
 
 #### Data structures & algorithms
--  [Stack implemented in Java][Stack.md]
--  [Reverse a word using a stack in Java][ReverseTheWord.md]
--  [Queue implemented in Java][Queue.md]
--  [Circular Queue implemented in Java][CircularQueue.md]
--  [Linked Queue implemented in Java][LinkedQueue.md]
--  [Priotity Queue implemented in Java][PriorityQueue.md]
--  [Linear Search implemented in Java][LinearSearch.md]
--  [Binary Search implemented in Java][BinarySearch.md]
--  [Bubble Sort implemented in Java][BubbleSort.md]
--  [Insertion Sort implemented in Java][InsertionSort.md]
--  [Selection Sort implemented in Java][SelectionSort.md]
--  [Binary Tree implemented in Java][BinaryTree.md]
+-  [Stack][Stack.md]
+-  [Reverse a word using a stack][ReverseTheWord.md]
+-  [Queue][Queue.md]
+-  [Circular Queue][CircularQueue.md]
+-  [Linked Queue][LinkedQueue.md]
+-  [Priotity Queue][PriorityQueue.md]
+-  [Linear Search][LinearSearch.md]
+-  [Binary Search][BinarySearch.md]
+-  [Bubble Sort][BubbleSort.md]
+-  [Insertion Sort][InsertionSort.md]
+-  [Selection Sort][SelectionSort.md]
+-  [Binary Tree][BinaryTree.md]
 
 #### Spark 
 
