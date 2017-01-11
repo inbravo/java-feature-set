@@ -2,7 +2,7 @@
 ### Some useful Java examples
 
 #### JDK 7 features
--  [Usage of 'MethodHandles' in Java] [MethodHandleTest.md]
+-  [Usage of 'MethodHandles'] [MethodHandleTest.md]
 
 #### JDK 8 features
 -  [New diamond operator(<>)] [DiamondOperatorTest.md]
@@ -10,22 +10,13 @@
 -  [Interface with 'static' method] [InterfaceWithStaticMethod.md]
 -  [Class with 'default' method] [ClassWithDefaultMethodUsage.md]
 -  [Functional interfaces] [FunctionalInterfaceTest.md]
-
-##### Lambda
-
-##### Streaming
-
-#### Language constructs
-
-#### Class and methods
+-  [Runnable is a functional interface now (java.lang.FunctionalInterface)] [ThreadSleepTest.md]
+-  [Predicate as functional interfaces] [PredicateTest.md]
+-  [Using Collections.sort on Lambdas] [ComparatorTest.md]
+-  [Using List.forEach on Lambdas] [ForEachTest.md]
 
 #### Collection
 -  [Usage of 'CopyOnWriteArrayList'] [CowalTest.md]
-
-
-#### Socket
-
-
 
 #### Concurrency
 -  [Classical example of failed concurrency] [FailedConcurrency.md]
@@ -37,9 +28,6 @@
 -  [Usage of 'Exchanger'] [ExchangerTest.md]
 -  [Usage of 'Semaphore'] [SemaphoreTest.md]
 -  [Usage of 'Timer' and 'TimerTask'] [TimerTest.md]
-
-
-#### Useful programs
 
 
 #### Data structures & algorithms
@@ -55,9 +43,6 @@
 -  [Insertion Sort][InsertionSort.md]
 -  [Selection Sort][SelectionSort.md]
 -  [Binary Tree][BinaryTree.md]
-
-#### Spark 
-
 
 [CowalTest.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/collection/CowalTest.java
 [AvailableProcessorTest.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/concurrency/AvailableProcessorTest.java
@@ -88,3 +73,7 @@
 [InterfaceWithStaticMethod.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/jdk8/funcinterf/InterfaceWithStaticMethod.java
 [ClassWithDefaultMethodUsage.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/jdk8/funcinterf/ClassWithDefaultMethodUsage.java
 [FunctionalInterfaceTest.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/jdk8/funcinterf/FunctionalInterfaceTest.java
+[PredicateTest.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/jdk8/functions/PredicateTest.java
+[ComparatorTest.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/jdk8/lambda/ComparatorTest.java
+[ForEachTest.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/jdk8/lambda/ForEachTest.java
+[ThreadSleepTest.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/jdk8/lambda/ThreadSleepTest.java
