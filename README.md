@@ -1,8 +1,15 @@
 [![Sputnik](https://sputnik.ci/conf/badge)](https://sputnik.ci/app#/builds/inbravo/java-src)
 ### Some useful Java examples
 
+#### Language and features
+-  [A static nested class is called 'Static Nested Class'. A NON static nested class is called 'Inner Class'] [NestedClassTest.md]
+-  [Object size at runtime] [ObjectSizeTest.md]
+-  [Primitive value size at runtime] [PrimitiveVarsSizeTest.md]
+-  [Simulator for OutOfMemoryError] [OutOfMemoryErrorSim.md]
+
 #### JDK 7 features
 -  [Usage of 'MethodHandles'] [MethodHandleTest.md]
+-  [Performance comparison between MethodHandle, Reflection, LambdaMetafactory and Direct method call] [TestMethodPerf.md]
 
 #### JDK 8 features
 -  [New diamond operator(<>)] [DiamondOperatorTest.md]
@@ -14,6 +21,7 @@
 -  [Predicate as functional interfaces] [PredicateTest.md]
 -  [Using Collections.sort on Lambdas] [ComparatorTest.md]
 -  [Using List.forEach on Lambdas] [ForEachTest.md]
+-  [List Streaming] [ListStreamTest.md]
 
 #### Collection
 -  [Usage of 'CopyOnWriteArrayList'] [CowalTest.md]
@@ -36,7 +44,7 @@
 -  [Queue][Queue.md]
 -  [Circular Queue][CircularQueue.md]
 -  [Linked Queue][LinkedQueue.md]
--  [Priotity Queue][PriorityQueue.md]
+-  [Priority Queue][PriorityQueue.md]
 -  [Linear Search][LinearSearch.md]
 -  [Binary Search][BinarySearch.md]
 -  [Bubble Sort][BubbleSort.md]
@@ -44,6 +52,10 @@
 -  [Selection Sort][SelectionSort.md]
 -  [Binary Tree][BinaryTree.md]
 
+[NestedClassTest.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/lang/NestedClassTest.java
+[ObjectSizeTest.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/memory/ObjectSizeTest.java
+[PrimitiveVarsSizeTest.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/memory/PrimitiveVarsSizeTest.java
+[OutOfMemoryErrorSim.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/memory/OutOfMemoryErrorSim.java
 [CowalTest.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/collection/CowalTest.java
 [AvailableProcessorTest.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/concurrency/AvailableProcessorTest.java
 [BlockingArray.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/concurrency/BlockingArray.java
@@ -77,3 +89,6 @@
 [ComparatorTest.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/jdk8/lambda/ComparatorTest.java
 [ForEachTest.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/jdk8/lambda/ForEachTest.java
 [ThreadSleepTest.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/jdk8/lambda/ThreadSleepTest.java
+[TestMethodPerf.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/jdk8/lambda/perf/TestMethodPerf.java
+[TestMethodPerf.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/jdk8/lambda/perf/TestMethodPerf.java
+[ListStreamTest.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/jdk8/streams/ListStreamTest.java
