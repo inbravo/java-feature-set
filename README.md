@@ -1,11 +1,15 @@
 [![Sputnik](https://sputnik.ci/conf/badge)](https://sputnik.ci/app#/builds/inbravo/java-src)
 ### Some useful Java examples
 
-#### Language and features
+#### Language features and internals
 -  [A static nested class is called 'Static Nested Class'. A NON static nested class is called 'Inner Class'] [NestedClassTest.md]
 -  [Object size at runtime] [ObjectSizeTest.md]
 -  [Primitive value size at runtime] [PrimitiveVarsSizeTest.md]
+-  [Program to analyze, how shift operation based calculation is faster than mathematical operation based] [NativeCalc.md]
 -  [Simulator for OutOfMemoryError] [OutOfMemoryErrorSim.md]
+-  [Singleton using Enum] [EnumSingletonTest.md]
+-  [How JVM method-inline optimization works] [NoClassInstance.md]
+-  [How RMI works] [PowerServiceImpl.md]
 
 #### JDK 7 features
 -  [Usage of 'MethodHandles'] [MethodHandleTest.md]
@@ -25,6 +29,9 @@
 
 #### Collection
 -  [Usage of 'CopyOnWriteArrayList'] [CowalTest.md]
+-  [Performance testing of 'ConcurrantMap'] [ConcurrantMapTest.md]
+-  [Usage of 'WeakHashMap'] [WeakHashMapTest.md]
+
 
 #### Concurrency
 -  [Classical example of failed concurrency] [FailedConcurrency.md]
@@ -51,6 +58,15 @@
 -  [Insertion Sort][InsertionSort.md]
 -  [Selection Sort][SelectionSort.md]
 -  [Binary Tree][BinaryTree.md]
+-  [Armstrong Number][ArmstrongNumber.md]
+-  [Floyds Triangle][FloydsTriangle.md]
+-  [Example on Hex Numbers][HexNumberTest.md]
+-  [Example on Prime Numbers][PrimeNumbers.md]
+-  [Example on Random Numbers][RandomNumbers.md]
+-  [How to test a number is odd by using '%'] [OddityTest.md]
+
+[NoClassInstance.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/puzzle/NoClassInstance.java
+[PowerServiceImpl.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/rmi/PowerServiceImpl.java
 
 [NestedClassTest.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/lang/NestedClassTest.java
 [ObjectSizeTest.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/memory/ObjectSizeTest.java
@@ -92,3 +108,14 @@
 [TestMethodPerf.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/jdk8/lambda/perf/TestMethodPerf.java
 [TestMethodPerf.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/jdk8/lambda/perf/TestMethodPerf.java
 [ListStreamTest.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/jdk8/streams/ListStreamTest.java
+[ArmstrongNumber.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/number/ArmstrongNumber.java
+[FloydsTriangle.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/number/FloydsTriangle.java
+[HexNumberTest.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/number/HexNumberTest.java
+[PrimeNumbers.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/number/PrimeNumbers.java
+[RandomNumbers.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/number/RandomNumbers.java
+[OddityTest.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/puzzle/OddityTest.java
+[EnumSingletonTest.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/pattern/EnumSingletonTest.java
+[NativeCalc.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/perf/NativeCalc.java
+[ConcurrantMapTest.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/ref/ConcurrantMapTest.java
+[WeakHashMapTest.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/ref/WeakHashMapTest.java
+
