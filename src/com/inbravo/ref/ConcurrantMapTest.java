@@ -30,7 +30,7 @@ public final class ConcurrantMapTest {
    */
   public static final void test() {
 
-    /* Creae JMX bean */
+    /* Create JMX bean */
     final MemoryMXBean memoryBean = ManagementFactory.getMemoryMXBean();
 
     /* Create new concurrent map with weak keys and soft values */

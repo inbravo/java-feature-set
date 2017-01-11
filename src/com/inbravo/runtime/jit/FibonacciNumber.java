@@ -1,7 +1,7 @@
 package com.inbravo.runtime.jit;
 
 /**
- * Run this program with linus 'time' command with and without '-Xint' to see how it works without
+ * Run this program with linux 'time' command with and without '-Xint' to see how it works without
  * JIT
  * 
  * 'time java -Xint -XX:+PrintCompilation -cp inbravo.jar com.inbravo.number.FibonacciNumber 40'
