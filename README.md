@@ -15,7 +15,6 @@
 -  [Successful Hoisting example] [SuccessfulHoistingTest.md]
 -  [Another successful Hoisting example] [AnotherSuccessfullHoistingTest.md]
 -  [How JVM finds the HotSpot and converts them into native instruction using JIT compiler] [FibonacciNumber.md]
--  [How JVM finds the HotSpot and converts them into native instruction using JIT compiler] [MethodInlineTest.md]
 -  [Object size at runtime] [ObjectSizeTest.md]
 -  [Primitive value size at runtime] [PrimitiveVarsSizeTest.md]
 -  [Unsafe objects (Heap bypassing)] [UnsafeObject.md]
