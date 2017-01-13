@@ -4,9 +4,9 @@
 #### Language features 
 -  [A static nested class is called 'Static Nested Class'. A NON static nested class is called 'Inner Class'] [NestedClassTest.md]
 -  [Program to analyze, how shift operation based calculation is faster than mathematical operation based] [NativeCalc.md]
--  [Simulator for OutOfMemoryError] [OutOfMemoryErrorSim.md]
--  [Singleton using Enum] [EnumSingletonTest.md]
--  [How RMI works] [PowerServiceImpl.md]
+-  [Simulator for 'OutOfMemoryError'] [OutOfMemoryErrorSim.md]
+-  [Singleton using 'enum'] [EnumSingletonTest.md]
+-  [How Repote Method Invocation(RMI) works] [PowerServiceImpl.md]
 
 #### JVM features 
 -  [How JVM method-inline optimization works] [NoClassInstance.md]
@@ -17,42 +17,39 @@
 -  [How JVM finds the HotSpot and converts them into native instruction using JIT compiler] [FibonacciNumber.md]
 -  [Object size at runtime] [ObjectSizeTest.md]
 -  [Primitive value size at runtime] [PrimitiveVarsSizeTest.md]
--  [Unsafe objects (Heap bypassing)] [UnsafeObject.md]
+-  [Unsafe objects using 'sun.misc.Unsafe' (Heap bypassing)] [UnsafeObject.md]
 -  [Example of System.identityHashCode] [IdentityHashCode.md]
 
-#### JDK 7 features
+#### JDK 7/8 features
 -  [Usage of 'MethodHandles'] [MethodHandleTest.md]
 -  [Performance comparison between MethodHandle, Reflection, LambdaMetafactory and Direct method call] [TestMethodPerf.md]
-
-#### JDK 8 features
--  [New diamond operator(<>)] [DiamondOperatorTest.md]
+-  [Diamond operator(<>)] [DiamondOperatorTest.md]
 -  [Interface with 'default' method] [InterfaceWithMainTest.md]
 -  [Interface with 'static' method] [InterfaceWithStaticMethod.md]
 -  [Class with 'default' method] [ClassWithDefaultMethodUsage.md]
 -  [Functional interfaces] [FunctionalInterfaceTest.md]
 -  [Runnable is a functional interface now (java.lang.FunctionalInterface)] [ThreadSleepTest.md]
 -  [Predicate as functional interfaces] [PredicateTest.md]
--  [Using Collections.sort on Lambdas] [ComparatorTest.md]
--  [Using List.forEach on Lambdas] [ForEachTest.md]
--  [List Streaming] [ListStreamTest.md]
+-  [Using 'Collections.sort' on Lambdas] [ComparatorTest.md]
+-  [Using 'List.forEach' on Lambdas] [ForEachTest.md]
+-  [List Streaming example] [ListStreamTest.md]
 
-#### Collection
+#### Util classes
 -  [Usage of 'CopyOnWriteArrayList'] [CowalTest.md]
 -  [Performance testing of 'ConcurrantMap'] [ConcurrantMapTest.md]
 -  [Usage of 'WeakHashMap'] [WeakHashMapTest.md]
 
 
 #### Concurrency
--  [Classical example of failed concurrency] [FailedConcurrency.md]
--  [Classical example of successful concurrency] [SuccessfullConcurrency.md]
--  [Number of processor cores on a computer] [AvailableProcessorTest.md]
--  [A blocking array implemented using 'ReentrantLock'] [BlockingArray.md]
 -  [Usage of 'CountDownLatch'] [CountDownLatch.md]
 -  [Usage of 'CyclicBarrier'] [CyclicBarrierTest.md]
 -  [Usage of 'Exchanger'] [ExchangerTest.md]
 -  [Usage of 'Semaphore'] [SemaphoreTest.md]
 -  [Usage of 'Timer' and 'TimerTask'] [TimerTest.md]
-
+-  [Example of failed concurrency] [FailedConcurrency.md]
+-  [Example of successful concurrency] [SuccessfullConcurrency.md]
+-  [Example to find number of cores of a processor] [AvailableProcessorTest.md]
+-  [Example of blocking array implemented using 'ReentrantLock'] [BlockingArray.md]
 
 #### Data structures & algorithms
 -  [Stack][Stack.md]
