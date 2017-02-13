@@ -77,7 +77,17 @@
 -  [Get repeating and non repeating chars from a string] [FirstNonRepeatingChar.md]
 -  [Find the Levenshtein distance between two strings] [LevenshteinDistanceTest.md]
 
+#### Spark 
+-  [Program to count 'words per statement'][JavaWordCount.md]
+-  [Example of various spark functions][SparkKeyValueEx.md]
+-  [Program to count 'words per statement', arrived on network socket][NetworkWordCount.md]
+-  [Program to count 'products per country'][ProductsCountryCount.md]
 
+
+[JavaWordCount.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/spark/JavaWordCount.java
+[SparkKeyValueEx.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/spark/SparkKeyValueEx.java
+[NetworkWordCount.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/spark/NetworkWordCount.java
+[ProductsCountryCount.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/spark/ProductsCountryCount.java
 [Anagram.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/string/Anagram.java
 [IdentityHashCode.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/string/IdentityHashCode.java
 [DuplicateChars.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/string/DuplicateChars.java
