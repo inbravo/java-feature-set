@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7188db0852ae4fbf8a342015ea545688)](https://www.codacy.com/app/inbravo/java-src?utm_source=github.com&utm_medium=referral&utm_content=inbravo/java-src&utm_campaign=badger)
 [![Sputnik](https://sputnik.ci/conf/badge)](https://sputnik.ci/app#/builds/inbravo/java-src)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/7188db0852ae4fbf8a342015ea545688)](https://www.codacy.com/app/inbravo/java-src?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=inbravo/java-src&amp;utm_campaign=Badge_Grade)
 ### Some useful Java examples
