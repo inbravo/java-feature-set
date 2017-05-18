@@ -3,11 +3,11 @@
 ### Some useful Java examples
 
 #### Language features 
--  [A static nested class is called 'Static Nested Class'. A NON static nested class is called 'Inner Class'][NestedClassTest.md]
--  [Program to analyze, how shift operation based calculation is faster than mathematical operation based][NativeCalc.md]
+-  [A static nested class is 'Static Nested Class'. A non static nested class becomes 'Inner Class'][NestedClassTest.md]
+-  [How shift operation based calculation is faster than mathematical equivalent][NativeCalc.md]
 -  [Simulator for 'OutOfMemoryError'][OutOfMemoryErrorSim.md]
 -  [Singleton using 'enum'][EnumSingletonTest.md]
--  [How Repote Method Invocation(RMI) works][PowerServiceImpl.md]
+-  [How Remote Method Invocation(RMI) works][PowerServiceImpl.md]
 
 #### JVM features 
 -  [How JVM method-inline optimization works][NoClassInstance.md]
