@@ -49,6 +49,7 @@
 -  [Usage of 'Timer' and 'TimerTask'][TimerTest.md]
 -  [Example of failed concurrency][FailedConcurrency.md]
 -  [Example of successful concurrency][SuccessfullConcurrency.md]
+-  [Example of Java Monitor Pattern][MonitorPatternTest.md]
 -  [Example to find number of cores of a processor][AvailableProcessorTest.md]
 -  [Example of blocking array implemented using 'ReentrantLock'][BlockingArray.md]
 -  [Example of fork and join pool class 'ForkJoinPool'][ForkJoinPoolTest.md]
@@ -117,6 +118,7 @@
 [SemaphoreTest.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/concurrency/SemaphoreTest.java
 [FailedConcurrency.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/concurrency/FailedConcurrency.java
 [SuccessfullConcurrency.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/concurrency/SuccessfullConcurrency.java
+[MonitorPatternTest.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/concurrency/MonitorPatternTest.java
 [TimerTest.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/concurrency/TimerTest.java
 [Stack.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/ds.stack/Stack.java
 [ReverseTheWord.md]: https://github.com/inbravo/java-src/blob/master/src/com/inbravo/ds/stack/ReverseTheWord.java
