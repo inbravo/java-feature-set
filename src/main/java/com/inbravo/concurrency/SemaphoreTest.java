@@ -20,37 +20,24 @@ public final class SemaphoreTest {
     /* Create new instance of lock test */
     final SemaphoreTest lockTest = new SemaphoreTest();
 
-    /* Start first anonymous thread */
-    new Thread("First-Thread") {
+    for (int i = 0; i < 100; i++) {
 
-      @Override
-      public void run() {
+      /* Spawn several anonymous thread */
+      new Thread("Thread-" + i) {
 
-        if (SafetyMode.SAFE.equals(_MODE)) {
+        @Override
+        public void run() {
 
-          lockTest.iAmThreadSafe();
-        } else {
+          if (SafetyMode.SAFE.equals(_MODE)) {
 
-          lockTest.iAmNotThreadSafe();
+            lockTest.iAmThreadSafe();
+          } else {
+
+            lockTest.iAmNotThreadSafe();
+          }
         }
-      }
-    }.start();
-
-    /* Start second anonymous thread */
-    new Thread("Second-Thread") {
-
-      @Override
-      public void run() {
-
-        if (SafetyMode.SAFE.equals(_MODE)) {
-
-          lockTest.iAmThreadSafe();
-        } else {
-
-          lockTest.iAmNotThreadSafe();
-        }
-      }
-    }.start();
+      }.start();
+    }
   }
 
   /**
@@ -66,7 +53,7 @@ public final class SemaphoreTest {
     try {
 
       /* Print current thread info */
-      System.out.println(Thread.currentThread().getName() + " is inside critical section");
+      System.out.println(Thread.currentThread().getName() + " is inside critical section at time : " + System.currentTimeMillis());
 
       /* Sleep this thread so that another thread can do the same operation */
       Thread.sleep(1000);
@@ -74,7 +61,7 @@ public final class SemaphoreTest {
     } catch (final InterruptedException e) {
       e.printStackTrace();
     } finally {
-      System.out.println(Thread.currentThread().getName() + " is out of critical section");
+      System.out.println(Thread.currentThread().getName() + " is out of critical section at time : " + System.currentTimeMillis());
     }
   }
 
@@ -94,7 +81,7 @@ public final class SemaphoreTest {
       lock.acquire();
 
       /* Print current thread info */
-      System.out.println(Thread.currentThread().getName() + " is inside critical section");
+      System.out.println(Thread.currentThread().getName() + " is inside critical section at time : " + System.currentTimeMillis());
 
       /* Sleep this thread so that another thread can do the same operation */
       Thread.sleep(1000);
@@ -105,7 +92,7 @@ public final class SemaphoreTest {
 
       /* Release the lock */
       lock.release();
-      System.out.println(Thread.currentThread().getName() + " is out of critical section");
+      System.out.println(Thread.currentThread().getName() + " is out of critical section at time : " + System.currentTimeMillis());
     }
   }
 
