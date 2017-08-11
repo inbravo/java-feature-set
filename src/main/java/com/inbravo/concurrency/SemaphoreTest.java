@@ -9,7 +9,13 @@ import java.util.concurrent.Semaphore;
  */
 public final class SemaphoreTest {
 
-  /* Create new Semaphore object in class */
+  /*
+   * The counting semaphore is initialized with a given number of permits (permits = 1 in example)
+   * For each call to acquire() a permit is taken by the calling thread. For each call to release()
+   * a permit is returned to the semaphore. Thus, at most N threads can pass the acquire() method
+   * without any release() calls, where N is the number of permits the semaphore was initialized
+   * with. The permits are just a simple counter. Nothing fancy here.
+   */
   final private Semaphore lock = new Semaphore(1);
 
   /* Change this mode before running the program */
