@@ -8,7 +8,8 @@
 -  [Simulator for 'OutOfMemoryError'][OutOfMemoryErrorSim.md]
 -  [Singleton using 'enum'][EnumSingletonTest.md]
 -  [How Remote Method Invocation(RMI) works][PowerServiceImpl.md]
-##### JDK 9 language features 
+
+#### JDK 9 language features 
 -  [How 'jshell' (Read-Eval-Print Loop : JEP-222) works][JShellTest.md]
 -  [How 'VarHandle' class (JEP-193) works][VarHandleTest.md]
 -  [Underscore ('_') identifier is removed][UnderscoreAsIdentifierTest.md]
