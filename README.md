@@ -2,12 +2,26 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/7188db0852ae4fbf8a342015ea545688)](https://www.codacy.com/app/inbravo/java-src?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=inbravo/java-src&amp;utm_campaign=Badge_Grade)
 ### Some useful Java examples
 
-#### Language features 
+#### JDK 5/6 Language features 
 -  [A static nested class is 'Static Nested Class'. A non static nested class becomes 'Inner Class'][NestedClassTest.md]
 -  [How shift operation based calculation is faster than mathematical equivalent][NativeCalc.md]
 -  [Simulator for 'OutOfMemoryError'][OutOfMemoryErrorSim.md]
 -  [Singleton using 'enum'][EnumSingletonTest.md]
 -  [How Remote Method Invocation(RMI) works][PowerServiceImpl.md]
+
+#### JDK 7/8 language features
+-  [Usage of 'MethodHandles'][MethodHandleTest.md]
+-  [Performance comparison between MethodHandle, Reflection, LambdaMetafactory and Direct method call][TestMethodPerf.md]
+-  [Diamond operator(<>)][DiamondOperatorTest.md]
+-  [Interface with 'default' method][InterfaceWithMainTest.md]
+-  [Interface with 'static' method][InterfaceWithStaticMethod.md]
+-  [Class with 'default' method][ClassWithDefaultMethodUsage.md]
+-  [Functional interfaces][FunctionalInterfaceTest.md]
+-  [Runnable is a functional interface now (java.lang.FunctionalInterface)][ThreadSleepTest.md]
+-  [Predicate as functional interfaces][PredicateTest.md]
+-  [Using 'Collections.sort' on Lambdas][ComparatorTest.md]
+-  [Using 'List.forEach' on Lambdas][ForEachTest.md]
+-  [List Streaming example][ListStreamTest.md]
 
 #### JDK 9 language features 
 -  [How 'jshell' (Read-Eval-Print Loop : JEP-222) works][JShellTest.md]
@@ -25,20 +39,6 @@
 -  [Primitive value size at runtime][PrimitiveVarsSizeTest.md]
 -  [Unsafe objects using 'sun.misc.Unsafe' (Heap bypassing)][UnsafeObject.md]
 -  [Example of System.identityHashCode][IdentityHashCode.md]
-
-#### JDK 7/8 features
--  [Usage of 'MethodHandles'][MethodHandleTest.md]
--  [Performance comparison between MethodHandle, Reflection, LambdaMetafactory and Direct method call][TestMethodPerf.md]
--  [Diamond operator(<>)][DiamondOperatorTest.md]
--  [Interface with 'default' method][InterfaceWithMainTest.md]
--  [Interface with 'static' method][InterfaceWithStaticMethod.md]
--  [Class with 'default' method][ClassWithDefaultMethodUsage.md]
--  [Functional interfaces][FunctionalInterfaceTest.md]
--  [Runnable is a functional interface now (java.lang.FunctionalInterface)][ThreadSleepTest.md]
--  [Predicate as functional interfaces][PredicateTest.md]
--  [Using 'Collections.sort' on Lambdas][ComparatorTest.md]
--  [Using 'List.forEach' on Lambdas][ForEachTest.md]
--  [List Streaming example][ListStreamTest.md]
 
 #### Util classes
 -  [Usage of 'CopyOnWriteArrayList'][CowalTest.md]
