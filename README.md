@@ -22,6 +22,7 @@
 -  [Using 'Collections.sort' on Lambdas][ComparatorTest.md]
 -  [Using 'List.forEach' on Lambdas][ForEachTest.md]
 -  [List Streaming example][ListStreamTest.md]
+-  [Remove compiler warning about generics vararg invocation using '@SafeVarargs' annotation](SafeVarargsAnnotationTest.md)
 
 #### JDK 9 language features 
 -  [How 'jshell' (Read-Eval-Print Loop : JEP-222) works][JShellTest.md]
@@ -44,7 +45,6 @@
 -  [Usage of 'CopyOnWriteArrayList'][CowalTest.md]
 -  [Performance testing of 'ConcurrantMap'][ConcurrantMapTest.md]
 -  [Usage of 'WeakHashMap'][WeakHashMapTest.md]
-
 
 #### Concurrency
 -  [Usage of 'CountDownLatch'][CountDownLatch.md]
@@ -155,6 +155,7 @@
 [TestMethodPerf.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/jdk8/lambda/perf/TestMethodPerf.java
 [TestMethodPerf.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/jdk8/lambda/perf/TestMethodPerf.java
 [ListStreamTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/jdk8/streams/ListStreamTest.java
+[SafeVarargsAnnotationTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/jdk8/streams/SafeVarargsAnnotationTest.java
 [ArmstrongNumber.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/number/ArmstrongNumber.java
 [FloydsTriangle.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/number/FloydsTriangle.java
 [HexNumberTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/number/HexNumberTest.java
