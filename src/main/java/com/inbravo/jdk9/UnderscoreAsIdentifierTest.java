@@ -24,7 +24,7 @@
 package com.inbravo.jdk9;
 
 /**
- * Oracle has removed underscore (“_”) usage as identifier completely in Java SE 9 release
+ * Oracle has removed underscore ('_') usage as identifier completely in Java SE 9 release
  * 
  * @author amit.dixit
  */
@@ -34,7 +34,7 @@ public final class UnderscoreAsIdentifierTest {
  
         final String stringWithoutUnderscore = "stringWithoutUnderscore";
         
-        /* Line below will give error */
+        /* Will give error '' should not be used as an identifier, since it is a reserved keyword from source level 1.8 on' */
         /* final String _ = "stringWithUnderscore"; */
         /* System.out.println("stringWithUnderscore : " + _); */
         System.out.println("stringWithoutUnderscore : " + stringWithoutUnderscore);        

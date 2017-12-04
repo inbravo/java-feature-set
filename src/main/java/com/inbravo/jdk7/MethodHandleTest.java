@@ -25,6 +25,7 @@ public final class MethodHandleTest {
 
   @SuppressWarnings("unused")
   private static final void hello() {
+    
     System.out.println("hello");
   }
 }
