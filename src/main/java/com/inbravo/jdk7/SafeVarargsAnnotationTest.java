@@ -32,7 +32,7 @@ import java.util.List;
  */
 public final class SafeVarargsAnnotationTest {
 
-  public static void main(final String... args) {
+  public static final void main(final String... args) {
 
     /* A list of integers */
     final List<Integer> listOfIntegers = new ArrayList<>();

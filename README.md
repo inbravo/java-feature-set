@@ -9,10 +9,13 @@
 -  [Singleton using 'enum'][EnumSingletonTest.md]
 -  [How Remote Method Invocation(RMI) works][PowerServiceImpl.md]
 
-#### JDK 7/8 language features
+#### JDK 7 language features
 -  [Usage of 'MethodHandles'][MethodHandleTest.md]
--  [Performance comparison between MethodHandle, Reflection, LambdaMetafactory and Direct method call][TestMethodPerf.md]
 -  [Diamond operator(<>)][DiamondOperatorTest.md]
+-  [Remove compiler warning about generics variable arguments invocation using '@SafeVarargs' annotation](SafeVarargsAnnotationTest.md)
+
+#### JDK 8 language features
+-  [Performance comparison between MethodHandle, Reflection, LambdaMetafactory and Direct method call][TestMethodPerf.md]
 -  [Interface with 'default' method][InterfaceWithMainTest.md]
 -  [Interface with 'static' method][InterfaceWithStaticMethod.md]
 -  [Class with 'default' method][ClassWithDefaultMethodUsage.md]
@@ -22,7 +25,6 @@
 -  [Using 'Collections.sort' on Lambdas][ComparatorTest.md]
 -  [Using 'List.forEach' on Lambdas][ForEachTest.md]
 -  [List Streaming example][ListStreamTest.md]
--  [Remove compiler warning about generics vararg invocation using '@SafeVarargs' annotation](SafeVarargsAnnotationTest.md)
 
 #### JDK 9 language features 
 -  [How 'jshell' (Read-Eval-Print Loop : JEP-222) works][JShellTest.md]
