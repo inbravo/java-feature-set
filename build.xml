@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project basedir="." default="build" name="java-src">
+<project basedir="." default="build" name="java-feature-set">
 
 	<property environment="env" />
 	<property name="debuglevel" value="source,lines,vars" />
-
-	<property name="target" value="1.8" />
-	<property name="source" value="1.8" />
+	<property name="target" value="1.9" />
+	<property name="source" value="1.9" />
 
 	<path id="java-src.classpath">
 		<pathelement location="bin" />
@@ -48,8 +47,8 @@
 		<echo message="==========================================================" />
 		<echo message="CONFIG" />
 		<echo message="==========================================================" />
-		<copy file="conf/inbravo-version.txt" tofile="bin/inbravo-version.txt" overwrite="true" />
-		<copy file="conf/inbravo-log4j.properties" tofile="bin/inbravo-log4j.properties" overwrite="true" />
+		<copy file="src/main/resources/inbravo-version.txt" tofile="bin/inbravo-version.txt" overwrite="true" />
+		<copy file="src/main/resources/inbravo-log4j.properties" tofile="bin/inbravo-log4j.properties" overwrite="true" />
 		<echo message="==========================================================" />
 		<echo message="JAR" />
 		<echo message="==========================================================" />
