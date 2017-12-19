@@ -1,6 +1,7 @@
 /*
  * MIT License
  * 
+ * Example on factory Methods for Collections (JEP 269)
  *
  * Copyright (c) 2017 Onwards Amit Dixit (github.com/inbravo)
  * 
