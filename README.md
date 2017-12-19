@@ -29,6 +29,7 @@
 #### JDK 9 language features 
 -  [How 'jshell' (Read-Eval-Print Loop : JEP-222) works][JShellTest.md]
 -  [How 'VarHandle' class (JEP-193) works][VarHandleTest.md]
+-  [Factory methods for Collections (JEP 269)][ListFactoryTest.md]
 -  [Underscore ('_') identifier is removed][UnderscoreAsIdentifierTest.md]
 
 #### JVM features 
@@ -107,7 +108,7 @@
 [PowerServiceImpl.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/rmi/PowerServiceImpl.java
 [JShellTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/jdk9/JShellTest.java
 [VarHandleTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/jdk9/VarHandleTest.java
-[VarHandleTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/jdk9/VarHandleTest.java
+[ListFactoryTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/jdk9/ListFactoryTest.java
 [UnderscoreAsIdentifierTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/jdk9/UnderscoreAsIdentifierTest.java
 [FailedHoistingTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/runtime/jit/FailedHoistingTest.java
 [SuccessfulHoistingTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/runtime/jit/SuccessfulHoistingTest.java
