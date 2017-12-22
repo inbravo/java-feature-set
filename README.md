@@ -1,4 +1,6 @@
-[![Sputnik](https://sputnik.ci/conf/badge)](https://sputnik.ci/app#/builds/inbravo/java-src)
+![](https://img.shields.io/badge/Java-1.9-blue.svg)
+[![](https://travis-ci.org/inbravo/java-feature-set.svg?branch=master)](https://travis-ci.org/inbravo/java-feature-set) 
+[![](https://coveralls.io/github/inbravo/java-feature-set/badge.svg?branch=master)](https://coveralls.io/github/vicboma1/Reactive-Programming-with-JDK-9-Flow-API?branch=master)[![Sputnik](https://sputnik.ci/conf/badge)](https://sputnik.ci/app#/builds/inbravo/java-src)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/7188db0852ae4fbf8a342015ea545688)](https://www.codacy.com/app/inbravo/java-src?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=inbravo/java-src&amp;utm_campaign=Badge_Grade)
 ### Some useful Java examples
 
