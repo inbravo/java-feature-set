@@ -33,6 +33,7 @@
 -  [How 'VarHandle' class (JEP-193) works][VarHandleTest.md]
 -  [Factory methods for Collections (JEP 269)][ListFactoryTest.md]
 -  [Underscore ('_') identifier is removed][UnderscoreAsIdentifierTest.md]
+-  [Example of Flow API(JEP 266 : Reactive streams)][FlowAPITest.md]
 
 #### JVM features 
 -  [How JVM method-inline optimization works][NoClassInstance.md]
@@ -112,6 +113,7 @@
 [VarHandleTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/jdk9/VarHandleTest.java
 [ListFactoryTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/jdk9/ListFactoryTest.java
 [UnderscoreAsIdentifierTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/jdk9/UnderscoreAsIdentifierTest.java
+[FlowAPITest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/jdk9/FlowAPITest.java
 [FailedHoistingTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/runtime/jit/FailedHoistingTest.java
 [SuccessfulHoistingTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/runtime/jit/SuccessfulHoistingTest.java
 [AnotherSuccessfullHoistingTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/runtime/jit/AnotherSuccessfullHoistingTest.java
@@ -149,6 +151,7 @@
 [BinaryTree.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/ds/tree/BinaryTree.java
 [MethodHandleTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/jdk7/MethodHandleTest.java
 [DiamondOperatorTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/jdk8/DiamondOperatorTest.java
+[SafeVarargsAnnotationTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/jdk7/SafeVarargsAnnotationTest.java
 [InterfaceWithMainTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/jdk8/InterfaceWithMainTest.java
 [InterfaceWithStaticMethod.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/jdk8/funcinterf/InterfaceWithStaticMethod.java
 [ClassWithDefaultMethodUsage.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/jdk8/funcinterf/ClassWithDefaultMethodUsage.java
@@ -160,7 +163,6 @@
 [TestMethodPerf.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/jdk8/lambda/perf/TestMethodPerf.java
 [TestMethodPerf.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/jdk8/lambda/perf/TestMethodPerf.java
 [ListStreamTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/jdk8/streams/ListStreamTest.java
-[SafeVarargsAnnotationTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/jdk8/streams/SafeVarargsAnnotationTest.java
 [ArmstrongNumber.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/number/ArmstrongNumber.java
 [FloydsTriangle.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/number/FloydsTriangle.java
 [HexNumberTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/number/HexNumberTest.java
