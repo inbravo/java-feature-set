@@ -3,3 +3,4 @@ target/
 inbravo.jar
 inbravo-inst.jar
 *.class
+*.class

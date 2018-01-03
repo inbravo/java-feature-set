@@ -34,6 +34,7 @@
 -  [Factory methods for Collections (JEP 269)][ListFactoryTest.md]
 -  [Underscore ('_') identifier is removed][UnderscoreAsIdentifierTest.md]
 -  [Example of Flow API(JEP 266 : Reactive streams)][FlowAPITest.md]
+-  [Interface with 'private' method][InterfaceWithPrivateMethodTest.md]
 
 #### JVM features 
 -  [How JVM method-inline optimization works][NoClassInstance.md]
@@ -155,6 +156,7 @@
 [InterfaceWithMainTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/jdk8/InterfaceWithMainTest.java
 [InterfaceWithStaticMethod.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/jdk8/funcinterf/InterfaceWithStaticMethod.java
 [ClassWithDefaultMethodUsage.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/jdk8/funcinterf/ClassWithDefaultMethodUsage.java
+[InterfaceWithPrivateMethodTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/jdk9/InterfaceWithPrivateMethodTest.java
 [FunctionalInterfaceTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/jdk8/funcinterf/FunctionalInterfaceTest.java
 [PredicateTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/jdk8/functions/PredicateTest.java
 [ComparatorTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/jdk8/lambda/ComparatorTest.java

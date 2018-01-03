@@ -7,8 +7,8 @@ import java.util.concurrent.SubmissionPublisher;
 
 /**
  *
- * Example of Flow API aka reactive streams Taken from
- * https://www.javaworld.com/article/3198904/learn-java/java-9s-other-new-enhancements-part-6-concurrency.html
+ * Example of Flow API (Reactive Streams)
+ * Source https://www.javaworld.com/article/3198904/learn-java/java-9s-other-new-enhancements-part-6-concurrency.html
  * 
  * @author amit.dixit
  *
@@ -18,7 +18,7 @@ public final class FlowAPITest {
 
   public static void main(final String... args) {
 
-    /* Create a publisher */
+    /* Create a submission publisher */
     final SubmissionPublisher<String> publisher = new SubmissionPublisher<>();
 
     /* Create a subscriber and register it with the publisher */
@@ -73,6 +73,7 @@ class MySubscriber<T> implements Subscriber<T> {
   public final void onError(final Throwable t) {
 
     t.printStackTrace();
+    
     synchronized ("A") {
       "A".notifyAll();
     }
@@ -82,6 +83,7 @@ class MySubscriber<T> implements Subscriber<T> {
   public void onComplete() {
 
     System.out.println("Done");
+    
     synchronized ("A") {
       "A".notifyAll();
     }
