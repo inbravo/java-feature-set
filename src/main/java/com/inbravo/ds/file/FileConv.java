@@ -2,7 +2,13 @@ package com.inbravo.ds.file;
 
 import java.io.File;
 
-public class FileConv {
+/**
+ * This class will replace space from file names in a folder
+ * 
+ * @author amit.dixit
+ *
+ */
+public final class FileConv {
 
   private static final String mainLocation = "D:\\personal\\songs\\classical-songs";
 
