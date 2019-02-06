@@ -14,7 +14,7 @@
 #### JDK 7 language features
 -  [Usage of 'MethodHandles'][MethodHandleTest.md]
 -  [Diamond operator(<>)][DiamondOperatorTest.md]
--  [Remove compiler warning about generics variable arguments invocation using '@SafeVarargs' annotation](SafeVarargsAnnotationTest.md)
+-  [Remove compiler warning about generics variable arguments invocation using '@SafeVarargs' annotation][SafeVarargsAnnotationTest.md]
 
 #### JDK 8 language features
 -  [Performance comparison between MethodHandle, Reflection, LambdaMetafactory and Direct method call][TestMethodPerf.md]
@@ -97,6 +97,8 @@
 -  [Program to count 'words per statement', arrived on network socket][NetworkWordCount.md]
 -  [Program to count 'products per country'][ProductsCountryCount.md]
 
+#### Zookeeper 
+-  [Program to test basic functionality of Zookeeper][ZkConnect.md]
 
 [JavaWordCount.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/spark/JavaWordCount.java
 [SparkKeyValueEx.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/spark/SparkKeyValueEx.java
@@ -175,4 +177,5 @@
 [NativeCalc.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/perf/NativeCalc.java
 [ConcurrantMapTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/ref/ConcurrantMapTest.java
 [WeakHashMapTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/ref/WeakHashMapTest.java
+[ZkConnect.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/zookeeper/ZkConnect.java
 
