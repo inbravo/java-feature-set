@@ -54,7 +54,7 @@
 -  [Usage of 'WeakHashMap'][WeakHashMapTest.md]
 
 #### Concurrency
--  [Usage of 'CountDownLatch'][CountDownLatch.md]
+-  [Usage of 'CountDownLatch'][CountDownLatchTest.md]
 -  [Usage of 'CyclicBarrier'][CyclicBarrierTest.md]
 -  [Usage of 'Exchanger'][ExchangerTest.md]
 -  [Usage of 'Semaphore'][SemaphoreTest.md]
@@ -131,7 +131,7 @@
 [AvailableProcessorTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/concurrency/AvailableProcessorTest.java
 [BlockingArray.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/concurrency/BlockingArray.java
 [ForkJoinPoolTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/concurrency/ForkJoinPoolTest.java
-[CountDownLatch.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/concurrency/CountDownLatch.java
+[CountDownLatchTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/concurrency/CountDownLatchTest.java
 [CyclicBarrierTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/concurrency/CyclicBarrierTest.java
 [ExchangerTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/concurrency/ExchangerTest.java
 [SemaphoreTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/concurrency/SemaphoreTest.java
@@ -139,7 +139,7 @@
 [SuccessfullConcurrency.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/concurrency/SuccessfullConcurrency.java
 [MonitorPatternTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/concurrency/MonitorPatternTest.java
 [TimerTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/concurrency/TimerTest.java
-[Stack.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/ds.stack/Stack.java
+[Stack.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/ds/stack/Stack.java
 [ReverseTheWord.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/ds/stack/ReverseTheWord.java
 [ReverseTheWord.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/ds/stack/ReverseTheWord.java
 [Queue.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/ds/queue/Queue.java
@@ -148,9 +148,9 @@
 [PriorityQueue.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/ds/queue/PriorityQueue.java
 [BinarySearch.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/ds/search/BinarySearch.java
 [LinearSearch.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/ds/search/LinearSearch.java
-[BubbleSort.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/ds/search/BubbleSort.java
-[InsertionSort.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/ds/search/InsertionSort.java
-[SelectionSort.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/ds/search/SelectionSort.java
+[BubbleSort.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/ds/sort/BubbleSort.java
+[InsertionSort.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/ds/sort/InsertionSort.java
+[SelectionSort.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/ds/sort/SelectionSort.java
 [BinaryTree.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/ds/tree/BinaryTree.java
 [MethodHandleTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/jdk7/MethodHandleTest.java
 [DiamondOperatorTest.md]: https://github.com/inbravo/java-src/blob/master/src/main/java/com/inbravo/jdk8/DiamondOperatorTest.java

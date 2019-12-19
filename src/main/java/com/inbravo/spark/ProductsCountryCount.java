@@ -12,6 +12,7 @@ import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
+import org.apache.spark.api.java.function.Function;
 import org.apache.spark.api.java.function.PairFunction;
 
 import scala.Tuple2;
@@ -159,6 +160,32 @@ public final class ProductsCountryCount {
     final JavaRDD<Tuple2<Integer, Optional<String>>> leftJoinOutput = transactions.leftOuterJoin(users).values().distinct();
 
     return leftJoinOutput;
+  }
+
+
+  /**
+   * Left Outer Join of transactions on users
+   * 
+   * @param transactions
+   * @param users
+   * @return
+   */
+  private static final JavaRDD<String> map(final JavaRDD<String> input) {
+
+    /* Map the input data as you need */
+    final JavaRDD<String> subRecord = input.map(new Function<String, String>() {
+
+      private static final long serialVersionUID = 1L;
+
+      @Override
+      public final String call(String completeRecord) throws Exception {
+
+        /* Return a substring */
+        return completeRecord.substring(0, completeRecord.length() - 0);
+      }
+
+    });
+    return subRecord;
   }
 
   /**

@@ -21,7 +21,7 @@ public final class DiamondOperatorTest {
     /* Generic types of HashMap can be 'INFERED' from Map */
     final Map<String, String> doMap = new HashMap<>();
 
-    /* 'DIAMOND OPERATOR' will also work while passing through mathods */
+    /* 'DIAMOND OPERATOR' will also work while passing through methods */
     printHashMap(new HashMap<>());
   }
 
